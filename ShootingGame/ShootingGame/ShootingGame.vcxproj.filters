@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="소스 파일">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="헤더 파일">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="리소스 파일">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="헤더 파일\Stage">
+      <UniqueIdentifier>{4e158738-c60b-4e1c-903f-f04a6a2004a3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\Item">
+      <UniqueIdentifier>{8ebfab3f-a489-42d9-bdf0-560679d94186}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\Character">
+      <UniqueIdentifier>{e9808506-93ce-4a8d-a4ad-238af1bfd639}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\Character\Monster">
+      <UniqueIdentifier>{c6e99074-6611-4a3e-a7f9-0196e584959f}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="stdafx.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Menu.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Start.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Ranking.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="RankingDatabase.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Music.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Sound.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage.h">
+      <Filter>헤더 파일\Stage</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage_1.h">
+      <Filter>헤더 파일\Stage</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage_2.h">
+      <Filter>헤더 파일\Stage</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage_3.h">
+      <Filter>헤더 파일\Stage</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage_inf.h">
+      <Filter>헤더 파일\Stage</Filter>
+    </ClInclude>
+    <ClInclude Include="Item.h">
+      <Filter>헤더 파일\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="Character.h">
+      <Filter>헤더 파일\Character</Filter>
+    </ClInclude>
+    <ClInclude Include="Hero.h">
+      <Filter>헤더 파일\Character</Filter>
+    </ClInclude>
+    <ClInclude Include="Bullet.h">
+      <Filter>헤더 파일\Character</Filter>
+    </ClInclude>
+    <ClInclude Include="BulletDatabase.h">
+      <Filter>헤더 파일\Character</Filter>
+    </ClInclude>
+    <ClInclude Include="MonsterDatabase.h">
+      <Filter>헤더 파일\Character\Monster</Filter>
+    </ClInclude>
+    <ClInclude Include="Monster.h">
+      <Filter>헤더 파일\Character\Monster</Filter>
+    </ClInclude>
+    <ClInclude Include="MonsterBoss.h">
+      <Filter>헤더 파일\Character\Monster</Filter>
+    </ClInclude>
+    <ClInclude Include="MonsterLarge.h">
+      <Filter>헤더 파일\Character\Monster</Filter>
+    </ClInclude>
+    <ClInclude Include="MonsterNormal.h">
+      <Filter>헤더 파일\Character\Monster</Filter>
+    </ClInclude>
+    <ClInclude Include="MonsterMiddle.h">
+      <Filter>헤더 파일\Character\Monster</Filter>
+    </ClInclude>
+    <ClInclude Include="ItemPowerUp.h">
+      <Filter>헤더 파일\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="ItemSpeedUp.h">
+      <Filter>헤더 파일\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="ItemDamageDown.h">
+      <Filter>헤더 파일\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="ItemBomb.h">
+      <Filter>헤더 파일\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="ItemPoint.h">
+      <Filter>헤더 파일\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="ItemHeal.h">
+      <Filter>헤더 파일\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="Setting.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="ShootingGame.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Menu.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
