@@ -72,6 +72,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <None Include="classDiagram.cd" />
     <None Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
@@ -108,8 +109,36 @@
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Bullet.cpp" />
+    <ClCompile Include="BulletDatabase.cpp" />
+    <ClCompile Include="Character.cpp" />
+    <ClCompile Include="Hero.cpp" />
+    <ClCompile Include="Item.cpp" />
+    <ClCompile Include="ItemBomb.cpp" />
+    <ClCompile Include="ItemDamageDown.cpp" />
+    <ClCompile Include="ItemHeal.cpp" />
+    <ClCompile Include="ItemPoint.cpp" />
+    <ClCompile Include="ItemPowerUp.cpp" />
+    <ClCompile Include="ItemSpeedUp.cpp" />
     <ClCompile Include="Menu.cpp" />
+    <ClCompile Include="Monster.cpp" />
+    <ClCompile Include="MonsterBoss.cpp" />
+    <ClCompile Include="MonsterDatabase.cpp" />
+    <ClCompile Include="MonsterLarge.cpp" />
+    <ClCompile Include="MonsterMiddle.cpp" />
+    <ClCompile Include="MonsterNormal.cpp" />
+    <ClCompile Include="Music.cpp" />
+    <ClCompile Include="Ranking.cpp" />
+    <ClCompile Include="RankingDatabase.cpp" />
+    <ClCompile Include="Setting.cpp" />
     <ClCompile Include="ShootingGame.cpp" />
+    <ClCompile Include="Sound.cpp" />
+    <ClCompile Include="Stage.cpp" />
+    <ClCompile Include="Stage_1.cpp" />
+    <ClCompile Include="Stage_2.cpp" />
+    <ClCompile Include="Stage_3.cpp" />
+    <ClCompile Include="Stage_inf.cpp" />
+    <ClCompile Include="Start.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>

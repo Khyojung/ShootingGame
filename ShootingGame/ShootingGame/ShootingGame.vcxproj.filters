@@ -25,9 +25,22 @@
     <Filter Include="헤더 파일\Character\Monster">
       <UniqueIdentifier>{c6e99074-6611-4a3e-a7f9-0196e584959f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\Character">
+      <UniqueIdentifier>{3715de3b-f087-4e57-84be-9cc18d70a430}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Character\Monster">
+      <UniqueIdentifier>{1058de72-086d-48b8-89fd-db09b74d6901}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Item">
+      <UniqueIdentifier>{342146c1-93bc-4062-a320-4717ca13ee5a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Stage">
+      <UniqueIdentifier>{14b7f328-9770-4c73-b22b-054e490777ad}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="ReadMe.txt" />
+    <None Include="classDiagram.cd" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -133,6 +146,90 @@
     </ClCompile>
     <ClCompile Include="Menu.cpp">
       <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Music.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Sound.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Ranking.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="RankingDatabase.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Setting.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Start.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Monster.cpp">
+      <Filter>소스 파일\Character\Monster</Filter>
+    </ClCompile>
+    <ClCompile Include="MonsterBoss.cpp">
+      <Filter>소스 파일\Character\Monster</Filter>
+    </ClCompile>
+    <ClCompile Include="MonsterDatabase.cpp">
+      <Filter>소스 파일\Character\Monster</Filter>
+    </ClCompile>
+    <ClCompile Include="MonsterLarge.cpp">
+      <Filter>소스 파일\Character\Monster</Filter>
+    </ClCompile>
+    <ClCompile Include="MonsterMiddle.cpp">
+      <Filter>소스 파일\Character\Monster</Filter>
+    </ClCompile>
+    <ClCompile Include="MonsterNormal.cpp">
+      <Filter>소스 파일\Character\Monster</Filter>
+    </ClCompile>
+    <ClCompile Include="Bullet.cpp">
+      <Filter>소스 파일\Character</Filter>
+    </ClCompile>
+    <ClCompile Include="BulletDatabase.cpp">
+      <Filter>소스 파일\Character</Filter>
+    </ClCompile>
+    <ClCompile Include="Character.cpp">
+      <Filter>소스 파일\Character</Filter>
+    </ClCompile>
+    <ClCompile Include="Hero.cpp">
+      <Filter>소스 파일\Character</Filter>
+    </ClCompile>
+    <ClCompile Include="Item.cpp">
+      <Filter>소스 파일\Item</Filter>
+    </ClCompile>
+    <ClCompile Include="ItemSpeedUp.cpp">
+      <Filter>소스 파일\Item</Filter>
+    </ClCompile>
+    <ClCompile Include="ItemBomb.cpp">
+      <Filter>소스 파일\Item</Filter>
+    </ClCompile>
+    <ClCompile Include="ItemDamageDown.cpp">
+      <Filter>소스 파일\Item</Filter>
+    </ClCompile>
+    <ClCompile Include="ItemHeal.cpp">
+      <Filter>소스 파일\Item</Filter>
+    </ClCompile>
+    <ClCompile Include="ItemPoint.cpp">
+      <Filter>소스 파일\Item</Filter>
+    </ClCompile>
+    <ClCompile Include="ItemPowerUp.cpp">
+      <Filter>소스 파일\Item</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage.cpp">
+      <Filter>소스 파일\Stage</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage_inf.cpp">
+      <Filter>소스 파일\Stage</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage_1.cpp">
+      <Filter>소스 파일\Stage</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage_2.cpp">
+      <Filter>소스 파일\Stage</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage_3.cpp">
+      <Filter>소스 파일\Stage</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
