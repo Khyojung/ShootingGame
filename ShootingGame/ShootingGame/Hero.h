@@ -13,4 +13,7 @@ public:
 	void move();
 	void attack();
 
+	void setShape(string);
+	string getShape();
+
 };

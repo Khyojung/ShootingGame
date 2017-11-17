@@ -10,4 +10,7 @@ public:
 	~Menu();
 	void run();
 
+	int getMenuSelect();
+	void setMenuSelect(int);
+
 };

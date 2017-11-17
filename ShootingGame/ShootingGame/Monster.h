@@ -10,6 +10,7 @@ class Monster : public Character{
 	
 private:
 	string shpae;
+	int pattern;
 
 public:
 	Monster();
@@ -19,4 +20,6 @@ public:
 
 	void setPattern(int);
 	int getPattern();
+	void setShape(string);
+	string getShape();
 };

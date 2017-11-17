@@ -12,4 +12,7 @@ public:
 	void musicSetting();
 	void soundSetting();
 
+	int getSelectSetting();
+	void setSelectSetting(int);
+
 };

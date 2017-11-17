@@ -11,4 +11,7 @@ public:
 	~Start();
 	void gameStart(int);
 
+	int getLevel();
+	void setLevel(int);
+
 };

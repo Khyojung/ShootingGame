@@ -2,10 +2,9 @@
 
 #include<iostream>
 #include<string>
-#include"Character.h"
-
+#include"Monster.h"
 using namespace std;
-
+/*
 class Monster : public Character{
 	
 private:
@@ -19,4 +18,10 @@ public:
 
 	void setPattern(int);
 	int getPattern();
-};
+};*/
+
+Monster :: Monster(){
+	//Monster »ı¼ºÀÚ
+}
+Monster :: ~Monster(){
+}

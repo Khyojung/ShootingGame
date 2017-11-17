@@ -17,4 +17,13 @@ public:
 	int timeFlow();
 	int monsterCount();
 
+	int getMap();
+	void setMap(int[100][300]);
+	int getScore();
+	void setScore(int);
+	int getTime();
+	void setTime(int);
+	int getMonsterCount();
+	void setMonsterCount(int);
+
 };

@@ -1,10 +1,11 @@
 #include<iostream>
 #include<string>
+#include"Character.h"
 
 using namespace std;
 
-class Character{
-	
+/*class Character{
+
 private:
 	int hp;
 	int speed;
@@ -19,4 +20,5 @@ public:
 	void move();
 	void attack();
 
-};
+};*/
+int

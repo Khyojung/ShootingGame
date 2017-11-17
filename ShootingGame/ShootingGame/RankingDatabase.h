@@ -13,4 +13,9 @@ public:
 	void delRank();
 	void sorting();
 
+	string getUserID();
+	void setUserID(string);
+	int getScore();
+	void setScore(int[]);
+
 };
