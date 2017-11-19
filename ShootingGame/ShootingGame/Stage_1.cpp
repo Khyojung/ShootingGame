@@ -9,5 +9,5 @@ Stage_1::~Stage_1(){
 }
 
 void Stage::start(){
-	printf("a");
+
 }

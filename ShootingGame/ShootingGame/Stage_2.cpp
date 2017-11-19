@@ -7,8 +7,7 @@ Stage_2::Stage_2(){
 Stage_2::~Stage_2(){
 
 }
-/*
+
 void Stage::start(){
-	
+
 }
-*/

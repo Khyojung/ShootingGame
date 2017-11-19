@@ -7,8 +7,7 @@ Stage_inf::Stage_inf(){
 Stage_inf::~Stage_inf(){
 
 }
-/*
+
 void Stage::start(){
-	
+
 }
-*/
