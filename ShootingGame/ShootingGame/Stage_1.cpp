@@ -1,17 +1,13 @@
-#include<iostream>
-#include"Stage.h"
+#include "Stage_1.h"
 
-using namespace std;
-class Stage_1 : public Stage{
-	
-private:
+Stage_1::Stage_1(){
 
-public:
-	Stage_1();
-	~Stage_1();
-	void showMap();
-	int scoreCount();
-	int timeFlow();
-	int monsterCount();
+}
 
-};
+Stage_1::~Stage_1(){
+
+}
+
+void Stage::start(){
+
+}

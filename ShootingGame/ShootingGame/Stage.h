@@ -15,6 +15,7 @@ public:
 	void showMap();
 	int scoreCount();
 	int timeFlow();
+	void start();
 
 	int** getMap();
 	void setMap(int**);

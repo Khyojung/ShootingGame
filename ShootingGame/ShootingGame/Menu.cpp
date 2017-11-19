@@ -12,6 +12,15 @@ Menu::Menu(){
 Menu::~Menu(){
 
 }
+//getter, setter
+int Menu::getMenuSelect() {
+	return menuSelect;
+}
+void Menu::setMenuSelect(int newMenu){
+	menuSelect = newMenu;
+}
+
+//Main에서 실행되는 부분
 void Menu::run(){
 	int temp;
 	while(1){
@@ -40,7 +49,7 @@ void Menu::run(){
 		//설정
 		if(getMenuSelect() == 3) {
 			Setting* setting = new Setting();
-			cout<<
+			setting->print();
 		}
 
 		//종료
@@ -50,11 +59,5 @@ void Menu::run(){
 			break;
 		}
 	}
-}
-int Menu::getMenuSelect() {
-	return menuSelect;
-}
-void Menu::setMenuSelect(int newMenu){
-	menuSelect = newMenu;
 }
 

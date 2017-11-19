@@ -9,9 +9,5 @@ private:
 public:
 	Stage_1();
 	~Stage_1();
-	void showMap();
-	int scoreCount();
-	int timeFlow();
-	int monsterCount();
 
 };
