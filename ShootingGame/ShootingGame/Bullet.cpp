@@ -1,7 +1,6 @@
-
-#include<iostream>
-#include"Character.h"
-#include"BulletDatabase.h"
+#include <iostream>
+#include "Character.h"
+#include "BulletDatabase.h"
 
 using namespace std;
 

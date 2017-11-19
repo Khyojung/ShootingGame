@@ -1,11 +1,14 @@
-#include<iostream>
+#include <iostream>
+#include <Windows.h>
+#include <MMSystem.h>
+#pragma comment(lib, "winmm.lib")
 
 using namespace std;
 
 class Sound{
 	
 private:
-	bool souncOn;
+	bool soundOn;
 public:
 	Sound();
 	~Sound();
