@@ -1,16 +1,21 @@
-#include<iostream>
+#pragma once
+#include "RankingDatabase.h"
 
 using namespace std;
-class RankingDatabase{
-	
-private:
-	string userID;
-	int score[];
-public:
-	RankingDatabase();
-	~RankingDatabase();
-	void addRank(int, string);
-	void delRank();
-	void sorting();
 
-};
+RankingDatabase::RankingDatabase() {
+}
+RankingDatabase::~RankingDatabase() {
+}
+void RankingDatabase::addRank(int score, string userID) {
+	ranking.insert(pair<int,string> (score, userID));
+}
+void RankingDatabase::delRank() {
+	ranking.clear();
+}
+void RankingDatabase::sorting() {
+	multimap<int, string>::iterator iter;
+	for (iter = ranking.begin(); iter != ranking.end(); ++iter) {
+		printf("(%s : %d)",iter->second,iter->first);
+	}
+}

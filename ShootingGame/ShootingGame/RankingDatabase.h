@@ -1,11 +1,14 @@
-#include<iostream>
+#pragma once
+#include <map>
+#include <iostream>
+#include <algorithm>
 
 using namespace std;
+
 class RankingDatabase{
-	
+
 private:
-	string userID;
-	int score[];
+	multimap<int,string> ranking;
 public:
 	RankingDatabase();
 	~RankingDatabase();
