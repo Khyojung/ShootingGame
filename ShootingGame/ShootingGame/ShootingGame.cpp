@@ -5,6 +5,7 @@
 #include"Menu.h"
 
 int main(){
+	system("mode con cols=200 lines=100");
 	Menu* menu = new Menu();
 	menu->run();
 	return 0;

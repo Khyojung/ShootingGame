@@ -97,6 +97,7 @@
     <ClInclude Include="Music.h" />
     <ClInclude Include="Ranking.h" />
     <ClInclude Include="RankingDatabase.h" />
+    <ClInclude Include="screenBuffer.h" />
     <ClInclude Include="Setting.h" />
     <ClInclude Include="Sound.h" />
     <ClInclude Include="Stage.h" />

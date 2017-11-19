@@ -29,6 +29,7 @@ void Start::gameStart(){
 	setLevel(temp);
 	if(getLevel() == 1){
 		Stage_1* stage_1 = new Stage_1();
+		stage_1->start();
 	}
 	else if(getLevel() == 2){
 		Stage_2* stage_2 = new Stage_2();

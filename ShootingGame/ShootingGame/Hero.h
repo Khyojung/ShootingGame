@@ -1,19 +1,20 @@
+#pragma once
 #include<iostream>
 #include"Character.h"
+#include"Stage.h"
 
 using namespace std;
 class Hero : public Character{
 	
 private:
-	string shpae;
-
+	char* shape;
 public:
 	Hero();
 	~Hero();
-	void move();
+	void move(int keyboard);
 	void attack();
 
-	void setShape(string);
-	string getShape();
+	void setShape(char*);
+	char* getShape();
 
 };
