@@ -4,6 +4,9 @@
     <Position X="3.75" Y="1.5" Width="1.5" />
     <TypeIdentifier>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 4e51314c961d18f44a977c4932ac95912035bbdf
       <HashCode>AAABEAAQAgAAAIAoCAAYAAAACAABCACAAAgAAAGQAAA=</HashCode>
       <FileName>Stage.h</FileName>
 =======
@@ -16,10 +19,14 @@
     <Position X="2.75" Y="2.75" Width="1.5" />
     <TypeIdentifier>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 4e51314c961d18f44a977c4932ac95912035bbdf
       <HashCode>AAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAEAAAAAA=</HashCode>
       <FileName>Stage_1.h</FileName>
     </TypeIdentifier>
   </Class>
+<<<<<<< HEAD
 =======
       <HashCode>AAAAAAAAAAAAAAAIAAAQACAACAAAAAAAAAAAEACAAAA=</HashCode>
       <FileName>Stage_1.cpp</FileName>
@@ -33,6 +40,8 @@
     </TypeIdentifier>
   </Class>
 >>>>>>> beomkyu
+=======
+>>>>>>> 4e51314c961d18f44a977c4932ac95912035bbdf
   <Class Name="Stage_3" Collapsed="true">
     <Position X="7.25" Y="2.75" Width="1.5" />
     <TypeIdentifier>
@@ -83,6 +92,9 @@
     <Position X="11.5" Y="2.5" Width="1.5" />
     <TypeIdentifier>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 4e51314c961d18f44a977c4932ac95912035bbdf
       <HashCode>AAQAAAAAAAAAAAAAAAEABAAAAAAAAABAQEAAAEBAAAA=</HashCode>
       <FileName>Setting.h</FileName>
 =======
@@ -102,6 +114,9 @@
     <Position X="9.75" Y="3.5" Width="1.5" />
     <TypeIdentifier>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 4e51314c961d18f44a977c4932ac95912035bbdf
       <HashCode>AAAAAAAAACAAABAAAgEAAAAAAAEAQAAAAAAAAAAAAAA=</HashCode>
       <FileName>Start.h</FileName>
 =======
@@ -121,6 +136,9 @@
     <Position X="6" Y="5" Width="1.5" />
     <TypeIdentifier>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 4e51314c961d18f44a977c4932ac95912035bbdf
       <HashCode>AAAAAAAAACAAAAAIAAIQAAAEDEAAAAAAgEAIAAQARAE=</HashCode>
       <FileName>Item.h</FileName>
 =======
@@ -168,6 +186,9 @@
     <Position X="0.75" Y="9.25" Width="1.5" />
     <TypeIdentifier>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 4e51314c961d18f44a977c4932ac95912035bbdf
       <HashCode>AAAAAAAAAAAAAADAAAAAAAAgAAAAAACAAAAAAAYAQAA=</HashCode>
       <FileName>Hero.h</FileName>
 =======
@@ -180,6 +201,9 @@
     <Position X="3" Y="9.25" Width="1.5" />
     <TypeIdentifier>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 4e51314c961d18f44a977c4932ac95912035bbdf
       <HashCode>AAAAAAAQAAIAEAiAAAAAAAAAAAAAAACFAAAAAIYQQAA=</HashCode>
       <FileName>Bullet.h</FileName>
 =======
@@ -199,6 +223,9 @@
     <Position X="2" Y="8" Width="1.5" />
     <TypeIdentifier>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 4e51314c961d18f44a977c4932ac95912035bbdf
       <HashCode>YMABCgAAAAAAwACAAAAAAAAAAAAQAQCNAABAAAEQKAA=</HashCode>
       <FileName>Character.h</FileName>
 =======
@@ -218,6 +245,9 @@
     <Position X="8.75" Y="9.25" Width="1.5" />
     <TypeIdentifier>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 4e51314c961d18f44a977c4932ac95912035bbdf
       <HashCode>AAAAAAAAAAAAAAAACAAAABAAAAAAEAAAAgAAAAQARQA=</HashCode>
       <FileName>Monster.h</FileName>
 =======
