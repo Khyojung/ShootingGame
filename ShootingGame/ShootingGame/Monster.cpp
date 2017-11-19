@@ -1,27 +1,31 @@
-#pragma once
-
 #include<iostream>
 #include<string>
 #include"Monster.h"
-using namespace std;
-/*
-class Monster : public Character{
-	
-private:
-	string shpae;
 
-public:
-	Monster();
-	~Monster();
-	void move();
-	void attack();
 
-	void setPattern(int);
-	int getPattern();
-};*/
-
+//Monster 생성자 소멸자
 Monster :: Monster(){
-	//Monster 생성자
 }
 Monster :: ~Monster(){
 }
+
+//Monster getter, setter
+char ** Monster::getShape(){
+	return shape;
+}
+void Monster::setShape(char ** newShape){
+	shape = newShape;
+}
+int Monster::getPattern(){
+	return pattern;
+}
+void Monster::setPattern(int newPattern){
+	pattern = newPattern;
+}
+//함수 재정의
+void Character::move(){
+
+}
+void Character::attack(){
+
+}                          

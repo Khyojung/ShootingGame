@@ -4,7 +4,7 @@ using namespace std;
 class Stage{
 	
 private:
-	int map[100][300];
+	int** map;
 	int score;
 	int time;
 	int monsterCount;
@@ -15,10 +15,9 @@ public:
 	void showMap();
 	int scoreCount();
 	int timeFlow();
-	int monsterCount();
 
-	int getMap();
-	void setMap(int[100][300]);
+	int** getMap();
+	void setMap(int**);
 	int getScore();
 	void setScore(int);
 	int getTime();

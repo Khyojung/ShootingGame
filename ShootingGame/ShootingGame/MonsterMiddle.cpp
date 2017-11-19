@@ -1,19 +1,19 @@
 #include<iostream>
-#include"Character.h"
 #include"Monster.h"
+#include"MonsterMiddle.h"
 
-using namespace std;
+//소멸자 생성자
+MonsterMiddle::MonsterMiddle(){
 
-class MonsterMiddle : public Monster{
-	
-private:
+}
 
-public:
-	MonsterMiddle();
-	~MonsterMiddle();
-	void move();
-	void attack();
+MonsterMiddle::~MonsterMiddle(){
 
-	void setPattern(int);
-	int getPattern();
-};
+}
+//함수 재정의
+void Character::move(){
+
+}
+void Character::attack(){
+
+}    

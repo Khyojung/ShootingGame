@@ -1,19 +1,17 @@
 #include<iostream>
-#include"Character.h"
 #include"Monster.h"
+#include"MonsterBoss.h"
 
-using namespace std;
+MonsterBoss::MonsterBoss(){
 
-class MonsterBoss : public Monster{
-	
-private:
+}
+MonsterBoss::~MonsterBoss(){
 
-public:
-	MonsterBoss();
-	~MonsterBoss();
-	void move();
-	void attack();
+}
+//함수 재정의
+void Character::move(){
 
-	void setPattern(int);
-	int getPattern();
-};
+}
+void Character::attack(){
+
+}    
