@@ -147,9 +147,6 @@
     <ClCompile Include="Menu.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Music.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
     <ClCompile Include="Sound.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
@@ -232,6 +229,9 @@
       <Filter>소스 파일\Stage</Filter>
     </ClCompile>
     <ClCompile Include="Main.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Music.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>

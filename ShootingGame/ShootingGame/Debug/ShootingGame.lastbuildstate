@@ -1,12 +1,2 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-#v4.0:v100
-Debug|Win32|C:\Users\hyojung\ShootingGame\ShootingGame\|
-=======
 #v4.0:v100:false
-Debug|Win32|C:\Users\bumsu\git\ShootingGame\ShootingGame\|
->>>>>>> beomkyu
-=======
-#v4.0:v100
-Debug|Win32|C:\Users\hyojung\ShootingGame\ShootingGame\|
->>>>>>> 4e51314c961d18f44a977c4932ac95912035bbdf
+Debug|Win32|C:\Users\bumsu\Documents\GitHub\ShootingGame\ShootingGame\|
