@@ -16,4 +16,10 @@ public:
 	int timeFlow();
 	int monsterCount();
 
+	int getItemX();
+	void setItemX(int);
+	int getItemY();
+	void setItemY(int);
+	string getShape();
+	void setShape(string);
 };
