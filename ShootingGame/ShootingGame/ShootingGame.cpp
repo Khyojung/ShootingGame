@@ -2,10 +2,10 @@
 //
 
 #include "stdafx.h"
+#include"Menu.h"
 
-
-int _tmain(int argc, _TCHAR* argv[])
-{
+int main(){
+	Menu* menu = new Menu();
+	menu->run();
 	return 0;
 }
-

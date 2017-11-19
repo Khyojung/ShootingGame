@@ -1,4 +1,8 @@
-#include<iostream>
+#pragma once
+#include <iostream>
+#include <Windows.h>
+#include <MMSystem.h>
+#pragma comment(lib, "winmm.lib")
 
 using namespace std;
 
@@ -9,8 +13,8 @@ private:
 public:
 	Music();
 	~Music();
-	bool getOn();
-	void setOn(bool);
+	bool getMusicOn();
+	void setMusicOn(bool);
 	void musicPlay();
 
 };
