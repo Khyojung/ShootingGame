@@ -1,6 +1,8 @@
-#include<iostream>
-#include<map>
-#include"Monster.h"
+#pragma once
+#include <map>
+#include <iostream>
+#include <algorithm>
+#include "Monster.h"
 
 using namespace std;
 
@@ -11,7 +13,7 @@ private:
 public:
 	MonsterDatabase();
 	~MonsterDatabase();
-	void addMonster(int, string);
-	void delMonster();
+	void addMonster(int, Monster*);
+	void delMonster(int);
 
 };

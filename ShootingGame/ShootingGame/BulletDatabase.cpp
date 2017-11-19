@@ -1,17 +1,15 @@
-#include<iostream>
-#include<map>
-#include"Bullet.h"
+#pragma once
+#include "BulletDatabase.h"
 
 using namespace std;
 
-class BulletDatabase{
-	
-private:
-	map <int, Bullet*> bullet;
-public:
-	BulletDatabase();
-	~BulletDatabase();
-	void addBuller(int, string);
-	void delBullet();
-
-};
+BulletDatabase::BulletDatabase() {
+}
+BulletDatabase::~BulletDatabase() {
+}
+void BulletDatabase::addBullet(int bulletNumber, Bullet* newBullet) {
+	bullet.insert(pair<int,Bullet*> (bulletNumber, newBullet));
+}
+void BulletDatabase::delBullet(int bulletNumber) {
+	bullet.erase(bulletNumber);
+}

@@ -1,17 +1,15 @@
-#include<iostream>
-#include<map>
-#include"Monster.h"
+#pragma once
+#include "MonsterDatabase.h"
 
 using namespace std;
 
-class MonsterDatabase{
-	
-private:
-	map <int, Monster*> monster;
-public:
-	MonsterDatabase();
-	~MonsterDatabase();
-	void addMonster(int, string);
-	void delMonster();
-
-};
+MonsterDatabase::MonsterDatabase() {
+}
+MonsterDatabase::~MonsterDatabase() {
+}
+void MonsterDatabase::addMonster(int monsterNumber, Monster* newMonster) {
+	monster.insert(pair<int,Monster*> (monsterNumber, newMonster));
+}
+void MonsterDatabase::delMonster(int monsterNumber) {
+	monster.erase(monsterNumber);
+}

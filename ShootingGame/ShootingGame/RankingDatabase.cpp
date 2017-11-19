@@ -19,3 +19,4 @@ void RankingDatabase::sorting() {
 		printf("(%s : %d)",iter->second,iter->first);
 	}
 }
+
