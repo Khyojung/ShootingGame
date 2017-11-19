@@ -1,3 +1,4 @@
+#pragma once
 #include<iostream>
 #include"RankingDatabase.h"
 
@@ -10,5 +11,5 @@ public:
 	Ranking();
 	~Ranking();
 	void rankPrint();
-
+	RankingDatabase getDatabase();
 };

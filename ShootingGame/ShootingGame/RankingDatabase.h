@@ -2,23 +2,19 @@
 #include <map>
 #include <iostream>
 #include <algorithm>
+#include <string>
 
 using namespace std;
 
 class RankingDatabase{
 
 private:
-	multimap<int,string> ranking;
+	multimap<int,string,greater<int>> ranking;
 public:
 	RankingDatabase();
 	~RankingDatabase();
 	void addRank(int, string);
 	void delRank();
 	void sorting();
-
-	string getUserID();
-	void setUserID(string);
-	int getScore();
-	void setScore(int[]);
 
 };

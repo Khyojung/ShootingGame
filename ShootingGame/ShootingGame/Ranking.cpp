@@ -1,14 +1,12 @@
-#include<iostream>
-#include"RankingDatabase.h"
+#include "Ranking.h"
 
-using namespace std;
-class Ranking{
-	
-private:
-	RankingDatabase database;
-public:
-	Ranking();
-	~Ranking();
-	void rankPrint();
-
-};
+Ranking::Ranking() {
+}
+Ranking::~Ranking() {
+}
+void Ranking::rankPrint() {
+	getDatabase().sorting();
+}
+RankingDatabase Ranking::getDatabase() {
+	return database;
+}

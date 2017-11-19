@@ -1,3 +1,4 @@
+#pragma once
 #include <iostream>
 #include <Windows.h>
 #include <MMSystem.h>
@@ -12,6 +13,7 @@ private:
 public:
 	Sound();
 	~Sound();
+	string isSoundOn();
 	bool getSounOn();
 	void setSoundOn(bool);
 	void soundPlay();

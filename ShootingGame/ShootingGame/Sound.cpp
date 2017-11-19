@@ -4,6 +4,11 @@ Sound::Sound() {
 }
 Sound::~Sound() {
 }
+string Sound::isSoundOn() {
+	if(soundOn)
+		return "On";
+	return "Off";
+}
 bool Sound::getSounOn() {
 	return soundOn;
 }

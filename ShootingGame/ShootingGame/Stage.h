@@ -1,3 +1,4 @@
+#pragma once
 #include<iostream>
 
 using namespace std;
@@ -8,6 +9,7 @@ private:
 	int score;
 	int time;
 	int monsterCount;
+	//Hero* hero;
 
 public:
 	Stage();
@@ -15,10 +17,12 @@ public:
 	void showMap();
 	int scoreCount();
 	int timeFlow();
-	void start();
 
 	int** getMap();
 	void setMap(int**);
+	void setMapXY(int,int,int);
+	int getMapX();
+	int getMapY();
 	int getScore();
 	void setScore(int);
 	int getTime();

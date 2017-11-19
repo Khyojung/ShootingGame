@@ -14,8 +14,11 @@ void RankingDatabase::delRank() {
 	ranking.clear();
 }
 void RankingDatabase::sorting() {
-	multimap<int, string>::iterator iter;
+	multimap<int, string, greater<int>>::iterator iter;
 	for (iter = ranking.begin(); iter != ranking.end(); ++iter) {
-		printf("(%s : %d)",iter->second,iter->first);
+		cout << "(" << iter->second << " : " << iter->first << ") ";
+		cout << endl;
 	}
+	cout << endl;
 }
+

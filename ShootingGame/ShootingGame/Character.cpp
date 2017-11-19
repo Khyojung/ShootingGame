@@ -11,6 +11,12 @@ Character::~Character(){
 
 }
 //º¯¼öÀÇ getter, setter
+Stage* Character::getStage() {
+	return stage;
+}
+void Character::setStage(Stage* newStage) {
+	stage = newStage;
+}
 int Character::getCharacterX(){
 	return characterX;
 }
