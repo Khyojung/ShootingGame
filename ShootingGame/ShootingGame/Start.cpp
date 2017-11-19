@@ -1,14 +1,14 @@
 #include<iostream>
+#include"Start.h"
 
-using namespace std;
 
-class Start{
-	
-private:
-	int level;
-public:
-	Start();
-	~Start();
-	void gameStart(int);
+Start::Start(){
 
-};
+}
+Start::~Start(){
+
+}
+
+void Start::gameStart(){
+
+}

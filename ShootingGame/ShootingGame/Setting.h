@@ -11,6 +11,7 @@ public:
 	~Setting();
 	void musicSetting();
 	void soundSetting();
+	void print();
 
 	int getSelectSetting();
 	void setSelectSetting(int);
