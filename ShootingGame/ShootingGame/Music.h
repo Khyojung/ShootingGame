@@ -13,6 +13,7 @@ private:
 public:
 	Music();
 	~Music();
+	string isMusicOn();
 	bool getMusicOn();
 	void setMusicOn(bool);
 	void musicPlay();

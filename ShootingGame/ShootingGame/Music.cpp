@@ -4,6 +4,11 @@ Music::Music() {
 }
 Music::~Music() {
 }
+string Music::isMusicOn() {
+	if(musicOn)
+		return "On";
+	return "Off";
+}
 bool Music::getMusicOn() {
 	return musicOn;
 }

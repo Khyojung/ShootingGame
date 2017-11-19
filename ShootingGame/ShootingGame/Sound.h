@@ -13,6 +13,7 @@ private:
 public:
 	Sound();
 	~Sound();
+	string isSoundOn();
 	bool getSounOn();
 	void setSoundOn(bool);
 	void soundPlay();

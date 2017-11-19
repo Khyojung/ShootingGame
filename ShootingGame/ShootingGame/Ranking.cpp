@@ -5,5 +5,8 @@ Ranking::Ranking() {
 Ranking::~Ranking() {
 }
 void Ranking::rankPrint() {
-	database.sorting();
+	getDatabase().sorting();
+}
+RankingDatabase Ranking::getDatabase() {
+	return database;
 }
