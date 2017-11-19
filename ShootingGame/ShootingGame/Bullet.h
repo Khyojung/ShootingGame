@@ -18,7 +18,11 @@ public:
 	void move();
 	void attack();
 
-	void setPattern(int);
-	int getPattern();
+	void setPatternX(int);
+	int getPatternX();
+	void setPatternY(int);
+	int getPatternY();
+	void setShape(string);
+	string getShape();
 
 };

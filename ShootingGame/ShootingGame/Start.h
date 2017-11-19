@@ -9,6 +9,9 @@ private:
 public:
 	Start();
 	~Start();
-	void gameStart(int);
+	void gameStart();
+
+	int getLevel();
+	void setLevel(int);
 
 };

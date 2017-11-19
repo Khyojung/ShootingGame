@@ -2,6 +2,8 @@
 #include"Character.h"
 
 using namespace std;
+
+/*
 class Hero : public Character{
 	
 private:
@@ -13,4 +15,4 @@ public:
 	void move();
 	void attack();
 
-};
+};*/

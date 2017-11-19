@@ -1,19 +1,20 @@
 #include<iostream>
-#include"Character.h"
+
 #include"Monster.h"
+#include"MonsterLarge.h"
 
-using namespace std;
+//소멸자 생성자
+MonsterLarge::MonsterLarge(){
 
-class MonsterLarge : public Monster{
-	
-private:
+}
 
-public:
-	MonsterLarge();
-	~MonsterLarge();
-	void move();
-	void attack();
+MonsterLarge::~MonsterLarge(){
 
-	void setPattern(int);
-	int getPattern();
-};
+}
+//함수 재정의
+void Character::move(){
+
+}
+void Character::attack(){
+
+}    

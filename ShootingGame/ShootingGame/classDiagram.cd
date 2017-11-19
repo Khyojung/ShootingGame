@@ -3,22 +3,15 @@
   <Class Name="Stage" Collapsed="true">
     <Position X="3.75" Y="1.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAABEAAAAgAAAAAIAAAYAAAACAAAAAAAAAgAAACAAAA=</HashCode>
+      <HashCode>AAABEAAQAgAAAIAoCAAYAAAACAABCACAAAgAAAGQAAA=</HashCode>
       <FileName>Stage.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Stage_1" Collapsed="true">
     <Position X="2.75" Y="2.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAIAAAQACAACAAAAAAAAAAAEACAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAEAAAAAA=</HashCode>
       <FileName>Stage_1.h</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="Stage_2" Collapsed="true">
-    <Position X="5" Y="2.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAIAAAQAAAACAAAABAAAAAAAgCAAAA=</HashCode>
-      <FileName>Stage_2.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Stage_3" Collapsed="true">
@@ -38,7 +31,7 @@
   <Class Name="Menu" Collapsed="true">
     <Position X="9.75" Y="1.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAgAAAABAAAAAAAAAAAAAAAAIIAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAgAAAABAAAAAAgAgAAAAAAAIIAAAAAAAAAAAAAA=</HashCode>
       <FileName>Menu.h</FileName>
     </TypeIdentifier>
   </Class>
@@ -59,14 +52,14 @@
   <Class Name="RankingDatabase" Collapsed="true">
     <Position X="9.75" Y="2.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>CAAAAAgAAAAAAAAACAgIAAAAAAAAEAAACAAAAAAAAAA=</HashCode>
+      <HashCode>CAAAAAgAAAAAAAAACAgIAAAAAAAAGACAiAAIAAAAAAA=</HashCode>
       <FileName>RankingDatabase.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Setting" Collapsed="true">
     <Position X="11.5" Y="2.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAEABAAAAAAAAABAAAAAAEBAAAA=</HashCode>
+      <HashCode>AAQAAAAAAAAAAAAAAAEABAAAAAAAAABAQEAAAEBAAAA=</HashCode>
       <FileName>Setting.h</FileName>
     </TypeIdentifier>
   </Class>
@@ -80,7 +73,7 @@
   <Class Name="Start" Collapsed="true">
     <Position X="9.75" Y="3.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAACAAAAAAAgAAAAAAAAEAQAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAACAAABAAAgEAAAAAAAEAQAAAAAAAAAAAAAA=</HashCode>
       <FileName>Start.h</FileName>
     </TypeIdentifier>
   </Class>
@@ -94,7 +87,7 @@
   <Class Name="Item" Collapsed="true">
     <Position X="6" Y="5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAACAAAAAIAAIQAAAECAAAAAAAAEAAAAAABAE=</HashCode>
+      <HashCode>AAAAAAAAACAAAAAIAAIQAAAEDEAAAAAAgEAIAAQARAE=</HashCode>
       <FileName>Item.h</FileName>
     </TypeIdentifier>
   </Class>
@@ -136,14 +129,14 @@
   <Class Name="Hero" Collapsed="true">
     <Position X="0.75" Y="9.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAADAAAAAAAAgAAAAAACAAAAAAAIAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAADAAAAAAAAgAAAAAACAAAAAAAYAQAA=</HashCode>
       <FileName>Hero.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Bullet" Collapsed="true">
     <Position X="3" Y="9.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAQAAIAAACAAAAAABAAAAAAAACEAAAAAAIQAQA=</HashCode>
+      <HashCode>AAAAAAAQAAIAEAiAAAAAAAAAAAAAAACFAAAAAIYQQAA=</HashCode>
       <FileName>Bullet.h</FileName>
     </TypeIdentifier>
   </Class>
@@ -157,7 +150,7 @@
   <Class Name="Character" Collapsed="true">
     <Position X="2" Y="8" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAABAAAAAAAAgACAAAAAAAAAAAAAAQCMAABAAAAAKAA=</HashCode>
+      <HashCode>YMABCgAAAAAAwACAAAAAAAAAAAAQAQCNAABAAAEQKAA=</HashCode>
       <FileName>Character.h</FileName>
     </TypeIdentifier>
   </Class>
@@ -171,7 +164,7 @@
   <Class Name="Monster" Collapsed="true">
     <Position X="8.75" Y="9.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAACACAAAABAAAAAAAACAAgAAAAIAAQA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAACAAAABAAAAAAEAAAAgAAAAQARQA=</HashCode>
       <FileName>Monster.h</FileName>
     </TypeIdentifier>
   </Class>

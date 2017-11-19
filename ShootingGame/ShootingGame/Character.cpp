@@ -1,22 +1,57 @@
 #include<iostream>
 #include<string>
+#include"Character.h"
 
-using namespace std;
+//생성자 소멸자
 
-class Character{
-	
-private:
-	int hp;
-	int speed;
-	int damage;
-	int time;
-	int characterX;
-	int characterY;
+Character::Character(){
 
-public:
-	Character();
-	~Character();
-	void move();
-	void attack();
+}
+Character::~Character(){
 
-};
+}
+//변수의 getter, setter
+int Character::getCharacterX(){
+	return characterX;
+}
+void Character::setCharacterX(int cx){
+	characterX = cx;
+}
+int Character::getCharacterY(){
+	return characterY;
+}
+void Character::setChracterY(int cy){
+	characterY = cy;
+}
+int Character::getTime(){
+	return time;
+}
+void  Character::setTime(int newTime){
+	time = newTime;
+}
+int Character::getDamage(){
+	return damage;
+}
+void Character::setDamage(int newDamage){
+	damage = newDamage;
+}
+int Character::getSpeed(){
+	return speed;
+}
+void Character::setSpeed(int newSpeed){
+	speed = newSpeed;
+}
+int Character::getHp(){
+	return hp;
+}
+void Character::setHp(int newHp){
+	hp = newHp;
+}
+
+//함수
+void Character::move(){
+
+}
+void Character::attack(){
+
+}
