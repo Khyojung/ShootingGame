@@ -1,8 +1,7 @@
 #pragma once
-#include<iostream>
-#include"RankingDatabase.h"
 
-using namespace std;
+#include "RankingDatabase.h"
+
 class Ranking{
 	
 private:

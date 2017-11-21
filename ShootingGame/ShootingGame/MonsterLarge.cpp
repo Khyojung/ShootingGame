@@ -1,5 +1,3 @@
-#include<iostream>
-
 #include"Monster.h"
 #include"MonsterLarge.h"
 

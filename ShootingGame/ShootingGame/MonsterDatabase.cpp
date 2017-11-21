@@ -1,7 +1,4 @@
-#pragma once
 #include "MonsterDatabase.h"
-
-using namespace std;
 
 MonsterDatabase::MonsterDatabase() {
 }

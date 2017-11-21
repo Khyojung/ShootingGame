@@ -1,7 +1,6 @@
-#include<iostream>
+#pragma once
 #include"Stage.h"
 
-using namespace std;
 class Stage_inf : public Stage{
 	
 private:

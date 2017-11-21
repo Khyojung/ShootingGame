@@ -1,9 +1,8 @@
 #pragma once
-#include<iostream>
 #include"Character.h"
-#include"Stage.h"
 
 using namespace std;
+
 class Hero : public Character{
 	
 private:

@@ -1,7 +1,4 @@
-#pragma once
 #include "BulletDatabase.h"
-
-using namespace std;
 
 BulletDatabase::BulletDatabase() {
 }

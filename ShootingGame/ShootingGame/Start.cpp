@@ -1,4 +1,3 @@
-#include<iostream>
 #include"Start.h"
 #include"Stage_1.h"
 #include"Stage_2.h"
@@ -33,11 +32,14 @@ void Start::gameStart(){
 	}
 	else if(getLevel() == 2){
 		Stage_2* stage_2 = new Stage_2();
+		stage_2->start();
 	}
 	else if(getLevel() == 3){
 		Stage_3* stage_3 = new Stage_3();
+		stage_3->start();
 	}
 	else if(getLevel() == 4){
 		Stage_inf* stage_inf = new Stage_inf();
+		stage_inf->start();
 	}
 }
