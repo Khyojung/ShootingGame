@@ -1,7 +1,4 @@
-#include<iostream>
-#include<string>
 #include"Monster.h"
-
 
 //Monster 持失切 社瑚切
 Monster :: Monster(){

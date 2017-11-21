@@ -1,7 +1,11 @@
 #pragma once
-#include<iostream>
+#include <iostream>
+#include "Hero.h"
+#include <conio.h>
+#include "screenBuffer.h"
 
 using namespace std;
+
 class Stage{
 	
 private:
@@ -9,11 +13,12 @@ private:
 	int score;
 	int time;
 	int monsterCount;
-	//Hero* hero;
+	screenBuffer buffer;
 
 public:
 	Stage();
 	~Stage();
+	void start();
 	void showMap();
 	int scoreCount();
 	int timeFlow();

@@ -1,14 +1,12 @@
 #pragma once
 #include<iostream>
 #include<string>
-#include"Stage.h"
 
 using namespace std;
 
 class Character{
 	
 private:
-	Stage* stage;
 	int hp;
 	int speed;
 	int damage;
@@ -22,8 +20,6 @@ public:
 	void move();
 	void attack();
 
-	Stage* getStage();
-	void setStage(Stage*);
 	int getHp();
 	void setHp(int);
 	int getSpeed();
@@ -35,6 +31,6 @@ public:
 	int getCharacterX();
 	void setCharacterX(int);
 	int getCharacterY();
-	void setChracterY(int);
+	void setCharacterY(int);
 
 };

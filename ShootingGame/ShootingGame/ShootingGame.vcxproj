@@ -131,6 +131,7 @@
     <ClCompile Include="Music.cpp" />
     <ClCompile Include="Ranking.cpp" />
     <ClCompile Include="RankingDatabase.cpp" />
+    <ClCompile Include="screenBuffer.cpp" />
     <ClCompile Include="Setting.cpp" />
     <ClCompile Include="ShootingGame.cpp" />
     <ClCompile Include="Sound.cpp" />

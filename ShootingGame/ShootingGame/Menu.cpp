@@ -1,9 +1,7 @@
-#include"Menu.h"
-#include"Start.h"
-#include"Ranking.h"
-#include"Setting.h"
-//#include <conio.h>
-
+#include "Menu.h"
+#include "Start.h"
+#include "Ranking.h"
+#include "Setting.h"
 
 //持失切 社瑚切
 Menu::Menu(){

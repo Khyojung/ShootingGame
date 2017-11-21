@@ -1,8 +1,7 @@
-#include"Music.h"
-#include"Sound.h"
-#include"Ranking.h"
-#include<iostream>
-#include<string>
+#include "Music.h"
+#include "Sound.h"
+#include "Ranking.h"
+#include <iostream>
 
 using namespace std;
 

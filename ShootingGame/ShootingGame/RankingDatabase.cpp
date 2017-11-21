@@ -1,7 +1,4 @@
-#pragma once
 #include "RankingDatabase.h"
-
-using namespace std;
 
 RankingDatabase::RankingDatabase() {
 }

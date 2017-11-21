@@ -1,22 +1,14 @@
-#include<iostream>
-#include<string>
 #include"Character.h"
 
 //생성자 소멸자
-
 Character::Character(){
 
 }
 Character::~Character(){
 
 }
+
 //변수의 getter, setter
-Stage* Character::getStage() {
-	return stage;
-}
-void Character::setStage(Stage* newStage) {
-	stage = newStage;
-}
 int Character::getCharacterX(){
 	return characterX;
 }
@@ -26,7 +18,7 @@ void Character::setCharacterX(int cx){
 int Character::getCharacterY(){
 	return characterY;
 }
-void Character::setChracterY(int cy){
+void Character::setCharacterY(int cy){
 	characterY = cy;
 }
 int Character::getTime(){
