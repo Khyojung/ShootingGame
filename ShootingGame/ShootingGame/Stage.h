@@ -7,29 +7,19 @@
 
 using namespace std;
 
-class Stage{
-	
+class Stage {
 private:
-	int** map;
+	// 이차원 배열 맵을 제거함. 객체로서 자료들을 관리하므로 배열에 값들을 저장할 필요가 없음.
+	screenBuffer buffer;
+	Hero* hero;
 	int score;
 	int time;
 	int monsterCount;
-	screenBuffer buffer;
-	Hero* hero;
 
 public:
 	Stage();
 	~Stage();
-	void start();
-	void showMap();
-	int scoreCount();
-	int timeFlow();
-
-	int** getMap();
-	void setMap(int**);
-	void setMapXY(int,int,int);
-	int getMapX();
-	int getMapY();
+	
 	int getScore();
 	void setScore(int);
 	int getTime();
@@ -37,4 +27,8 @@ public:
 	int getMonsterCount();
 	void setMonsterCount(int);
 
+	void start();
+	void showMap();
+	int scoreCount();
+	int timeFlow();
 };

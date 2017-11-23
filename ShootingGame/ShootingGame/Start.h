@@ -3,16 +3,16 @@
 
 using namespace std;
 
-class Start{
-	
+class Start {
 private:
 	int level;
+
 public:
 	Start();
 	~Start();
-	void gameStart();
 
 	int getLevel();
 	void setLevel(int);
 
+	void gameStart();
 };

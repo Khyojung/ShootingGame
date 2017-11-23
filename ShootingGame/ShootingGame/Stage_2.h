@@ -1,8 +1,7 @@
 #pragma once
 #include"Stage.h"
 
-class Stage_2 : public Stage{
-	
+class Stage_2 : public Stage {
 private:
 
 public:
@@ -12,5 +11,4 @@ public:
 	int scoreCount();
 	int timeFlow();
 	int monsterCount();
-
 };

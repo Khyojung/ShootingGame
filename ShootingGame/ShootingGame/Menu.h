@@ -1,17 +1,18 @@
+#pragma once
 #include<iostream>
 
 using namespace std;
 
-class Menu{
-	
+class Menu {
 private:
 	int menuSelect;
+
 public:
 	Menu();
 	~Menu();
-	void run();
 
 	int getMenuSelect();
 	void setMenuSelect(int);
 
+	void run();
 };

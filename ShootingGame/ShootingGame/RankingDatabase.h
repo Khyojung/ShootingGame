@@ -6,15 +6,15 @@
 
 using namespace std;
 
-class RankingDatabase{
-
+class RankingDatabase {
 private:
 	multimap<int,string,greater<int>> ranking;
+
 public:
 	RankingDatabase();
 	~RankingDatabase();
-	void addRank(int, string);
+
+	void addRank(int, char*);
 	void delRank();
 	void sorting();
-
 };

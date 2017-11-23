@@ -1,10 +1,6 @@
 #pragma once
-#include <iostream>
-
-using namespace std;
 
 class Character{
-	
 private:
 	int hp;
 	int speed;
@@ -17,8 +13,6 @@ private:
 public:
 	Character();
 	~Character();
-	void move();
-	void attack();
 
 	int getHp();
 	void setHp(int);
@@ -35,4 +29,6 @@ public:
 	char* getShape();
 	void setShape(char*);
 
+	void move();
+	void attack();
 };
