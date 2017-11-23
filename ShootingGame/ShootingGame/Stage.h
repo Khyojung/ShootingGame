@@ -3,6 +3,7 @@
 #include "Hero.h"
 #include <conio.h>
 #include "screenBuffer.h"
+#include "Bullet.h"
 
 using namespace std;
 
@@ -14,6 +15,7 @@ private:
 	int time;
 	int monsterCount;
 	screenBuffer buffer;
+	Hero* hero;
 
 public:
 	Stage();

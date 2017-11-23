@@ -2,7 +2,12 @@
 
 //생성자 소멸자
 Character::Character(){
-
+	hp = 0;
+	speed = 1;
+	damage = 1;
+	time = 1000;
+	characterX = 0;
+	characterY = 0;
 }
 Character::~Character(){
 
@@ -44,6 +49,12 @@ int Character::getHp(){
 }
 void Character::setHp(int newHp){
 	hp = newHp;
+}
+char* Character::getShape() {
+	return shape;
+}
+void Character::setShape(char* newShape) {
+	shape = newShape;
 }
 
 //함수

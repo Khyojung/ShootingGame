@@ -4,10 +4,12 @@ Hero::Hero() {
 	this->setHp(10);
 	this->setSpeed(1);
 	this->setDamage(1);
-	this->setTime(1000);
+	this->setTime(10);
 	this->setCharacterX(10);
 	this->setCharacterY(49);
 	this->setShape("бу");
+	this->bulletCount=0;
+	heroBullet = new BulletDatabase();
 }
 Hero::~Hero() {
 }
@@ -37,10 +39,18 @@ void Hero::move(int keyboard) {
 	}
 }
 void Hero::attack() {
+	Bullet* newBullet = new Bullet();
+	newBullet->setCharacterX(getCharacterX());
+	newBullet->setCharacterY(getCharacterY()-1);
+	newBullet->setDamage(getDamage());
+	newBullet->changeShape();
+	newBullet->setTime(3);
+	heroBullet->addBullet(bulletCount, newBullet);
+	bulletCount++;
 }
-void Hero::setShape(char* newShape) {
-	shape = newShape;
+void Hero::setHeroBullet(BulletDatabase* newBulletDatabase) {
+	heroBullet = newBulletDatabase;
 }
-char* Hero::getShape() {
-	return shape;
+BulletDatabase* Hero::getHeroBullet()  {
+	return heroBullet;
 }
