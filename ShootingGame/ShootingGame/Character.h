@@ -1,6 +1,5 @@
 #pragma once
-#include<iostream>
-#include<string>
+#include <iostream>
 
 using namespace std;
 
@@ -13,6 +12,7 @@ private:
 	int time;
 	int characterX;
 	int characterY;
+	char *shape;
 
 public:
 	Character();
@@ -32,5 +32,7 @@ public:
 	void setCharacterX(int);
 	int getCharacterY();
 	void setCharacterY(int);
+	char* getShape();
+	void setShape(char*);
 
 };

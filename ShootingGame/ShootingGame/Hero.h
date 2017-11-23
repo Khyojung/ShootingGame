@@ -1,19 +1,21 @@
 #pragma once
-#include"Character.h"
+#include "Character.h"
+#include "BulletDatabase.h"
+#include "Bullet.h"
 
 using namespace std;
 
 class Hero : public Character{
-	
+
 private:
-	char* shape;
+	BulletDatabase* heroBullet;
+	int bulletCount;
 public:
 	Hero();
 	~Hero();
 	void move(int keyboard);
 	void attack();
 
-	void setShape(char*);
-	char* getShape();
-
+	void setHeroBullet(BulletDatabase*);
+	BulletDatabase* getHeroBullet();
 };

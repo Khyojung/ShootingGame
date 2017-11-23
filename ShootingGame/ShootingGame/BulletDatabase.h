@@ -3,6 +3,7 @@
 #include <iostream>
 #include <algorithm>
 #include "Bullet.h"
+#include "screenBuffer.h"
 
 using namespace std;
 
@@ -15,5 +16,6 @@ public:
 	~BulletDatabase();
 	void addBullet(int, Bullet*);
 	void delBullet(int);
-
+	void printBullet(screenBuffer);
+	bool moveBullet();
 };
