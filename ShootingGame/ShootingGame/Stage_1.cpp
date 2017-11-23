@@ -1,9 +1,8 @@
 #include "Stage_1.h"
 
-Stage_1::Stage_1(){
+// 持失切, 社瑚切
+Stage_1::Stage_1() {
 	Stage();
 }
-
-Stage_1::~Stage_1(){
-
+Stage_1::~Stage_1() {
 }

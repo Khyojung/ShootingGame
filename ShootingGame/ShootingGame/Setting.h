@@ -5,21 +5,21 @@
 
 using namespace std;
 
-class Setting{
-	
+class Setting {	
 private:
 	int selectSetting;
 	Music music;
 	Sound sound;
 	Ranking rank;
+
 public:
 	Setting();
 	~Setting();
-	void musicSetting();
-	void soundSetting();
-	void print();
 
 	int getSelectSetting();
 	void setSelectSetting(int);
 
+	void musicSetting();
+	void soundSetting();
+	void print();
 };
