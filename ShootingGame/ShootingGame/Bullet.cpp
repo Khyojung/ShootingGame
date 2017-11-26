@@ -3,6 +3,10 @@
 // 持失切, 社瑚切
 Bullet::Bullet() {
 }
+Bullet::Bullet(int newX, int newY){
+	x = newX;
+	y = newY;
+}
 Bullet::~Bullet() {
 }
 

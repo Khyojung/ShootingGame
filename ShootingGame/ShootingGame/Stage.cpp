@@ -20,16 +20,11 @@ int Stage::getTime() {
 void Stage::setTime(int newTime) {
 	time = newTime;
 }
-int Stage::getMonsterCount() {
-	return monsterCount;
-}
-void Stage::setMonsterCount(int newMonsterCount) {
-	monsterCount = newMonsterCount;
-}
 
 // 함수
 void Stage::start() { //게임의 흐름
 	hero = new Hero(); // 영웅 생성
+	monsterDatabase = new MonsterDatabase();
 
 	// 화면 버퍼 생성
 	buffer.CreateBuffer();
@@ -86,6 +81,9 @@ void Stage::showMap() { // 화면 출력해주는 부분
 	// 영웅 출력
 	buffer.BufferWrite(hero->getCharacterX()*2+2, hero->getCharacterY()+1, hero->getShape());
 
+	//Monster 출력
+	monsterDatabase->print(buffer);
+	
 	// 화면 전환
 	buffer.Flipping();
 }

@@ -2,6 +2,7 @@
 
 // 持失切, 社瑚切
 BulletDatabase::BulletDatabase() {
+	bullNumber = 0;
 }
 BulletDatabase::~BulletDatabase() {
 }

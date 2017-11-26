@@ -10,6 +10,7 @@ using namespace std;
 class BulletDatabase{
 private:
 	multimap <int, Bullet*> bullet;
+	int bullNumber;
 
 public:
 	BulletDatabase();

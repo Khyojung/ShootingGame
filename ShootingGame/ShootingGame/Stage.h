@@ -4,6 +4,7 @@
 #include <conio.h>
 #include "screenBuffer.h"
 #include "Bullet.h"
+#include "MonsterDatabase.h"
 
 using namespace std;
 
@@ -14,7 +15,7 @@ private:
 	Hero* hero;
 	int score;
 	int time;
-	int monsterCount;
+	MonsterDatabase* monsterDatabase;
 
 public:
 	Stage();
@@ -31,4 +32,5 @@ public:
 	void showMap();
 	int scoreCount();
 	int timeFlow();
+	void showMonster();
 };
