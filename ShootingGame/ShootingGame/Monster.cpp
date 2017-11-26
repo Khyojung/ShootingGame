@@ -4,9 +4,10 @@
 Monster :: Monster(){
 }
 Monster :: Monster(int newX, int newY){
-	x = newX;
-	y = newY;
+	this->setCharacterX(newX);
+	this->setCharacterY(newY);
 	setShape("A");
+	pattern = 1;
 }
 Monster :: ~Monster(){
 }
@@ -26,7 +27,9 @@ void Monster::setPattern(int newPattern){
 }
 //함수 재정의
 void Monster::move(){
-	y += pattern;
+	if(this->getCharacterY() < 50){
+		this->setCharacterY(this->getCharacterY()+pattern);
+	}
 }
 /*
 void Monster::attack(){

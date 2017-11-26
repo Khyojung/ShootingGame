@@ -38,6 +38,10 @@ void Stage::start() { //게임의 흐름
 		if(hero->getHeroBullet()->moveBullet()) { // 총알의 움직임 및 움직임이 있을 시 화면 전환
 			showMap(); // 화면 전환
 		}
+		monsterDatabase->randomCreateMonster();
+		monsterDatabase->moveMonster();
+		showMap();
+
 		if(kbhit()) { // 키보드 입력이 있을 경우
 			int key = getch(); // 키보드의 키를 입력 받는다
 			if(key == 224 || key == 0) { // 방향키인가 검사

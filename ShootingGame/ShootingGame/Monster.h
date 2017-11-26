@@ -12,8 +12,6 @@ class Monster : public Character{
 private:
 	char* shape;
 	int pattern;
-	int x;
-	int y;
 	//BulletDatabase bulldata;
 
 public:

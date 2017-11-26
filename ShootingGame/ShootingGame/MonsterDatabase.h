@@ -11,6 +11,7 @@ class MonsterDatabase{
 	
 private:
 	map <int, Monster*> monster;
+	int dum[20];
 	int monsterCount;
 public:
 	MonsterDatabase();
@@ -20,4 +21,5 @@ public:
 	Monster* findMonster(int);
 	void print(screenBuffer);
 	void randomCreateMonster();
+	void moveMonster();
 };
