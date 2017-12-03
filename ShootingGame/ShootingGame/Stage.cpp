@@ -26,6 +26,8 @@ void Stage::setTime(int newTime) {
 // 함수
 void Stage::start() { //게임의 흐름
 	hero = new Hero(); // 영웅 생성
+	item = new ItemHouse<Item>(); //아이템 생성
+	
 	monsterDatabase = new MonsterDatabase();
 	gameRunSpead = 20;
 	int count = 0;
@@ -53,6 +55,10 @@ void Stage::start() { //게임의 흐름
 				monsterDatabase->randomCreateMonster();
 			}
 		}
+		
+		item->showItem(&buffer);
+
+
 		count++;
 		showMap();
 
@@ -101,6 +107,8 @@ void Stage::showMap() { // 화면 출력해주는 부분
 
 	//Monster 출력
 	monsterDatabase->print(buffer);
+
+	item->showItem(&buffer);
 	
 	// 화면 전환
 	buffer.Flipping();

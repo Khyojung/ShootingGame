@@ -83,7 +83,9 @@
     <ClInclude Include="Item.h" />
     <ClInclude Include="ItemBomb.h" />
     <ClInclude Include="ItemDamageDown.h" />
+    <ClInclude Include="ItemDatabase.h" />
     <ClInclude Include="ItemHeal.h" />
+    <ClInclude Include="ItemHouse.h" />
     <ClInclude Include="ItemPoint.h" />
     <ClInclude Include="ItemPowerUp.h" />
     <ClInclude Include="ItemSpeedUp.h" />
@@ -117,7 +119,9 @@
     <ClCompile Include="Item.cpp" />
     <ClCompile Include="ItemBomb.cpp" />
     <ClCompile Include="ItemDamageDown.cpp" />
+    <ClCompile Include="ItemDatabase.cpp" />
     <ClCompile Include="ItemHeal.cpp" />
+    <ClCompile Include="ItemHouse.cpp" />
     <ClCompile Include="ItemPoint.cpp" />
     <ClCompile Include="ItemPowerUp.cpp" />
     <ClCompile Include="ItemSpeedUp.cpp" />

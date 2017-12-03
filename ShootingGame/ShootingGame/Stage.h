@@ -5,6 +5,7 @@
 #include "screenBuffer.h"
 #include "Bullet.h"
 #include "MonsterDatabase.h"
+#include "ItemHouse.h"
 
 using namespace std;
 
@@ -13,6 +14,7 @@ private:
 	// 이차원 배열 맵을 제거함. 객체로서 자료들을 관리하므로 배열에 값들을 저장할 필요가 없음.
 	screenBuffer buffer;
 	Hero* hero;
+	ItemHouse<Item>* item;
 	int score;
 	int atime;
 	int gameRunSpead;
