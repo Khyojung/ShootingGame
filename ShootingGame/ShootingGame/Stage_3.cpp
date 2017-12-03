@@ -1,17 +1,8 @@
-#include<iostream>
-#include"Stage.h"
+#include "Stage_3.h"
 
-using namespace std;
-class Stage_3 : public Stage{
-	
-private:
-
-public:
-	Stage_3();
-	~Stage_3();
-	void showMap();
-	int scoreCount();
-	int timeFlow();
-	int monsterCount();
-	
-};
+// 持失切, 社瑚切
+Stage_3::Stage_3() {
+	Stage();
+}
+Stage_3::~Stage_3() {
+}

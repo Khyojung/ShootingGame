@@ -1,19 +1,27 @@
-#include<iostream>
-#include"Character.h"
 #include"Monster.h"
+#include"MonsterNormal.h"
 
-using namespace std;
+//소멸자 생성자
+MonsterNormal::MonsterNormal(){
+}
+MonsterNormal::MonsterNormal(int newX, int newY){
+	this->setCharacterX(newX);
+	this->setCharacterY(newY);
+	setShape("A");
+}
 
-class MonsterNormal : public Monster{
-	
-private:
+MonsterNormal::~MonsterNormal(){
 
-public:
-	MonsterNormal();
-	~MonsterNormal();
-	void move();
-	void attack();
+}
+//함수 재정의
 
-	void setPattern(int);
-	int getPattern();
-};
+void MonsterNormal::move(){
+	if(this->getCharacterY() < 50){
+		this->setCharacterY(this->getCharacterY()+1);
+	}
+}
+/*
+void MonsterNormal::attack(){
+
+} 
+*/

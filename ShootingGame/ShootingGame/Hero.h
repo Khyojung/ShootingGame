@@ -1,16 +1,20 @@
-#include<iostream>
-#include"Character.h"
+#pragma once
+#include "Character.h"
+#include "BulletDatabase.h"
+#include "Bullet.h"
 
-using namespace std;
-class Hero : public Character{
-	
+class Hero : public Character {
 private:
-	string shpae;
+	BulletDatabase* heroBullet;
+	int bulletCount;
 
 public:
 	Hero();
 	~Hero();
-	void move();
-	void attack();
 
+	BulletDatabase* getHeroBullet();
+	void setHeroBullet(BulletDatabase*);
+
+	void move(int keyboard);
+	void attack();
 };

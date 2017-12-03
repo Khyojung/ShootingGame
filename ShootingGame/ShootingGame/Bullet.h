@@ -1,24 +1,15 @@
-
-#include<iostream>
+#pragma once
 #include"Character.h"
-#include"BulletDatabase.h"
 
-using namespace std;
-
-class Bullet : public Character{
-	
+class Bullet : public Character {	
 private:
-	int patternX;
-	int patternY;
-	string shpae;
+	int x;
+	int y;
 
 public:
 	Bullet();
+	Bullet(int x, int y);
 	~Bullet();
-	void move();
-	void attack();
 
-	void setPattern(int);
-	int getPattern();
-
+	void changeShape();
 };

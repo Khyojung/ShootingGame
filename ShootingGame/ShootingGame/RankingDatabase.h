@@ -1,16 +1,20 @@
-#include<iostream>
+#pragma once
+#include <map>
+#include <iostream>
+#include <algorithm>
+#include <string>
 
 using namespace std;
-class RankingDatabase{
-	
+
+class RankingDatabase {
 private:
-	string userID;
-	int score[];
+	multimap<int,string,greater<int>> ranking;
+
 public:
 	RankingDatabase();
 	~RankingDatabase();
-	void addRank(int, string);
+
+	void addRank(int, char*);
 	void delRank();
 	void sorting();
-
 };

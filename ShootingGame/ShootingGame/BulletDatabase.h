@@ -1,17 +1,23 @@
-#include<iostream>
-#include<map>
-#include"Bullet.h"
+#pragma once
+#include <map>
+#include <iostream>
+#include <algorithm>
+#include "Bullet.h"
+#include "screenBuffer.h"
 
 using namespace std;
 
 class BulletDatabase{
-	
 private:
-	map <int, Bullet*> bullet;
+	multimap <int, Bullet*> bullet;
+	int bullNumber;
+
 public:
 	BulletDatabase();
 	~BulletDatabase();
-	void addBuller(int, string);
-	void delBullet();
 
+	void addBullet(int, Bullet*);
+	void delBullet(int);
+	void printBullet(screenBuffer);
+	bool moveBullet();
 };

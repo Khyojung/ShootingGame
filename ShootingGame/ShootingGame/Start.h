@@ -1,14 +1,18 @@
-#include<iostream>
+#pragma once
+#include <iostream>
 
 using namespace std;
 
-class Start{
-	
+class Start {
 private:
 	int level;
+
 public:
 	Start();
 	~Start();
-	void gameStart(int);
 
+	int getLevel();
+	void setLevel(int);
+
+	void gameStart();
 };

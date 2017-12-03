@@ -1,24 +1,25 @@
+#include "Bullet.h"
 
-#include<iostream>
-#include"Character.h"
-#include"BulletDatabase.h"
+// 생성자, 소멸자
+Bullet::Bullet() {
+}
+Bullet::Bullet(int newX, int newY){
+	x = newX;
+	y = newY;
+}
+Bullet::~Bullet() {
+}
 
-using namespace std;
-
-class Bullet : public Character{
-	
-private:
-	int patternX;
-	int patternY;
-	string shpae;
-
-public:
-	Bullet();
-	~Bullet();
-	void move();
-	void attack();
-
-	void setPattern(int);
-	int getPattern();
-
-};
+// 함수
+void Bullet::changeShape() { // 총알의 공격력에 해당하는 모양을 설정
+	switch(getDamage()) {
+	case 1:
+		setShape("Ⅰ");
+		break;
+	case 2:
+		setShape("Ⅱ");
+		break;
+	case 3:
+		setShape("Ⅲ");
+	}
+}

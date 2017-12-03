@@ -2,10 +2,11 @@
 //
 
 #include "stdafx.h"
+#include"Menu.h"
 
-
-int _tmain(int argc, _TCHAR* argv[])
-{
+int main() {
+	system("mode con cols=200 lines=55"); // 화면의 첫 크기를 설정
+	Menu* menu = new Menu();
+	menu->run();
 	return 0;
 }
-

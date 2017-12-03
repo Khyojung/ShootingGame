@@ -1,17 +1,8 @@
-#include<iostream>
-#include"Stage.h"
+#include "Stage_inf.h"
 
-using namespace std;
-class Stage_inf : public Stage{
-	
-private:
-
-public:
-	Stage_inf();
-	~Stage_inf();
-	void showMap();
-	int scoreCount();
-	int timeFlow();
-	int monsterCount();
-
-};
+// 持失切, 社瑚切
+Stage_inf::Stage_inf() {
+	Stage();
+}
+Stage_inf::~Stage_inf() {
+}

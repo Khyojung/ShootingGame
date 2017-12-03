@@ -45,7 +45,7 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
-      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -97,6 +97,7 @@
     <ClInclude Include="Music.h" />
     <ClInclude Include="Ranking.h" />
     <ClInclude Include="RankingDatabase.h" />
+    <ClInclude Include="screenBuffer.h" />
     <ClInclude Include="Setting.h" />
     <ClInclude Include="Sound.h" />
     <ClInclude Include="Stage.h" />
@@ -130,6 +131,7 @@
     <ClCompile Include="Music.cpp" />
     <ClCompile Include="Ranking.cpp" />
     <ClCompile Include="RankingDatabase.cpp" />
+    <ClCompile Include="screenBuffer.cpp" />
     <ClCompile Include="Setting.cpp" />
     <ClCompile Include="ShootingGame.cpp" />
     <ClCompile Include="Sound.cpp" />
