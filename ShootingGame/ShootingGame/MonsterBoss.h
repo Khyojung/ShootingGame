@@ -11,9 +11,6 @@ private:
 public:
 	MonsterBoss();
 	~MonsterBoss();
-	void move();
-	void attack();
-
-	void setPattern(int);
-	int getPattern();
+	//void move() override;
+	//void attack();
 };

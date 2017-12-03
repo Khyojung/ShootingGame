@@ -17,10 +17,10 @@ void Stage::setScore(int newScore) {
 	score = newScore;
 }
 int Stage::getTime() {
-	return time;
+	return atime;
 }
 void Stage::setTime(int newTime) {
-	time = newTime;
+	atime = newTime;
 }
 
 // 함수
@@ -49,9 +49,9 @@ void Stage::start() { //게임의 흐름
 			if(count % (gameRunSpead*2) == 0){
 				//게임 난이도에 따라 몬스터 생성 속도도 다르다.
 				//움직이는 것의 1/2배 정도 되는 속도로 생성된다.
+				srand((unsigned int)time(NULL));
 				monsterDatabase->randomCreateMonster();
 			}
-			
 		}
 		count++;
 		showMap();

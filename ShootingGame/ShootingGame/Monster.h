@@ -11,7 +11,6 @@ class Monster : public Character{
 	
 private:
 	char* shape;
-	int pattern;
 	//BulletDatabase bulldata;
 
 public:
@@ -19,12 +18,9 @@ public:
 	Monster(int newX, int newY);
 	~Monster();
 
-	void setPattern(int);
-	int getPattern();
 	void setShape(char*);
 	char* getShape();
 
-	void move();
+	virtual void move() = 0;
 	//void attack();
-	static void createMonster();
 };

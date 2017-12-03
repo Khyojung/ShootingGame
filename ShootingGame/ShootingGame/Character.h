@@ -5,7 +5,7 @@ private:
 	int hp;
 	int speed;
 	int damage;
-	int time;
+	int atime;
 	int characterX;
 	int characterY;
 	char *shape;
@@ -28,7 +28,4 @@ public:
 	void setCharacterY(int);
 	char* getShape();
 	void setShape(char*);
-
-	void move();
-	void attack();
 };

@@ -4,10 +4,6 @@
 
 MonsterDatabase::MonsterDatabase() {
 	monsterCount = 0;
-	srand((unsigned int)time(NULL));
-	for(int i = 0 ; i<20; i++){
-		dum[i] = rand()%20;
-	}
 }
 MonsterDatabase::~MonsterDatabase() {
 }
@@ -27,12 +23,22 @@ void MonsterDatabase::print(screenBuffer buffer){
 	}
 }
 void MonsterDatabase::randomCreateMonster(){
-	//srand((unsigned int)time(NULL));
-	//int newX = rand() % 20;
+	srand((unsigned int)time(NULL));
+	int newX = (rand()*rand()) % 20;
 
-	int newX = dum[monsterCount % 20];
-	addMonster(monsterCount, new Monster(newX, 0));
-	monsterCount++;
+	if(monsterCount % 10 == 0){
+		addMonster(monsterCount, new MonsterLarge(0, newX));
+		monsterCount++;
+	}
+	else if(monsterCount % 5 == 0){
+		srand((unsigned int)time(NULL));
+		addMonster(monsterCount, new MonsterMiddle(newX, 0));
+		monsterCount++;
+	}
+	else{
+		addMonster(monsterCount, new MonsterNormal(newX, 0));
+		monsterCount++;
+	}
 }
 void MonsterDatabase::moveMonster(){
 	map<int, Monster*>::iterator iter;

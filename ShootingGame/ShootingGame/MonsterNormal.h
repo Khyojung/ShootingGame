@@ -10,10 +10,8 @@ private:
 
 public:
 	MonsterNormal();
+	MonsterNormal(int, int);
 	~MonsterNormal();
-	void move();
-	void attack();
-
-	void setPattern(int);
-	int getPattern();
+	void move() override;
+	//void attack() override;
 };

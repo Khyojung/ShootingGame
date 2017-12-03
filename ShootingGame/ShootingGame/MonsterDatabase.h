@@ -3,6 +3,9 @@
 #include <iostream>
 #include <algorithm>
 #include "Monster.h"
+#include "MonsterNormal.h"
+#include "MonsterLarge.h"
+#include "MonsterMiddle.h"
 #include "screenBuffer.h"
 
 using namespace std;

@@ -5,7 +5,7 @@ Character::Character() { // 캐릭터가 생성되었을 때, 최소한 가지고 있어야 할 값들
 	hp = 1;
 	speed = 1;
 	damage = 1;
-	time = 1000;
+	atime = 1000;
 	characterX = 0;
 	characterY = 0;
 }
@@ -32,10 +32,10 @@ void Character::setDamage(int newDamage) {
 	damage = newDamage;
 }
 int Character::getTime() {
-	return time;
+	return atime;
 }
 void  Character::setTime(int newTime) {
-	time = newTime;
+	atime = newTime;
 }
 int Character::getCharacterX() {
 	return characterX;
@@ -54,10 +54,4 @@ char* Character::getShape() {
 }
 void Character::setShape(char* newShape) {
 	shape = newShape;
-}
-
-// 함수
-void Character::move() {
-}
-void Character::attack() {
 }

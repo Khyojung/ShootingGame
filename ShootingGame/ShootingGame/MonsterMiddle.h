@@ -10,10 +10,8 @@ private:
 
 public:
 	MonsterMiddle();
+	MonsterMiddle(int, int);
 	~MonsterMiddle();
-	void move();
-	void attack();
-
-	void setPattern(int);
-	int getPattern();
+	void move() override;
+//	void attack() override;
 };

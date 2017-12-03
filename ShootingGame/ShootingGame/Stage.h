@@ -14,7 +14,7 @@ private:
 	screenBuffer buffer;
 	Hero* hero;
 	int score;
-	int time;
+	int atime;
 	int gameRunSpead;
 	MonsterDatabase* monsterDatabase;
 
