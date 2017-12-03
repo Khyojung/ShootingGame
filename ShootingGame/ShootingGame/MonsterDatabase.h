@@ -7,6 +7,9 @@
 #include "MonsterLarge.h"
 #include "MonsterMiddle.h"
 #include "screenBuffer.h"
+#include "Hero.h"
+#include <cstdlib>
+#include <ctime>
 
 using namespace std;
 
@@ -25,4 +28,7 @@ public:
 	void print(screenBuffer);
 	void randomCreateMonster();
 	void moveMonster();
+	int whenHeroUseBomb(int);
+	int whenCrashWithHero(Hero*);
+	int whenCrashWithBullet(Hero*);
 };

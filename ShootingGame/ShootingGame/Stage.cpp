@@ -1,6 +1,4 @@
 #include"Stage.h"
-#include <cstdlib>
-#include <ctime>
 
 // 생성자, 소멸자
 Stage::Stage() { // 맵 초기화, 배열을 초기화 하는 부분을 삭제함, 이유는 객체로 관리하기 때문에 맵의 배열이 필요가 없음.
@@ -25,8 +23,10 @@ void Stage::setTime(int newTime) {
 
 // 함수
 void Stage::start() { //게임의 흐름
+	begin = clock();
 	hero = new Hero(); // 영웅 생성
 	monsterDatabase = new MonsterDatabase();
+	score = 0;
 	gameRunSpead = 20;
 	int count = 0;
 
@@ -39,9 +39,9 @@ void Stage::start() { //게임의 흐름
 		if(hero->getTime() > 0) { // 영웅의 공격 대기시간 감소
 			hero->setTime(hero->getTime()-1);
 		}
-		if(hero->getHeroBullet()->moveBullet()) { // 총알의 움직임 및 움직임이 있을 시 화면 전환
-			showMap(); // 화면 전환
-		}
+
+		hero->getHeroBullet()->moveBullet(); // 총알의 움직임 및 움직임이 있을 시 화면 전환
+
 		//몬스터 생성 및 이동
 		if(count % gameRunSpead == 0){
 			//게임 난이도에 따라 속도가 달라진다.
@@ -55,6 +55,9 @@ void Stage::start() { //게임의 흐름
 		}
 		count++;
 		showMap();
+
+		score = score + monsterDatabase->whenCrashWithHero(hero);
+		score = score + monsterDatabase->whenCrashWithBullet(hero);
 
 		if(kbhit()) { // 키보드 입력이 있을 경우
 			int key = getch(); // 키보드의 키를 입력 받는다
@@ -70,6 +73,10 @@ void Stage::start() { //게임의 흐름
 				hero->setTime(10); // 공격 대기시간 초기화
 				hero->attack(); // 총알 생성
 				showMap(); // 화면 전환
+			}
+			if(key == 98 && hero->getBombCount() > 0) { // b를 누르면
+				score = score + monsterDatabase->whenHeroUseBomb(hero->getBombDamage()); // 몬스터 데이터베이스에 영웅의 폭탄 공격력 만큼의 피해를 줌
+				hero->setBombCount(hero->getBombCount() - 1); // 폭탄 개수 감소
 			}
 		}
 	}
@@ -102,6 +109,34 @@ void Stage::showMap() { // 화면 출력해주는 부분
 	//Monster 출력
 	monsterDatabase->print(buffer);
 	
+	// 출력 기본 위치 저장
+	int printX = 46;
+	int printY = 50;
+
+	// 시간 출력
+	end = clock();
+	char convertString[40];
+	itoa((end-begin)/CLOCKS_PER_SEC * 100, convertString, 10);
+	buffer.BufferWrite(printX, printY, "Time : ");
+	buffer.BufferWrite(printX+7, printY, convertString);
+
+	// 점수 출력
+	itoa(score * 100, convertString, 10);
+	buffer.BufferWrite(printX, printY-1, "Score : ");
+	buffer.BufferWrite(printX+8, printY-1, convertString);
+
+	// 체력 출력
+	buffer.BufferWrite(printX, printY-2, "HP : ");
+	for(int i = 0; i < hero->getHp(); i++) {
+		buffer.BufferWrite(printX+5+(i*2), printY-2, "♥");
+	}
+
+	// 폭탄 개수 출력
+	buffer.BufferWrite(printX, printY-3, "BOMB : ");
+	for(int i = 0; i < hero->getBombCount(); i++) {
+		buffer.BufferWrite(printX+7+(i*2), printY-3, "◎");
+	}
+
 	// 화면 전환
 	buffer.Flipping();
 }
