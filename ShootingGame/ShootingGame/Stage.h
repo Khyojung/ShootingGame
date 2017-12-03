@@ -5,6 +5,8 @@
 #include "screenBuffer.h"
 #include "Bullet.h"
 #include "MonsterDatabase.h"
+#include <cstdlib>
+#include <ctime>
 
 using namespace std;
 
@@ -17,6 +19,7 @@ private:
 	int atime;
 	int gameRunSpead;
 	MonsterDatabase* monsterDatabase;
+	clock_t begin, end;
 
 public:
 	Stage();
