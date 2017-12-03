@@ -1,3 +1,4 @@
+#pragma once
 #include<iostream>
 #include"Item.h"
 
@@ -9,8 +10,7 @@ private:
 public:
 	ItemSpeedUp();
 	~ItemSpeedUp();
-	void property(Character ch);
-	void move();
-	void eaten();
+
+
 
 };

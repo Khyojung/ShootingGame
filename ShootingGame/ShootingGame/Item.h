@@ -1,25 +1,25 @@
+#pragma once
 #include<iostream>
 #include"Character.h"
 
+#include <cstdlib>
+#include <ctime>
+
 using namespace std;
-class Item{
+class Item : public Character{
 	
 private:
-	int itemX;
-	int itemY;
-	string shape;
+	int randomx;
+	int randomy;
+
 public:
 	Item();
 	~Item();
-	void property(Character ch);
-	int scoreCount();
-	int timeFlow();
-	int monsterCount();
 
-	int getItemX();
-	void setItemX(int);
-	int getItemY();
-	void setItemY(int);
-	string getShape();
-	void setShape(string);
+	//각 아이템의 기능
+	void itemFunction();
+	int itemRandomX();
+	int itemRandomY();
+
+
 };

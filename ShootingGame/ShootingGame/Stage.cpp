@@ -25,6 +25,8 @@ void Stage::setTime(int newTime) {
 void Stage::start() { //게임의 흐름
 	begin = clock();
 	hero = new Hero(); // 영웅 생성
+	item = new ItemHouse<Item>(); //아이템 생성
+	
 	monsterDatabase = new MonsterDatabase();
 	score = 0;
 	gameRunSpead = 20;
@@ -53,6 +55,10 @@ void Stage::start() { //게임의 흐름
 				monsterDatabase->randomCreateMonster();
 			}
 		}
+		
+		item->showItem(&buffer);
+
+
 		count++;
 		showMap();
 
@@ -108,6 +114,8 @@ void Stage::showMap() { // 화면 출력해주는 부분
 
 	//Monster 출력
 	monsterDatabase->print(buffer);
+
+	item->showItem(&buffer);
 	
 	// 출력 기본 위치 저장
 	int printX = 46;
