@@ -28,7 +28,7 @@ void MonsterDatabase::print(screenBuffer buffer){
 }
 void MonsterDatabase::randomCreateMonster(){
 	//srand((unsigned int)time(NULL));
-	//int newX = rand() % 18;
+	//int newX = rand() % 20;
 
 	int newX = dum[monsterCount % 20];
 	addMonster(monsterCount, new Monster(newX, 0));

@@ -1,4 +1,6 @@
 #include"Stage.h"
+#include <cstdlib>
+#include <ctime>
 
 // 생성자, 소멸자
 Stage::Stage() { // 맵 초기화, 배열을 초기화 하는 부분을 삭제함, 이유는 객체로 관리하기 때문에 맵의 배열이 필요가 없음.
@@ -25,6 +27,8 @@ void Stage::setTime(int newTime) {
 void Stage::start() { //게임의 흐름
 	hero = new Hero(); // 영웅 생성
 	monsterDatabase = new MonsterDatabase();
+	gameRunSpead = 20;
+	int count = 0;
 
 	// 화면 버퍼 생성
 	buffer.CreateBuffer();
@@ -38,8 +42,18 @@ void Stage::start() { //게임의 흐름
 		if(hero->getHeroBullet()->moveBullet()) { // 총알의 움직임 및 움직임이 있을 시 화면 전환
 			showMap(); // 화면 전환
 		}
-		monsterDatabase->randomCreateMonster();
-		monsterDatabase->moveMonster();
+		//몬스터 생성 및 이동
+		if(count % gameRunSpead == 0){
+			//게임 난이도에 따라 속도가 달라진다.
+			monsterDatabase->moveMonster();
+			if(count % (gameRunSpead*2) == 0){
+				//게임 난이도에 따라 몬스터 생성 속도도 다르다.
+				//움직이는 것의 1/2배 정도 되는 속도로 생성된다.
+				monsterDatabase->randomCreateMonster();
+			}
+			
+		}
+		count++;
 		showMap();
 
 		if(kbhit()) { // 키보드 입력이 있을 경우

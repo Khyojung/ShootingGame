@@ -15,6 +15,7 @@ private:
 	Hero* hero;
 	int score;
 	int time;
+	int gameRunSpead;
 	MonsterDatabase* monsterDatabase;
 
 public:
