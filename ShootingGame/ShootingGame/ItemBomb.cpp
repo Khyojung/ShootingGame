@@ -7,5 +7,8 @@ ItemBomb::ItemBomb(){
 	setTime(3);
 
 
-	setShape("¤±");
+	setShape("¡Ý");
+}
+void ItemBomb::itemFunction(Hero* hero){
+	hero->setBombCount(hero->getBombCount()+1);
 }

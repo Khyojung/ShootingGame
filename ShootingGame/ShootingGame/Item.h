@@ -1,6 +1,6 @@
 #pragma once
 #include<iostream>
-#include"Character.h"
+#include"Hero.h"
 
 #include <cstdlib>
 #include <ctime>
@@ -17,7 +17,7 @@ public:
 	~Item();
 
 	//각 아이템의 기능
-	void itemFunction();
+	virtual void itemFunction(Hero*) = 0;
 	int itemRandomX();
 	int itemRandomY();
 

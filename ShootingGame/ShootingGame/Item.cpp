@@ -18,6 +18,6 @@ int Item::itemRandomX(){
 int Item::itemRandomY(){
 
 	srand((unsigned int)time(NULL));
-	randomy = (rand()*rand())%50;
+	randomy = (rand()*rand())%30+10;
 	return randomy;
 }

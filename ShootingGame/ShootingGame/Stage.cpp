@@ -25,9 +25,10 @@ void Stage::setTime(int newTime) {
 void Stage::start() { //게임의 흐름
 	begin = clock();
 	hero = new Hero(); // 영웅 생성
-	item = new ItemHouse<Item>(); //아이템 생성
+	item = new ItemHouse(); //아이템 생성
 	
 	monsterDatabase = new MonsterDatabase();
+	
 	score = 0;
 	gameRunSpead = 20;
 	int count = 0;
@@ -56,11 +57,13 @@ void Stage::start() { //게임의 흐름
 			}
 		}
 		
-		item->showItem(&buffer);
+		item->showItem();
 
 
 		count++;
 		showMap();
+
+		item->getItemDatabase()->whenEatenbyHero(hero);
 
 		score = score + monsterDatabase->whenCrashWithHero(hero);
 		score = score + monsterDatabase->whenCrashWithBullet(hero);
@@ -115,7 +118,8 @@ void Stage::showMap() { // 화면 출력해주는 부분
 	//Monster 출력
 	monsterDatabase->print(buffer);
 
-	item->showItem(&buffer);
+	item->showItem();
+	item->getItemDatabase()->printItem(buffer);
 	
 	// 출력 기본 위치 저장
 	int printX = 46;

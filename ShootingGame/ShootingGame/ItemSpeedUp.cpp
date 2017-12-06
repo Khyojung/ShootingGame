@@ -8,5 +8,8 @@ ItemSpeedUp::ItemSpeedUp(){
 
 
 
-	setShape("oo");
+	setShape("¡Ù");
+}
+void ItemSpeedUp::itemFunction(Hero* hero){
+	hero->setBombCount(hero->getBombCount()+1);
 }

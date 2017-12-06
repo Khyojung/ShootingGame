@@ -11,6 +11,6 @@ public:
 	ItemPowerUp();
 	~ItemPowerUp();
 
-
+	virtual void itemFunction(Hero*);
 
 };

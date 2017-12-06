@@ -8,5 +8,9 @@ ItemPoint::ItemPoint(){
 
 
 
-	setShape("uu");
+	setShape("¡Ø");
+}
+
+void ItemPoint::itemFunction(Hero* hero){
+	hero->setBombCount(hero->getBombCount()+1);
 }

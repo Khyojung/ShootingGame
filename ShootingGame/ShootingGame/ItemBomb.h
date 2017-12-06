@@ -1,4 +1,5 @@
-#pragma once
+#ifndef __ITEMBOMB_H
+#define __ITEMBOMB_H
 #include<iostream>
 #include"Item.h"
 
@@ -12,5 +13,8 @@ public:
 	~ItemBomb();
 
 
+	virtual void itemFunction(Hero*);
+
 
 };
+#endif

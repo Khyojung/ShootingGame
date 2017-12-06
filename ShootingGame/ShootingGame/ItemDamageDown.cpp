@@ -8,5 +8,9 @@ ItemDamageDown::ItemDamageDown(){
 
 
 
-	setShape("ss");
+	setShape("бщ");
+}
+
+void ItemDamageDown::itemFunction(Hero* hero){
+	hero->setDamage(hero->getDamage()-1);
 }

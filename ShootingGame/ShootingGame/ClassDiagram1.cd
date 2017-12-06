@@ -1,0 +1,228 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Menu" Collapsed="true">
+    <Position X="34.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgAAAABAAAAAAgAgAAAAAAAIIAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Menu.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Music" Collapsed="true">
+    <Position X="31" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAAAAARAACAAAAAAAAAAAAAEAAAAAIAAAQAAA=</HashCode>
+      <FileName>Music.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Ranking" Collapsed="true">
+    <Position X="32.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAQCAAAAAABAAAAAQABAAAAAAAAAAAAAABAAAAA=</HashCode>
+      <FileName>Ranking.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RankingDatabase" Collapsed="true">
+    <Position X="34.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>GAAAAAgAAAAAAAAAAAgAAAAAAAAAEAAACAAAAAAAAAA=</HashCode>
+      <FileName>RankingDatabase.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="screenBuffer" Collapsed="true">
+    <Position X="36.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAEAAQAAAAAAACAAAAABAABAABBAAAAA=</HashCode>
+      <FileName>screenBuffer.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Setting" Collapsed="true">
+    <Position X="31" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAQABAAAAAAEABAAAAAAEAABAQEAAAEBAAAA=</HashCode>
+      <FileName>Setting.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Sound" Collapsed="true">
+    <Position X="32.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAACAAAAAAAAAEAAAAAIAAAQBAAAgAAAABA=</HashCode>
+      <FileName>Sound.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Start" Collapsed="true">
+    <Position X="34.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAABAAAgEAAAAAAAEAQAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Start.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Stage" Collapsed="true">
+    <Position X="3.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAACAkAAAIAgGAQYAAAQCAAACAKAAAhAAAGQAAA=</HashCode>
+      <FileName>Stage.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Stage_1" Collapsed="true">
+    <Position X="2.75" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAIAAAQACAACAAAAAAAAAAAEACAAAA=</HashCode>
+      <FileName>Stage_1.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Stage_2" Collapsed="true">
+    <Position X="5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAIAAAQAAAACAAAABAAAAAAAgCAAAA=</HashCode>
+      <FileName>Stage_2.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Stage_3" Collapsed="true">
+    <Position X="7.25" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAIAAAQAAAACAAAAAAAAAAABACAAAA=</HashCode>
+      <FileName>Stage_3.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Stage_inf" Collapsed="true">
+    <Position X="0.5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAIAAAQAAAACAAAAAAEAAAAAACAAAg=</HashCode>
+      <FileName>Stage_inf.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Item" Collapsed="true">
+    <Position X="9.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAACEGAAAACAAAAAAEAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Item.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ItemBomb" Collapsed="true">
+    <Position X="6" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAIAAAA=</HashCode>
+      <FileName>ItemBomb.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ItemDamageDown" Collapsed="true">
+    <Position X="10.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAA=</HashCode>
+      <FileName>ItemDamageDown.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ItemDatabase" Collapsed="true">
+    <Position X="32.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAAgAAAAAgAAESAAAAgAAAAAAAAAAAAABAAAAA=</HashCode>
+      <FileName>ItemDatabase.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ItemHeal" Collapsed="true">
+    <Position X="15" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAIAAAAAAAAAAA=</HashCode>
+      <FileName>ItemHeal.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ItemHouse" Collapsed="true">
+    <Position X="1.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAggAABgAAAQAQBAAAAAAAIgAAAAAAAABABAAA=</HashCode>
+      <FileName>ItemHouse.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ItemPoint" Collapsed="true">
+    <Position X="3.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAIAgAAAAAAAAAAAA=</HashCode>
+      <FileName>ItemPoint.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ItemPowerUp" Collapsed="true">
+    <Position X="8.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAgAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ItemPowerUp.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ItemSpeedUp" Collapsed="true">
+    <Position X="12.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAQAAAAgAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ItemSpeedUp.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Bullet" Collapsed="true">
+    <Position X="28.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAABkAAAQAAA=</HashCode>
+      <FileName>Bullet.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BulletDatabase" Collapsed="true">
+    <Position X="31" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIEAAIAAAAAQAEAAAAAAgAACAAAAABAAABAAAAA=</HashCode>
+      <FileName>BulletDatabase.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Character" Collapsed="true">
+    <Position X="15" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>YIAADgAAAAAAwAAAAAAIAAAAAAAQAQANAABAAAUQbAA=</HashCode>
+      <FileName>Character.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Hero" Collapsed="true">
+    <Position X="17.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgAQAQAADAAAAAAAIwAAAAEACAAQEAAAAgAAA=</HashCode>
+      <FileName>Hero.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Monster" Collapsed="true">
+    <Position X="23" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAACACAAAAAAAAAAAAAAAAgAAAAQARAA=</HashCode>
+      <FileName>Monster.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MonsterBoss" Collapsed="true">
+    <Position X="24" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>MonsterBoss.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MonsterDatabase" Collapsed="true">
+    <Position X="36.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAACAAFAAAAAIABAAABAIABAAEAAAAIQAAAIAAAA=</HashCode>
+      <FileName>MonsterDatabase.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MonsterLarge" Collapsed="true">
+    <Position X="26.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAgAAIAACAAAAAAAAAAAAAAAAAAAAACBAAgAA=</HashCode>
+      <FileName>MonsterLarge.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MonsterMiddle" Collapsed="true">
+    <Position X="19.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAACAAAAAAAAAACAAAAAAIAAAAAAAAAA=</HashCode>
+      <FileName>MonsterMiddle.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MonsterNormal" Collapsed="true">
+    <Position X="21.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAEAAACAAAAAAAAAAAAAAAAAAAAAAACAAAA=</HashCode>
+      <FileName>MonsterNormal.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="맑은 고딕" Size="9" />
+</ClassDiagram>

@@ -2,31 +2,38 @@
 
 // 생성자, 소멸자
 
-ItemDatabase<Item>::ItemDatabase() {
+ItemDatabase::ItemDatabase() {
 }
 
-ItemDatabase<Item>::~ItemDatabase() {
+ItemDatabase::~ItemDatabase() {
 }
 
 // 함수
 
-void ItemDatabase<Item>::addItem(int itemNumber, Item* newItem) { // 아이템 추가
+bool ItemDatabase::addItem(int itemNumber, Item* newItem) { // 아이템 추가
+	map<int, Item*>::iterator iter;
+	for(iter = item.begin(); iter != item.end(); ++iter){
+		if((iter->second->getCharacterX() == newItem->getCharacterX())&&(iter->second->getCharacterY() == newItem->getCharacterY()))
+			return false;
+
+	}
 	item.insert(pair<int,Item*> (itemNumber, newItem));
+	return true;
 }
 
-void ItemDatabase<Item>::delItem(int itemNumber) { // 아이템 제거
+void ItemDatabase::delItem(int itemNumber) { // 아이템 제거
 	item.erase(itemNumber);
 }
 
-void ItemDatabase<Item>::printItem(screenBuffer* buffer) { // 아이템을 화면에 출력
-	multimap<int, Item*>::iterator iter;
+void ItemDatabase::printItem(screenBuffer buffer) { // 아이템을 화면에 출력
+	map<int, Item*>::iterator iter;
 	for (iter = item.begin(); iter != item.end(); ++iter) {
-		buffer->BufferWrite(iter->second->getCharacterX()*2+2, iter->second->getCharacterY()+1, iter->second->getShape()); // 총알의 X, Y좌표에 총알의 모양을 출력해준다.
+		buffer.BufferWrite(iter->second->getCharacterX()*2+2, iter->second->getCharacterY()+1, iter->second->getShape()); // 총알의 X, Y좌표에 총알의 모양을 출력해준다.
 	}
 }
 
-bool ItemDatabase<Item>::moveItem() { // 아이템의 이동
-	multimap<int, Item*>::iterator iter;
+bool ItemDatabase::moveItem() { // 아이템의 이동
+	map<int, Item*>::iterator iter;
 	map<int, int> temp;
 	bool moved = false; // 이동이 존재하였는지 확인
 	for (iter = item.begin(); iter != item.end(); ++iter) {
@@ -50,4 +57,26 @@ bool ItemDatabase<Item>::moveItem() { // 아이템의 이동
 		delItem(tempIter->second); // 반복자를 통하여 위에서 제거할 아이템의 번호들에 해당하는 아이템들을 제거해줌.
 	}
 	return moved; // 아이템의 삭제나 이동의 유무를 반환해 줌.
+}
+/*
+* 히어로가 아이템을 먹었을 때 아이템을 화면에서 지워줌
+*/
+void ItemDatabase::whenEatenbyHero(Hero* hero) {
+
+	map<int, Item*>::iterator iter;
+	map<int, int> temp;
+	
+	for (iter = item.begin(); iter != item.end(); ++iter) {
+		if(iter->second->getCharacterX() == hero->getCharacterX() && iter->second->getCharacterY() == hero->getCharacterY()) {
+			iter->second->setHp(0);
+			iter->second->itemFunction(hero);
+			temp.insert(pair<int, int> (iter->first,iter->first)); 
+		}
+	}
+	map<int, int>::iterator tempIter;
+	for(tempIter = temp.begin();tempIter != temp.end(); ++tempIter) {
+		this->delItem(tempIter->second); // 반복자를 통하여 아이템을 제거해준다.
+	}
+
+	return ;
 }

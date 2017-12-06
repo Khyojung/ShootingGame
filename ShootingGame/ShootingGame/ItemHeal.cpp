@@ -8,5 +8,9 @@ ItemHeal::ItemHeal(){
 
 
 
-	setShape("aa");
+	setShape("¢¾");
+}
+
+void ItemHeal::itemFunction(Hero* hero){
+	hero->setHp(hero->getHp()+1);
 }
