@@ -8,7 +8,8 @@ MonsterLarge::MonsterLarge(){
 MonsterLarge::MonsterLarge(int newX, int newY){
 	this->setCharacterX(newX);
 	this->setCharacterY(newY);
-	this->setShape("C");
+	char* temp[3] = {"CCCCCC","CCCCCC","CCCCCC"};
+	setShape(temp);
 	right = true;
 }
 MonsterLarge::~MonsterLarge(){
@@ -27,7 +28,7 @@ void MonsterLarge::move(){
 	if(this->getCharacterY() < 50){
 		if(right){
 			this->setCharacterX(this->getCharacterX()+1);
-			if(getCharacterX() >= 19)
+			if(getCharacterX() >= 17)
 				setRight(false);
 		}
 		else{

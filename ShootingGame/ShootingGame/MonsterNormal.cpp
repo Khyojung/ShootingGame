@@ -7,7 +7,8 @@ MonsterNormal::MonsterNormal(){
 MonsterNormal::MonsterNormal(int newX, int newY){
 	this->setCharacterX(newX);
 	this->setCharacterY(newY);
-	setShape("A");
+	char* temp[2] = {"AAAA","AAAA"};
+	setShape(temp);
 }
 
 MonsterNormal::~MonsterNormal(){

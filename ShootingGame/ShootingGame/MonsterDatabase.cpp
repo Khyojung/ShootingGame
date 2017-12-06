@@ -17,7 +17,15 @@ void MonsterDatabase::delMonster(int monsterNumber) {
 void MonsterDatabase::print(screenBuffer buffer){
 	map<int, Monster*>::iterator iter;
 	for (iter = monster.begin(); iter != monster.end(); ++iter) {
-		buffer.BufferWrite(iter->second->getCharacterX()*2+2, iter->second->getCharacterY()+1, iter->second->getShape()); 
+		if(iter->second->getShape()[0] == "CCCCCC") {
+			buffer.BufferWrite(iter->second->getCharacterX()*2+2, iter->second->getCharacterY()+1, *(iter->second->getShape())); 
+			buffer.BufferWrite(iter->second->getCharacterX()*2+2, iter->second->getCharacterY()+2, *(iter->second->getShape()+1)); 
+			buffer.BufferWrite(iter->second->getCharacterX()*2+2, iter->second->getCharacterY()+3, *(iter->second->getShape()+2)); 
+		}
+		else {
+			buffer.BufferWrite(iter->second->getCharacterX()*2+2, iter->second->getCharacterY()+1, *(iter->second->getShape())); 
+			buffer.BufferWrite(iter->second->getCharacterX()*2+2, iter->second->getCharacterY()+2, *(iter->second->getShape()+1)); 
+		}
 	}
 }
 void MonsterDatabase::randomCreateMonster(){
@@ -43,7 +51,7 @@ void MonsterDatabase::moveMonster(){
 	map<int, int> temp;
 	for (iter = monster.begin(); iter != monster.end(); ++iter) {
 		iter->second->move();
-		if(iter->second->getCharacterY() > 49)
+		if(iter->second->getCharacterY() > 48)
 			temp.insert(pair<int, int> (iter->first,iter->first)); 
 	}
 	map<int, int>::iterator tempIter;
@@ -75,7 +83,10 @@ int MonsterDatabase::whenCrashWithHero(Hero* hero) {
 	map<int, int> temp;
 	
 	for (iter = monster.begin(); iter != monster.end(); ++iter) {
-		if(iter->second->getCharacterX() == hero->getCharacterX() && iter->second->getCharacterY() == hero->getCharacterY()) {
+		if((iter->second->getCharacterX() == hero->getCharacterX() && iter->second->getCharacterY() == hero->getCharacterY())||
+			(iter->second->getCharacterX()+1 == hero->getCharacterX() && iter->second->getCharacterY() == hero->getCharacterY())||
+			(iter->second->getCharacterX() == hero->getCharacterX() && iter->second->getCharacterY()+1 == hero->getCharacterY())||
+			(iter->second->getCharacterX()+1 == hero->getCharacterX() && iter->second->getCharacterY()+1 == hero->getCharacterY())) {
 			iter->second->setHp(iter->second->getHp() - 10);
 			hero->setHp(hero->getHp() - 1);
 		}
@@ -99,7 +110,10 @@ int MonsterDatabase::whenCrashWithBullet(Hero* hero) {
 	map<int, int> deleteBullet;
 	for (monsterIter = monster.begin(); monsterIter != monster.end(); ++monsterIter) {
 		for (bulletIter = hero->getHeroBullet()->getBullet()->begin(); bulletIter != hero->getHeroBullet()->getBullet()->end(); ++bulletIter) {
-			if(monsterIter->second->getCharacterX() == bulletIter->second->getCharacterX() && monsterIter->second->getCharacterY() == bulletIter->second->getCharacterY()) {
+			if((monsterIter->second->getCharacterX() == bulletIter->second->getCharacterX() && monsterIter->second->getCharacterY() == bulletIter->second->getCharacterY())||
+				(monsterIter->second->getCharacterX()+1 == bulletIter->second->getCharacterX() && monsterIter->second->getCharacterY() == bulletIter->second->getCharacterY())||
+				(monsterIter->second->getCharacterX() == bulletIter->second->getCharacterX() && monsterIter->second->getCharacterY()+1 == bulletIter->second->getCharacterY())||
+				(monsterIter->second->getCharacterX()+1 == bulletIter->second->getCharacterX() && monsterIter->second->getCharacterY()+1 == bulletIter->second->getCharacterY())) {
 				monsterIter->second->setHp(monsterIter->second->getHp() - hero->getDamage());
 				deleteBullet.insert(pair<int, int> (bulletIter->first, bulletIter->first));
 			}
