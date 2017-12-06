@@ -32,7 +32,7 @@ void ItemHouse::newItem(){
 	int temp = 0;
 	srand((unsigned int)time(NULL));
 	temp = rand()%6;
-	/*switch(temp){
+	switch(temp){
 	case 0:
 		item = new ItemBomb();
 		break;
@@ -54,8 +54,7 @@ void ItemHouse::newItem(){
 		break;
 	default:
 		break;
-	}*/
-		item = new ItemHeal();
+	}
 
 	if(itemDatabase->addItem(getItemCount(), item))
 		setItemCount(getItemCount()+1);

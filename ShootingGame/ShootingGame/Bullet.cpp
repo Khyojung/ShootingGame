@@ -21,5 +21,14 @@ void Bullet::changeShape() { // 총알의 공격력에 해당하는 모양을 설정
 		break;
 	case 3:
 		setShape("Ⅲ");
+		break;
+	case 4:
+		setShape("‡");
+		break;
+	case 5:
+		setShape("º");
+		break;
+	default:
+		break;
 	}
 }

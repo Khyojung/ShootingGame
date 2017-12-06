@@ -11,6 +11,6 @@ ItemPoint::ItemPoint(){
 	setShape("¡Ø");
 }
 
-void ItemPoint::itemFunction(Hero* hero){
-	hero->setBombCount(hero->getBombCount()+1);
+int ItemPoint::itemFunction(Hero* hero){
+	return 5*getScore();
 }

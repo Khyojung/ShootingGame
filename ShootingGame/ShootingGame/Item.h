@@ -11,15 +11,17 @@ class Item : public Character{
 private:
 	int randomx;
 	int randomy;
+	int score;
 
 public:
 	Item();
 	~Item();
 
 	//각 아이템의 기능
-	virtual void itemFunction(Hero*) = 0;
+	virtual int itemFunction(Hero*) = 0;
 	int itemRandomX();
 	int itemRandomY();
 
-
+	int getScore();
+	void setScore(int );
 };

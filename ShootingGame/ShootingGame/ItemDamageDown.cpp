@@ -11,6 +11,9 @@ ItemDamageDown::ItemDamageDown(){
 	setShape("бщ");
 }
 
-void ItemDamageDown::itemFunction(Hero* hero){
-	hero->setDamage(hero->getDamage()-1);
+int ItemDamageDown::itemFunction(Hero* hero){
+	if(hero->getDamage() > 1)
+		hero->setDamage(hero->getDamage()-1);
+
+		return getScore();
 }

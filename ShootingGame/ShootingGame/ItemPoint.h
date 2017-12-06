@@ -11,6 +11,6 @@ public:
 	ItemPoint();
 	~ItemPoint();
 
-	virtual void itemFunction(Hero*);
+	virtual int itemFunction(Hero*);
 
 };

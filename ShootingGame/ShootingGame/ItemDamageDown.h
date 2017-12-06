@@ -10,6 +10,6 @@ private:
 public:
 	ItemDamageDown();
 	~ItemDamageDown();
-	virtual void itemFunction(Hero*);
+	virtual int itemFunction(Hero*);
 
 };

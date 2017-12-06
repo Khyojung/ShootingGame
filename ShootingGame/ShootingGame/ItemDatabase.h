@@ -21,5 +21,5 @@ public:
 	void delItem(int);
 	void printItem(screenBuffer);
 	bool moveItem();
-	void whenEatenbyHero(Hero* );
+	int whenEatenbyHero(Hero* );
 };

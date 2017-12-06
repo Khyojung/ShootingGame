@@ -9,6 +9,9 @@ ItemBomb::ItemBomb(){
 
 	setShape("¡Ý");
 }
-void ItemBomb::itemFunction(Hero* hero){
-	hero->setBombCount(hero->getBombCount()+1);
+int ItemBomb::itemFunction(Hero* hero){
+	if(hero->getBombCount() <= 5)
+		hero->setBombCount(hero->getBombCount()+1);
+
+	return getScore();
 }

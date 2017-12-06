@@ -61,15 +61,16 @@ bool ItemDatabase::moveItem() { // 아이템의 이동
 /*
 * 히어로가 아이템을 먹었을 때 아이템을 화면에서 지워줌
 */
-void ItemDatabase::whenEatenbyHero(Hero* hero) {
+int ItemDatabase::whenEatenbyHero(Hero* hero) {
 
 	map<int, Item*>::iterator iter;
 	map<int, int> temp;
+	int score = 0;
 	
 	for (iter = item.begin(); iter != item.end(); ++iter) {
 		if(iter->second->getCharacterX() == hero->getCharacterX() && iter->second->getCharacterY() == hero->getCharacterY()) {
 			iter->second->setHp(0);
-			iter->second->itemFunction(hero);
+			 score += iter->second->itemFunction(hero);
 			temp.insert(pair<int, int> (iter->first,iter->first)); 
 		}
 	}
@@ -78,5 +79,5 @@ void ItemDatabase::whenEatenbyHero(Hero* hero) {
 		this->delItem(tempIter->second); // 반복자를 통하여 아이템을 제거해준다.
 	}
 
-	return ;
+	return score;
 }

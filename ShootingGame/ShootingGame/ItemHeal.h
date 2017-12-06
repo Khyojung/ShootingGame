@@ -11,5 +11,5 @@ public:
 	ItemHeal();
 	~ItemHeal();
 
-	virtual void itemFunction(Hero*);
+	virtual int itemFunction(Hero*);
 };

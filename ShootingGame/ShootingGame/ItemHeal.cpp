@@ -11,6 +11,9 @@ ItemHeal::ItemHeal(){
 	setShape("¢¾");
 }
 
-void ItemHeal::itemFunction(Hero* hero){
-	hero->setHp(hero->getHp()+1);
+int ItemHeal::itemFunction(Hero* hero){
+	if(hero->getHp() <= 5)
+		hero->setHp(hero->getHp()+1);
+
+		return getScore();
 }

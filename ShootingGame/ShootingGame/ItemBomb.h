@@ -13,7 +13,7 @@ public:
 	~ItemBomb();
 
 
-	virtual void itemFunction(Hero*);
+	virtual int itemFunction(Hero*);
 
 
 };

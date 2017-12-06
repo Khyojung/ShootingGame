@@ -10,6 +10,7 @@ ItemSpeedUp::ItemSpeedUp(){
 
 	setShape("¡Ù");
 }
-void ItemSpeedUp::itemFunction(Hero* hero){
+int ItemSpeedUp::itemFunction(Hero* hero){
 	hero->setBombCount(hero->getBombCount()+1);
+	return getScore();
 }

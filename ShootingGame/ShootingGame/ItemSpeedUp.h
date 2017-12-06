@@ -12,6 +12,6 @@ public:
 	ItemSpeedUp();
 	~ItemSpeedUp();
 
-	virtual void itemFunction(Hero*);
+	virtual int itemFunction(Hero*);
 
 };

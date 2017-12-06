@@ -10,6 +10,9 @@ ItemPowerUp::ItemPowerUp(){
 	setShape("ก่");
 }
 
-void ItemPowerUp::itemFunction(Hero* hero){
-	hero->setDamage(hero->getDamage()+1);
+int ItemPowerUp::itemFunction(Hero* hero){
+	if(hero->getDamage() < 5)
+		hero->setDamage(hero->getDamage()+1);
+
+		return getScore();
 }
