@@ -145,7 +145,7 @@ void Stage::showMap() { // 화면 출력해주는 부분
 	// 폭탄 개수 출력
 	buffer.BufferWrite(printX, printY-3, "BOMB : ");
 	for(int i = 0; i < hero->getBombCount(); i++) {
-		buffer.BufferWrite(printX+7+(i*2), printY-3, "💣");
+		buffer.BufferWrite(printX+7+(i*2), printY-3, "◎");
 	}
 
 	// 화면 전환

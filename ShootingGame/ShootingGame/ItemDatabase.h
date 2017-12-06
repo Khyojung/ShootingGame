@@ -12,6 +12,7 @@ using namespace std;
 class ItemDatabase{
 private:
 	map <int, Item*> item;
+	int itemCount;
 
 public:
 	ItemDatabase();

@@ -7,6 +7,7 @@ using namespace std;
 ItemHouse::ItemHouse(){
 	itemDatabase = new ItemDatabase();
 	setItemCount(0);
+
 }
 ItemHouse::~ItemHouse(){
 

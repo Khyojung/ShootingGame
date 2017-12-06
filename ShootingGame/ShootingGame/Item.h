@@ -13,6 +13,7 @@ private:
 	int randomy;
 	int score;
 
+
 public:
 	Item();
 	~Item();
@@ -24,4 +25,6 @@ public:
 
 	int getScore();
 	void setScore(int );
+
+
 };

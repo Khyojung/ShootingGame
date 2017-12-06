@@ -16,6 +16,7 @@ private:
 	ItemDatabase* itemDatabase;
 	Item* item;
 	int itemCount;
+
 public:
 	ItemHouse();
 	~ItemHouse();
@@ -26,4 +27,6 @@ public:
 	int getItemCount();
 	void newItem();
 	void showItem();
+
+
 };

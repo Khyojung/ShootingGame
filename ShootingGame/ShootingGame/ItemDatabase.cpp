@@ -3,6 +3,7 @@
 // 생성자, 소멸자
 
 ItemDatabase::ItemDatabase() {
+	itemCount = 0;
 }
 
 ItemDatabase::~ItemDatabase() {
@@ -11,6 +12,7 @@ ItemDatabase::~ItemDatabase() {
 // 함수
 
 bool ItemDatabase::addItem(int itemNumber, Item* newItem) { // 아이템 추가
+	if(itemCount <=5){
 	map<int, Item*>::iterator iter;
 	for(iter = item.begin(); iter != item.end(); ++iter){
 		if((iter->second->getCharacterX() == newItem->getCharacterX())&&(iter->second->getCharacterY() == newItem->getCharacterY()))
@@ -18,6 +20,8 @@ bool ItemDatabase::addItem(int itemNumber, Item* newItem) { // 아이템 추가
 
 	}
 	item.insert(pair<int,Item*> (itemNumber, newItem));
+	itemCount++;
+	}
 	return true;
 }
 
@@ -77,6 +81,8 @@ int ItemDatabase::whenEatenbyHero(Hero* hero) {
 	map<int, int>::iterator tempIter;
 	for(tempIter = temp.begin();tempIter != temp.end(); ++tempIter) {
 		this->delItem(tempIter->second); // 반복자를 통하여 아이템을 제거해준다.
+		itemCount--;
+		
 	}
 
 	return score;
