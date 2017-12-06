@@ -19,7 +19,7 @@ void Start::setLevel(int newLevel) {
 }
 
 // 함수
-void Start::gameStart() { // 게임의 시작
+void Start::gameStart(Ranking* rank) { // 게임의 시작
 	int temp;
 	cout << "모드를 선택하세요"<<endl;
 	cout << "easy모드(1)    normal모드(2)    hard모드(3)    무한모드(4)"<<endl;
@@ -31,21 +31,21 @@ void Start::gameStart() { // 게임의 시작
 	// 1단계
 	if(getLevel() == 1){
 		Stage_1* stage_1 = new Stage_1();
-		stage_1->start();
+		stage_1->start(rank);
 	}
 	// 2단계
 	else if(getLevel() == 2){
 		Stage_2* stage_2 = new Stage_2();
-		stage_2->start();
+		stage_2->start(rank);
 	}
 	// 3단계
 	else if(getLevel() == 3){
 		Stage_3* stage_3 = new Stage_3();
-		stage_3->start();
+		stage_3->start(rank);
 	}
 	// 무한
 	else if(getLevel() == 4){
 		Stage_inf* stage_inf = new Stage_inf();
-		stage_inf->start();
+		stage_inf->start(rank);
 	}
 }

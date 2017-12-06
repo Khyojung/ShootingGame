@@ -22,7 +22,7 @@ void Stage::setTime(int newTime) {
 }
 
 // 함수
-void Stage::start() { //게임의 흐름
+void Stage::start(Ranking* rank) { //게임의 흐름
 	begin = clock();
 	hero = new Hero(); // 영웅 생성
 	item = new ItemHouse<Item>(); //아이템 생성
@@ -87,6 +87,15 @@ void Stage::start() { //게임의 흐름
 		}
 	}
 	buffer.Release(); // 화면 버퍼를 제거해줌
+	system("cls");
+
+	char name[40];
+	cout << "사망!!!" << endl;
+	cout << "파괴점수 : " << score * 100 << "    시간점수 : " << ((end-begin)/CLOCKS_PER_SEC * 100) << endl;
+	cout << "당신의 영문 이름을 입력해 주세요 : ";
+	scanf("%s",name);
+	rank->getDatabase()->addRank((score+(end-begin)/CLOCKS_PER_SEC)*100, name);
+	system("cls");
 }
 void Stage::showMap() { // 화면 출력해주는 부분
 	// 틀 출력

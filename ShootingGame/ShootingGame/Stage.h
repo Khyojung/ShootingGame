@@ -1,5 +1,6 @@
 #pragma once
 #include <iostream>
+#include "Ranking.h"
 #include "Hero.h"
 #include <conio.h>
 #include "screenBuffer.h"
@@ -34,7 +35,7 @@ public:
 	int getMonsterCount();
 	void setMonsterCount(int);
 
-	void start();
+	void start(Ranking*);
 	void showMap();
 	int scoreCount();
 	int timeFlow();

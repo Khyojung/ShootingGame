@@ -10,7 +10,6 @@ private:
 	int selectSetting;
 	Music music;
 	Sound sound;
-	Ranking rank;
 
 public:
 	Setting();
@@ -21,5 +20,5 @@ public:
 
 	void musicSetting();
 	void soundSetting();
-	void print();
+	void print(Ranking*);
 };
