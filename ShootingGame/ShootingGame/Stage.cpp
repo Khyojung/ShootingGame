@@ -58,7 +58,7 @@ void Stage::start() { //게임의 흐름
 		}
 		
 		item->showItem();
-
+		item->getItemDatabase()->timeFlow();
 
 		count++;
 		showMap();

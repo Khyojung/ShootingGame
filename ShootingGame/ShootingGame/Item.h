@@ -12,6 +12,7 @@ private:
 	int randomx;
 	int randomy;
 	int score;
+	clock_t begin;
 
 
 public:
@@ -25,6 +26,9 @@ public:
 
 	int getScore();
 	void setScore(int );
+
+	clock_t getBegin();
+
 
 
 };

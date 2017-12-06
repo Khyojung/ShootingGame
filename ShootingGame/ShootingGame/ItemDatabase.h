@@ -2,6 +2,7 @@
 #include <map>
 #include <iostream>
 #include <algorithm>
+
 #include "screenBuffer.h"
 #include "Item.h"
 #include "Hero.h"
@@ -23,4 +24,5 @@ public:
 	void printItem(screenBuffer);
 	bool moveItem();
 	int whenEatenbyHero(Hero* );
+	void timeFlow();
 };

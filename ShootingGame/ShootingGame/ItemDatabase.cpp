@@ -87,3 +87,20 @@ int ItemDatabase::whenEatenbyHero(Hero* hero) {
 
 	return score;
 }
+void ItemDatabase::timeFlow(){
+	map<int, Item*>::iterator iter;
+	map<int, int> temp;
+	
+	for (iter = item.begin(); iter != item.end(); ++iter) {
+		if((clock()-iter->second->getBegin())/CLOCKS_PER_SEC > 5) {
+			temp.insert(pair<int, int> (iter->first,iter->first)); 
+		}
+	}
+	map<int, int>::iterator tempIter;
+	for(tempIter = temp.begin();tempIter != temp.end(); ++tempIter) {
+		this->delItem(tempIter->second); // 반복자를 통하여 아이템을 제거해준다.
+		itemCount--;
+		
+	}
+
+}

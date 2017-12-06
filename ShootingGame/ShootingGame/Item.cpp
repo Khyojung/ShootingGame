@@ -5,6 +5,7 @@ using namespace std;
 //持失切 社瑚切
 Item::Item(){
 	setScore(1);
+	begin = clock();
 }
 Item::~Item(){
 
@@ -26,4 +27,7 @@ void Item::setScore(int x){
 }
 int Item::getScore(){
 	return score;
+}
+clock_t Item::getBegin(){
+	return begin;
 }

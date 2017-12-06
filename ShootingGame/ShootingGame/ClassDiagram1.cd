@@ -91,38 +91,31 @@
       <FileName>Stage_inf.h</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Item" Collapsed="true">
-    <Position X="9.5" Y="1.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>ACAAAAAAACEGAAAACAAAAAAEAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Item.h</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="ItemBomb" Collapsed="true">
     <Position X="6" Y="3.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAIAAAA=</HashCode>
+      <HashCode>ACAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAIAAAA=</HashCode>
       <FileName>ItemBomb.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ItemDamageDown" Collapsed="true">
     <Position X="10.5" Y="3.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAQAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAA=</HashCode>
+      <HashCode>ACAQAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAA=</HashCode>
       <FileName>ItemDamageDown.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ItemDatabase" Collapsed="true">
     <Position X="32.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AACAAAAAgAAAAAgAAESAAAAgAAAAAAAAAAAAABAAAAA=</HashCode>
+      <HashCode>AACAAAAAgAABAAgAAESQAAAgAAAAAAAAAAAAABAAAAA=</HashCode>
       <FileName>ItemDatabase.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ItemHeal" Collapsed="true">
     <Position X="15" Y="3.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAIAAAAAAAAAAA=</HashCode>
+      <HashCode>ACAAAAAAAAAAAAAAAAAAAAAAAAAAAgAIAAAAAAAAAAA=</HashCode>
       <FileName>ItemHeal.h</FileName>
     </TypeIdentifier>
   </Class>
@@ -136,21 +129,21 @@
   <Class Name="ItemPoint" Collapsed="true">
     <Position X="3.75" Y="3.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAIAgAAAAAAAAAAAA=</HashCode>
+      <HashCode>ACAAAAAAAAAAAAAAAAAAAAAAAAAAIAgAAAAAAAAAAAA=</HashCode>
       <FileName>ItemPoint.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ItemPowerUp" Collapsed="true">
     <Position X="8.25" Y="3.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAQAgAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>ACAAAAAAAAAAAAQAgAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>ItemPowerUp.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ItemSpeedUp" Collapsed="true">
     <Position X="12.75" Y="3.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAQAAAAgAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>ACAAAAAAAAAAAAAQAAAAgAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>ItemSpeedUp.h</FileName>
     </TypeIdentifier>
   </Class>
