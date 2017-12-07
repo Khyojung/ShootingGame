@@ -1,12 +1,22 @@
-#include"Stage.h"
+ï»¿#include"Stage.h"
 
+<<<<<<< HEAD
 // »ı¼ºÀÚ, ¼Ò¸êÀÚ
 Stage::Stage() {
+=======
+// ìƒì„±ì, ì†Œë©¸ì
+Stage::Stage() { // ë§µ ì´ˆê¸°í™”, ë°°ì—´ì„ ì´ˆê¸°í™” í•˜ëŠ” ë¶€ë¶„ì„ ì‚­ì œí•¨, ì´ìœ ëŠ” ê°ì²´ë¡œ ê´€ë¦¬í•˜ê¸° ë•Œë¬¸ì— ë§µì˜ ë°°ì—´ì´ í•„ìš”ê°€ ì—†ìŒ.
+>>>>>>> master
 }
 Stage::~Stage(){
 }
 
+<<<<<<< HEAD
 // º¯¼öÀÇ getter, setter
+=======
+// ë³€ìˆ˜ì˜ getter, setter
+// ì´ì°¨ì› ë°°ì—´ ë§µì˜ ê°œí„°ì„¸í„°ë¥¼ ì œê±°í•¨. ì´ìœ ëŠ” ì´ì°¨ì› ë°°ì—´ ë§µì´ í•„ìš”ê°€ ì—†ê¸° ë•Œë¬¸ì— ì´ì°¨ì› ë°°ì—´ ë§µì„ ì œê±°í•¨.
+>>>>>>> master
 int Stage::getScore() {
 	return score;
 }
@@ -20,40 +30,50 @@ void Stage::setTime(int newTime) {
 	atime = newTime;
 }
 
+<<<<<<< HEAD
 // ÇÔ¼ö
 void Stage::start(Ranking* rank) { // °ÔÀÓÀÇ Èå¸§
 	begin = clock(); // °ÔÀÓÀÇ ½Ã°£ ÃøÁ¤
 	hero = new Hero(); // ¿µ¿õ »ı¼º
 	item = new ItemHouse<Item>(); // ¾ÆÀÌÅÛ »ı¼º
+=======
+// í•¨ìˆ˜
+void Stage::start() { //ê²Œì„ì˜ íë¦„
+	begin = clock();
+	hero = new Hero(); // ì˜ì›… ìƒì„±
+	item = new ItemHouse(); //ì•„ì´í…œ ìƒì„±
+>>>>>>> master
 	
 	monsterDatabase = new MonsterDatabase();
+	
 	score = 0;
 	gameRunSpead = 20;
 	int count = 0;
 
-	// È­¸é ¹öÆÛ »ı¼º
+	// í™”ë©´ ë²„í¼ ìƒì„±
 	buffer.CreateBuffer();
 
-	// È­¸é Ãâ·Â
+	// í™”ë©´ ì¶œë ¥
 	showMap();
-	while(hero->getHp() > 0) { // ÀÏ´ÜÀº ¿µ¿õÀÌ Á×±â Àü±îÁö ½ÇÇà
-		if(hero->getTime() > 0) { // ¿µ¿õÀÇ °ø°İ ´ë±â½Ã°£ °¨¼Ò
+	while(hero->getHp() > 0) { // ì¼ë‹¨ì€ ì˜ì›…ì´ ì£½ê¸° ì „ê¹Œì§€ ì‹¤í–‰
+		if(hero->getTime() > 0) { // ì˜ì›…ì˜ ê³µê²© ëŒ€ê¸°ì‹œê°„ ê°ì†Œ
 			hero->setTime(hero->getTime()-1);
 		}
 
-		hero->getHeroBullet()->moveBullet(); // ÃÑ¾ËÀÇ ¿òÁ÷ÀÓ ¹× ¿òÁ÷ÀÓÀÌ ÀÖÀ» ½Ã È­¸é ÀüÈ¯
+		hero->getHeroBullet()->moveBullet(); // ì´ì•Œì˜ ì›€ì§ì„ ë° ì›€ì§ì„ì´ ìˆì„ ì‹œ í™”ë©´ ì „í™˜
 
-		//¸ó½ºÅÍ »ı¼º ¹× ÀÌµ¿
+		//ëª¬ìŠ¤í„° ìƒì„± ë° ì´ë™
 		if(count % gameRunSpead == 0){
-			//°ÔÀÓ ³­ÀÌµµ¿¡ µû¶ó ¼Óµµ°¡ ´Ş¶óÁø´Ù.
+			//ê²Œì„ ë‚œì´ë„ì— ë”°ë¼ ì†ë„ê°€ ë‹¬ë¼ì§„ë‹¤.
 			monsterDatabase->moveMonster();
 			if(count % (gameRunSpead*2) == 0){
-				//°ÔÀÓ ³­ÀÌµµ¿¡ µû¶ó ¸ó½ºÅÍ »ı¼º ¼Óµµµµ ´Ù¸£´Ù.
-				//¿òÁ÷ÀÌ´Â °ÍÀÇ 1/2¹è Á¤µµ µÇ´Â ¼Óµµ·Î »ı¼ºµÈ´Ù.
+				//ê²Œì„ ë‚œì´ë„ì— ë”°ë¼ ëª¬ìŠ¤í„° ìƒì„± ì†ë„ë„ ë‹¤ë¥´ë‹¤.
+				//ì›€ì§ì´ëŠ” ê²ƒì˜ 1/2ë°° ì •ë„ ë˜ëŠ” ì†ë„ë¡œ ìƒì„±ëœë‹¤.
 				srand((unsigned int)time(NULL));
 				monsterDatabase->randomCreateMonster();
 			}
 		}
+<<<<<<< HEAD
 		monsterDatabase->getMonsterBullet()->moveBullet(hero);
 		item->showItem(&buffer);
 
@@ -95,65 +115,101 @@ void Stage::start(Ranking* rank) { // °ÔÀÓÀÇ Èå¸§
 	scanf("%s",name);
 	rank->getDatabase()->addRank((score+(end-begin)/CLOCKS_PER_SEC)*100, name);
 	system("cls");
+=======
+		
+		item->showItem();
+		item->getItemDatabase()->timeFlow();
+
+		count++;
+		showMap();
+		
+		score = score + item->getItemDatabase()->whenEatenbyHero(hero);
+		score = score + monsterDatabase->whenCrashWithHero(hero);
+		score = score + monsterDatabase->whenCrashWithBullet(hero);
+
+		if(kbhit()) { // í‚¤ë³´ë“œ ì…ë ¥ì´ ìˆì„ ê²½ìš°
+			int key = getch(); // í‚¤ë³´ë“œì˜ í‚¤ë¥¼ ì…ë ¥ ë°›ëŠ”ë‹¤
+			if(key == 224 || key == 0) { // ë°©í–¥í‚¤ì¸ê°€ ê²€ì‚¬
+				key = getch(); // í‚¤ë³´ë“œì˜ í‚¤ë¥¼ í•œë²ˆë” ë°›ëŠ”ë‹¤
+				hero->move(key);
+				// ìºë¦­í„°ê°€ ì›€ì§ì˜€ìœ¼ë¯€ë¡œ ì—¬ê¸°ì„œë„ ì¶©ëŒ ê²€ì‚¬ë¥¼ í•´ì•¼í• ê¹Œ? ì•„ë‹ˆë©´ ì´ì•Œì—ì„œë§Œì˜ ì¶©ëŒì„ ê²€ì‚¬í•˜ë©´ ë ê¹Œ? ì´ë¯¸ ì´ì•Œì´ ì¡´ì¬í•˜ëŠ” ê³³ìœ¼ë¡œ ì´ë™í•  ê²½ìš° ì–´ë–»ê²Œ ë ê²ƒì¸ê°€???
+				// ê·¸ëŸ¬ë©´ ì¶©ëŒì„ ê²€ì‚¬í•˜ëŠ” ë¶€ë¶„ì€ Stageì—ì„œ ì´ê´„í•˜ëŠ”ê²Œ í¸í• ê¹Œ, ì•„ë‹ˆë©´ ê°ìì˜ ê°ì²´ê°€ ì¶©ëŒì˜ ìœ ë¬´ë¥¼ ê²€ì‚¬í•˜ëŠ”ê²Œ í¸í• ê¹Œ?
+				// ê²°êµ­ì—ëŠ” ì„œë¡œì„œë¡œê°€ ë‚¨ë“¤ì„ ê°ì ë¹„êµí•´ë³´ì•¼í•˜ëŠ” ë¬¸ì œê°€ ë°œìƒí•œë‹¤.
+				showMap();
+			}
+			else if(key == 32 && hero->getTime() <= 0) { // ìŠ¤í˜ì´ìŠ¤ë°” ëˆŒë¦¬ë©´
+				hero->setTime(10); // ê³µê²© ëŒ€ê¸°ì‹œê°„ ì´ˆê¸°í™”
+				hero->attack(); // ì´ì•Œ ìƒì„±
+				showMap(); // í™”ë©´ ì „í™˜
+			}
+			if(key == 98 && hero->getBombCount() > 0) { // bë¥¼ ëˆ„ë¥´ë©´
+				score = score + monsterDatabase->whenHeroUseBomb(hero->getBombDamage()); // ëª¬ìŠ¤í„° ë°ì´í„°ë² ì´ìŠ¤ì— ì˜ì›…ì˜ í­íƒ„ ê³µê²©ë ¥ ë§Œí¼ì˜ í”¼í•´ë¥¼ ì¤Œ
+				hero->setBombCount(hero->getBombCount() - 1); // í­íƒ„ ê°œìˆ˜ ê°ì†Œ
+			}
+		}
+	}
+	buffer.Release(); // í™”ë©´ ë²„í¼ë¥¼ ì œê±°í•´ì¤Œ
+>>>>>>> master
 }
-void Stage::showMap() { // È­¸é Ãâ·ÂÇØÁÖ´Â ºÎºĞ
-	// Æ² Ãâ·Â
+void Stage::showMap() { // í™”ë©´ ì¶œë ¥í•´ì£¼ëŠ” ë¶€ë¶„
+	// í‹€ ì¶œë ¥
 	int i, j;
 	buffer.BufferClear();
 	for(i = 0; i < 22; i++) {
-		buffer.BufferWrite(i*2, 0, "¡á");
+		buffer.BufferWrite(i*2, 0, "â– ");
 	}
 	for(i = 0; i < 50; i++) {
-		buffer.BufferWrite(0, i+1, "¡á");
+		buffer.BufferWrite(0, i+1, "â– ");
 		for(j = 0; j < 20; j++) {
 		}
-		buffer.BufferWrite((j+1)*2, i+1, "¡á");
+		buffer.BufferWrite((j+1)*2, i+1, "â– ");
 	}
 	for(i = 0; i < 22; i++) {
-		buffer.BufferWrite(i*2, 51, "¡á");
+		buffer.BufferWrite(i*2, 51, "â– ");
 	}
 
-	// ÃÑ¾Ë Ãâ·Â
+	// ì´ì•Œ ì¶œë ¥
 	multimap<int, Bullet*>::iterator iter;
 	hero->getHeroBullet()->printBullet(buffer);
 
-	// ¿µ¿õ Ãâ·Â
+	// ì˜ì›… ì¶œë ¥
 	buffer.BufferWrite(hero->getCharacterX()*2+2, hero->getCharacterY()+1, hero->getShape());
 
-	//Monster Ãâ·Â
+	//Monster ì¶œë ¥
 	monsterDatabase->print(buffer);
 	monsterDatabase->getMonsterBullet()->printBullet(buffer);
 
-	item->showItem(&buffer);
+	item->showItem();
+	item->getItemDatabase()->printItem(buffer);
 	
-	// Ãâ·Â ±âº» À§Ä¡ ÀúÀå
+	// ì¶œë ¥ ê¸°ë³¸ ìœ„ì¹˜ ì €ì¥
 	int printX = 46;
 	int printY = 50;
 
-	// ½Ã°£ Ãâ·Â
+	// ì‹œê°„ ì¶œë ¥
 	end = clock();
 	char convertString[40];
 	itoa((end-begin)/CLOCKS_PER_SEC * 100, convertString, 10);
 	buffer.BufferWrite(printX, printY, "Time : ");
 	buffer.BufferWrite(printX+7, printY, convertString);
 
-	// Á¡¼ö Ãâ·Â
+	// ì ìˆ˜ ì¶œë ¥
 	itoa(score * 100, convertString, 10);
 	buffer.BufferWrite(printX, printY-1, "Score : ");
 	buffer.BufferWrite(printX+8, printY-1, convertString);
 
-	// Ã¼·Â Ãâ·Â
+	// ì²´ë ¥ ì¶œë ¥
 	buffer.BufferWrite(printX, printY-2, "HP : ");
 	for(int i = 0; i < hero->getHp(); i++) {
-		buffer.BufferWrite(printX+5+(i*2), printY-2, "¢¾");
+		buffer.BufferWrite(printX+5+(i*2), printY-2, "â™¥");
 	}
 
-	// ÆøÅº °³¼ö Ãâ·Â
+	// í­íƒ„ ê°œìˆ˜ ì¶œë ¥
 	buffer.BufferWrite(printX, printY-3, "BOMB : ");
 	for(int i = 0; i < hero->getBombCount(); i++) {
-		buffer.BufferWrite(printX+7+(i*2), printY-3, "¡İ");
+		buffer.BufferWrite(printX+7+(i*2), printY-3, "â—");
 	}
 
-	// È­¸é ÀüÈ¯
+	// í™”ë©´ ì „í™˜
 	buffer.Flipping();
 }

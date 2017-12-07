@@ -7,5 +7,11 @@ ItemBomb::ItemBomb(){
 	setTime(3);
 
 
-	setShape("¤±");
+	setShape("¡Ý");
+}
+int ItemBomb::itemFunction(Hero* hero){
+	if(hero->getBombCount() <= 5)
+		hero->setBombCount(hero->getBombCount()+1);
+
+	return getScore();
 }
