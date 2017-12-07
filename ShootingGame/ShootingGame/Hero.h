@@ -9,6 +9,7 @@ private:
 	int bulletCount;
 	int bombCount;
 	int bombDamage;
+	int moveTime;
 
 public:
 	Hero();
@@ -20,6 +21,8 @@ public:
 	void setBombCount(int);
 	int getBombDamage();
 	void setBombDamage(int);
+	int getMoveTime();
+	void setMoveTIme(int);
 
 	void move(int keyboard);
 	void attack();

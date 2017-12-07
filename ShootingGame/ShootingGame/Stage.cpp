@@ -58,14 +58,15 @@ void Stage::start(Ranking* rank) { //게임의 흐름
 		
 		item->showItem(&buffer);
 
-
 		count++;
-		showMap();
 
 		score = score + monsterDatabase->whenCrashWithHero(hero);
 		score = score + monsterDatabase->whenCrashWithBullet(hero);
 
+		////////////////////  키보드 입력 수정 ///////////////////////////
+		/*
 		if(kbhit()) { // 키보드 입력이 있을 경우
+
 			int key = getch(); // 키보드의 키를 입력 받는다
 			if(key == 224 || key == 0) { // 방향키인가 검사
 				key = getch(); // 키보드의 키를 한번더 받는다
@@ -85,6 +86,33 @@ void Stage::start(Ranking* rank) { //게임의 흐름
 				hero->setBombCount(hero->getBombCount() - 1); // 폭탄 개수 감소
 			}
 		}
+		*/
+		if(GetAsyncKeyState(VK_UP)!=0) {
+			//printf("Key Down : UP\n");
+			hero->move(72);
+        }
+		if(GetAsyncKeyState(VK_DOWN)!=0) {
+			//printf("Key Down : DOWN\n");
+			hero->move(80);
+        }
+		if(GetAsyncKeyState(VK_LEFT)!=0) {
+			//printf("Key Down : LEFT\n");
+			hero->move(75);
+        }
+		if(GetAsyncKeyState(VK_RIGHT)!=0) {
+			//printf("Key Down : RIGHT\n");
+			hero->move(77);
+        }
+        if(GetAsyncKeyState(0x42)!=0 && hero->getBombCount() > 0) {
+			score = score + monsterDatabase->whenHeroUseBomb(hero->getBombDamage()); // 몬스터 데이터베이스에 영웅의 폭탄 공격력 만큼의 피해를 줌
+			hero->setBombCount(hero->getBombCount() - 1); // 폭탄 개수 감소
+        }
+		if(GetAsyncKeyState(VK_SPACE)!=0 && hero->getTime() <= 0) {
+			hero->setTime(5); // 공격 대기시간 초기화
+			hero->attack(); // 총알 생성
+            //printf("Key Down : SPACE\n");
+        }
+		showMap();
 	}
 	buffer.Release(); // 화면 버퍼를 제거해줌
 	system("cls");
