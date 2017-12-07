@@ -8,5 +8,9 @@ ItemPoint::ItemPoint(){
 
 
 
-	setShape("uu");
+	setShape("¡Ø");
+}
+
+int ItemPoint::itemFunction(Hero* hero){
+	return 5*getScore();
 }

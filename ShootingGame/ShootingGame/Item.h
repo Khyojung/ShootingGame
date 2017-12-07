@@ -1,6 +1,6 @@
 #pragma once
 #include<iostream>
-#include"Character.h"
+#include"Hero.h"
 
 #include <cstdlib>
 #include <ctime>
@@ -11,15 +11,24 @@ class Item : public Character{
 private:
 	int randomx;
 	int randomy;
+	int score;
+	clock_t begin;
+
 
 public:
 	Item();
 	~Item();
 
 	//각 아이템의 기능
-	void itemFunction();
+	virtual int itemFunction(Hero*) = 0;
 	int itemRandomX();
 	int itemRandomY();
+
+	int getScore();
+	void setScore(int );
+
+	clock_t getBegin();
+
 
 
 };

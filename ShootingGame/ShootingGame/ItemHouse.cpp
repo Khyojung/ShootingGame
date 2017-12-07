@@ -4,29 +4,31 @@
 using namespace std;
 
 
-ItemHouse<Item>::ItemHouse(){
+ItemHouse::ItemHouse(){
+	itemDatabase = new ItemDatabase();
 	setItemCount(0);
-}
-ItemHouse<Item>::~ItemHouse(){
 
 }
-void ItemHouse<Item>::setItemDatabase(ItemDatabase<Item> newItemDatabase){
+ItemHouse::~ItemHouse(){
+
+}
+void ItemHouse::setItemDatabase(ItemDatabase* newItemDatabase){
 	itemDatabase = newItemDatabase;
 }
-ItemDatabase<Item> ItemHouse<Item>::getItemDatabase(){
+ItemDatabase* ItemHouse::getItemDatabase(){
 	return itemDatabase;
 }
 
 
-template<>
-void ItemHouse<Item>::setItemCount(int newItemCount) {
+
+void ItemHouse::setItemCount(int newItemCount) {
 	itemCount = newItemCount;
 }
-int ItemHouse<Item>::getItemCount() {
+int ItemHouse::getItemCount() {
 	return itemCount;
 }
 
-void ItemHouse<Item>::newItem(){
+void ItemHouse::newItem(){
 
 	int temp = 0;
 	srand((unsigned int)time(NULL));
@@ -54,17 +56,16 @@ void ItemHouse<Item>::newItem(){
 	default:
 		break;
 	}
-	itemDatabase.addItem(getItemCount(), item);
-	setItemCount(getItemCount()+1);
+
+	if(itemDatabase->addItem(getItemCount(), item))
+		setItemCount(getItemCount()+1);
 
 }
-void ItemHouse<Item>::showItem(screenBuffer* buffer){
+void ItemHouse::showItem(){
 	int temp = 0;
 	srand((unsigned int)time(NULL));
-	temp = rand()%100;
-	if(temp <= 20){
+	temp = rand();
+	if((temp % 2 == 1) ){
 		newItem();
-	
 	}
-	itemDatabase.printItem(buffer);
 }
