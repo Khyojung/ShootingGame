@@ -8,7 +8,7 @@ MonsterLarge::MonsterLarge(){
 MonsterLarge::MonsterLarge(int newX, int newY){
 	this->setCharacterX(newX);
 	this->setCharacterY(newY);
-	char* temp[3] = {"CCCCCC","CCCCCC","CCCCCC"};
+	char* temp[3] = {"  ¡â  ","¢·  ¢¹","  ¡ä  "};
 	setShape(temp);
 	right = true;
 	setDamage(-1);
