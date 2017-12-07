@@ -1,22 +1,12 @@
 ﻿#include"Stage.h"
 
-<<<<<<< HEAD
-// ������, �Ҹ���
+// ������, �Ҹ���
 Stage::Stage() {
-=======
-// 생성자, 소멸자
-Stage::Stage() { // 맵 초기화, 배열을 초기화 하는 부분을 삭제함, 이유는 객체로 관리하기 때문에 맵의 배열이 필요가 없음.
->>>>>>> master
 }
 Stage::~Stage(){
 }
 
-<<<<<<< HEAD
-// ������ getter, setter
-=======
 // 변수의 getter, setter
-// 이차원 배열 맵의 개터세터를 제거함. 이유는 이차원 배열 맵이 필요가 없기 때문에 이차원 배열 맵을 제거함.
->>>>>>> master
 int Stage::getScore() {
 	return score;
 }
@@ -30,19 +20,11 @@ void Stage::setTime(int newTime) {
 	atime = newTime;
 }
 
-<<<<<<< HEAD
-// �Լ�
-void Stage::start(Ranking* rank) { // ������ �帧
-	begin = clock(); // ������ �ð� ����
-	hero = new Hero(); // ���� ����
-	item = new ItemHouse<Item>(); // ������ ����
-=======
 // 함수
-void Stage::start() { //게임의 흐름
+void Stage::start(Ranking* rank) { //게임의 흐름
 	begin = clock();
 	hero = new Hero(); // 영웅 생성
 	item = new ItemHouse(); //아이템 생성
->>>>>>> master
 	
 	monsterDatabase = new MonsterDatabase();
 	
@@ -73,83 +55,53 @@ void Stage::start() { //게임의 흐름
 				monsterDatabase->randomCreateMonster();
 			}
 		}
-<<<<<<< HEAD
+
 		monsterDatabase->getMonsterBullet()->moveBullet(hero);
-		item->showItem(&buffer);
-
-		count++;
-
-		score = score + monsterDatabase->whenCrashWithHero(hero);
-		score = score + monsterDatabase->whenCrashWithBullet(hero);
-
-		////////////////////  Ű���� �Է� ���� ///////////////////////////
-		if(GetAsyncKeyState(VK_UP)!=0) { // ���� ����Ű
-			hero->move(72);
-        }
-		if(GetAsyncKeyState(VK_DOWN)!=0) { // �Ʒ��� ����Ű
-			hero->move(80);
-        }
-		if(GetAsyncKeyState(VK_LEFT)!=0) { // ���� ����Ű
-			hero->move(75);
-        }
-		if(GetAsyncKeyState(VK_RIGHT)!=0) { // ������ ����Ű
-			hero->move(77);
-        }
-        if(GetAsyncKeyState(0x42)!=0 && hero->getBombCount() > 0) { // B�� ������, ��ź�� 1�� �̻��϶�
-			score = score + monsterDatabase->whenHeroUseBomb(hero->getBombDamage()); // ���� �����ͺ��̽��� ������ ��ź ���ݷ� ��ŭ�� ���ظ� ��
-			hero->setBombCount(hero->getBombCount() - 1); // ��ź ���� ����
-        }
-		if(GetAsyncKeyState(VK_SPACE)!=0 && hero->getTime() <= 0) { // SPACE�� ������, �Ѿ� ���ð��� �����Ͽ��� ��
-			hero->setTime(10); // ���� ���ð� �ʱ�ȭ
-			hero->attack(); // �Ѿ� ����
-        }
-		showMap();
-	}
-	buffer.Release(); // ȭ�� ���۸� ��������
-	system("cls");
-
-	char name[40];
-	cout << "���!!!" << endl;
-	cout << "�ı����� : " << score * 100 << "    �ð����� : " << ((end-begin)/CLOCKS_PER_SEC * 100) << endl;
-	cout << "����� ���� �̸��� �Է��� �ּ��� : ";
-	scanf("%s",name);
-	rank->getDatabase()->addRank((score+(end-begin)/CLOCKS_PER_SEC)*100, name);
-	system("cls");
-=======
 		
 		item->showItem();
 		item->getItemDatabase()->timeFlow();
 
 		count++;
-		showMap();
 		
 		score = score + item->getItemDatabase()->whenEatenbyHero(hero);
 		score = score + monsterDatabase->whenCrashWithHero(hero);
 		score = score + monsterDatabase->whenCrashWithBullet(hero);
 
-		if(kbhit()) { // 키보드 입력이 있을 경우
-			int key = getch(); // 키보드의 키를 입력 받는다
-			if(key == 224 || key == 0) { // 방향키인가 검사
-				key = getch(); // 키보드의 키를 한번더 받는다
-				hero->move(key);
-				// 캐릭터가 움직였으므로 여기서도 충돌 검사를 해야할까? 아니면 총알에서만의 충돌을 검사하면 될까? 이미 총알이 존재하는 곳으로 이동할 경우 어떻게 될것인가???
-				// 그러면 충돌을 검사하는 부분은 Stage에서 총괄하는게 편할까, 아니면 각자의 객체가 충돌의 유무를 검사하는게 편할까?
-				// 결국에는 서로서로가 남들을 각자 비교해보야하는 문제가 발생한다.
-				showMap();
-			}
-			else if(key == 32 && hero->getTime() <= 0) { // 스페이스바 눌리면
-				hero->setTime(10); // 공격 대기시간 초기화
-				hero->attack(); // 총알 생성
-				showMap(); // 화면 전환
-			}
-			if(key == 98 && hero->getBombCount() > 0) { // b를 누르면
-				score = score + monsterDatabase->whenHeroUseBomb(hero->getBombDamage()); // 몬스터 데이터베이스에 영웅의 폭탄 공격력 만큼의 피해를 줌
-				hero->setBombCount(hero->getBombCount() - 1); // 폭탄 개수 감소
-			}
-		}
+		////////////////////  키보드 입력 수정 ///////////////////////////
+		if(GetAsyncKeyState(VK_UP)!=0) { // 위쪽 방향키
+			hero->move(72);
+        }
+		if(GetAsyncKeyState(VK_DOWN)!=0) { // 아래쪽 방향키
+			hero->move(80);
+        }
+		if(GetAsyncKeyState(VK_LEFT)!=0) { // 왼쪽 방향키
+			hero->move(75);
+        }
+		if(GetAsyncKeyState(VK_RIGHT)!=0) { // 오른쪽 방향키
+			hero->move(77);
+        }
+        if(GetAsyncKeyState(0x42)!=0 && hero->getBombCount() > 0) { // B를 누르고, 폭탄이 1개 이상일때
+			score = score + monsterDatabase->whenHeroUseBomb(hero->getBombDamage()); // 몬스터 데이터베이스에 영웅의 폭탄 공격력 만큼의 피해를 줌
+			hero->setBombCount(hero->getBombCount() - 1); // 폭탄 개수 감소
+        }
+		if(GetAsyncKeyState(VK_SPACE)!=0 && hero->getTime() <= 0) { // SPACE를 누르고, 총알 대기시간을 만족하였을 때
+			hero->setTime(10); // 공격 대기시간 초기화
+			hero->attack(); // 총알 생성
+        }
+		showMap();
 	}
 	buffer.Release(); // 화면 버퍼를 제거해줌
->>>>>>> master
+	system("cls");
+
+		
+
+	char name[40];
+	cout << "사망!!!" << endl;
+	cout << "파괴점수 : " << score * 100 << "    시간점수 : " << ((end-begin)/CLOCKS_PER_SEC * 100) << endl;
+	cout << "당신의 영문 이름을 입력해 주세요 : ";
+	scanf("%s",name);
+	rank->getDatabase()->addRank((score+(end-begin)/CLOCKS_PER_SEC)*100, name);
+	system("cls");
 }
 void Stage::showMap() { // 화면 출력해주는 부분
 	// 틀 출력
