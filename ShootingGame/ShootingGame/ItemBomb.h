@@ -1,3 +1,5 @@
+#ifndef __ITEMBOMB_H
+#define __ITEMBOMB_H
 #include<iostream>
 #include"Item.h"
 
@@ -9,8 +11,10 @@ private:
 public:
 	ItemBomb();
 	~ItemBomb();
-	void property(Character ch);
-	void move();
-	void eaten();
+
+
+	virtual int itemFunction(Hero*);
+
 
 };
+#endif

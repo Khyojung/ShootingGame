@@ -1,25 +1,34 @@
+#pragma once
 #include<iostream>
-#include"Character.h"
+#include"Hero.h"
+
+#include <cstdlib>
+#include <ctime>
 
 using namespace std;
-class Item{
+class Item : public Character{
 	
 private:
-	int itemX;
-	int itemY;
-	string shape;
+	int randomx;
+	int randomy;
+	int score;
+	clock_t begin;
+
+
 public:
 	Item();
 	~Item();
-	void property(Character ch);
-	int scoreCount();
-	int timeFlow();
-	int monsterCount();
 
-	int getItemX();
-	void setItemX(int);
-	int getItemY();
-	void setItemY(int);
-	string getShape();
-	void setShape(string);
+	//각 아이템의 기능
+	virtual int itemFunction(Hero*) = 0;
+	int itemRandomX();
+	int itemRandomY();
+
+	int getScore();
+	void setScore(int );
+
+	clock_t getBegin();
+
+
+
 };
