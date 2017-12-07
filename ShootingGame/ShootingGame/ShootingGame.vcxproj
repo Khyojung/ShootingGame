@@ -92,6 +92,7 @@
     <ClInclude Include="Menu.h" />
     <ClInclude Include="Monster.h" />
     <ClInclude Include="MonsterBoss.h" />
+    <ClInclude Include="MonsterBulletDatabase.h" />
     <ClInclude Include="MonsterDatabase.h" />
     <ClInclude Include="MonsterLarge.h" />
     <ClInclude Include="MonsterMiddle.h" />
@@ -128,6 +129,7 @@
     <ClCompile Include="Menu.cpp" />
     <ClCompile Include="Monster.cpp" />
     <ClCompile Include="MonsterBoss.cpp" />
+    <ClCompile Include="MonsterBulletDatabase.cpp" />
     <ClCompile Include="MonsterDatabase.cpp" />
     <ClCompile Include="MonsterLarge.cpp" />
     <ClCompile Include="MonsterMiddle.cpp" />

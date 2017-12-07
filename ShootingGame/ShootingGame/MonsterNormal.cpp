@@ -21,8 +21,7 @@ void MonsterNormal::move(){
 		this->setCharacterY(this->getCharacterY()+1);
 	}
 }
-/*
-void MonsterNormal::attack(){
 
+bool MonsterNormal::attack() {
+	return false;
 } 
-*/

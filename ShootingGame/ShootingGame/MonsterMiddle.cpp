@@ -31,8 +31,7 @@ void MonsterMiddle::move(){
 			this->setCharacterY(this->getCharacterY()+1);
 	}
 }
-/*
-void Character::attack(){
 
+bool MonsterMiddle::attack(){
+	return false;
 } 
-*/

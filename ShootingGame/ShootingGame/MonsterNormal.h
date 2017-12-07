@@ -13,5 +13,5 @@ public:
 	MonsterNormal(int, int);
 	~MonsterNormal();
 	void move() override;
-	//void attack() override;
+	bool attack() override;
 };

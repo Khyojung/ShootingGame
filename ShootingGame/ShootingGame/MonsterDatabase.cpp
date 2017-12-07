@@ -2,9 +2,19 @@
 
 MonsterDatabase::MonsterDatabase() {
 	monsterCount = 0;
+	monsterBullet = new MonsterBulletDatabase();
+	bulletCount = 0;
 }
 MonsterDatabase::~MonsterDatabase() {
 }
+
+MonsterBulletDatabase* MonsterDatabase::getMonsterBullet() {
+	return monsterBullet;
+}
+void MonsterDatabase::setMonsterBullet(MonsterBulletDatabase* newMonsterBulletDatabase) {
+	monsterBullet = newMonsterBulletDatabase;
+}
+
 void MonsterDatabase::addMonster(int monsterNumber, Monster* newMonster) {
 	monster.insert(pair<int,Monster*> (monsterNumber, newMonster));
 }
@@ -15,16 +25,16 @@ void MonsterDatabase::delMonster(int monsterNumber) {
 	monster.find(IDNumber);
 }*/
 void MonsterDatabase::print(screenBuffer buffer){
-	map<int, Monster*>::iterator iter;
-	for (iter = monster.begin(); iter != monster.end(); ++iter) {
-		for(int i = 0; i < strlen(*iter->second->getShape())/2; i++) {
-			buffer.BufferWrite(iter->second->getCharacterX()*2+2, iter->second->getCharacterY()+i+2, *(iter->second->getShape()+i)); 
+	map<int, Monster*>::iterator monsterIter;
+	for (monsterIter = monster.begin(); monsterIter != monster.end(); ++monsterIter) {
+		for(int i = 0; i < strlen(*monsterIter->second->getShape())/2; i++) {
+			buffer.BufferWrite(monsterIter->second->getCharacterX()*2+2, monsterIter->second->getCharacterY()+i+2, *(monsterIter->second->getShape()+i)); 
 		}
 	}
 }
 void MonsterDatabase::randomCreateMonster(){
 	srand((unsigned int)time(NULL));
-	int newX = (rand()*rand()) % 20;
+	int newX = (rand()*rand()) % 19;
 
 	if(monsterCount % 10 == 0){
 		addMonster(monsterCount, new MonsterLarge(0, newX));
@@ -45,6 +55,18 @@ void MonsterDatabase::moveMonster(){
 	map<int, int> temp;
 	for (iter = monster.begin(); iter != monster.end(); ++iter) {
 		iter->second->move();
+		if(iter->second->attack()) {
+			Bullet* newBullet = new Bullet(); // 총알의 기본 속성 설정
+			newBullet->setCharacterX(iter->second->getCharacterX()+1);
+			newBullet->setCharacterY(iter->second->getCharacterY()+4);
+			newBullet->setDamage(iter->second->getDamage());
+			newBullet->changeShape(); // 총알의 공격력을 기준으로 모양을 바꾸어 줌.
+			newBullet->setTime(2);
+
+			// 데이터베이스에 총알 추가
+			monsterBullet->addBullet(bulletCount, newBullet);
+			bulletCount++;
+		}
 		if(iter->second->getCharacterY() > 48)
 			temp.insert(pair<int, int> (iter->first,iter->first)); 
 	}
@@ -52,6 +74,7 @@ void MonsterDatabase::moveMonster(){
 	for(tempIter = temp.begin();tempIter != temp.end(); ++tempIter) {
 		this->delMonster(tempIter->second); // 반복자를 통하여 위에서 제거할 총알의 번호들에 해당하는 총알들을 제거해줌.
 	}
+	//monsterBullet->moveBullet(); 여기서 총알을 움직여 주면 이동속도가 A랑 같아짐..
 }
 int MonsterDatabase::whenHeroUseBomb(int bombDamage) {
 	int count = 0;

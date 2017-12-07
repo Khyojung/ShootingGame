@@ -22,5 +22,5 @@ public:
 	char** getShape();
 
 	virtual void move() = 0;
-	//void attack();
+	virtual bool attack() = 0;
 };

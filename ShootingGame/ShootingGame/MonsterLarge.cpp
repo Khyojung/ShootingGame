@@ -11,6 +11,7 @@ MonsterLarge::MonsterLarge(int newX, int newY){
 	char* temp[3] = {"CCCCCC","CCCCCC","CCCCCC"};
 	setShape(temp);
 	right = true;
+	setDamage(-1);
 }
 MonsterLarge::~MonsterLarge(){
 
@@ -38,8 +39,11 @@ void MonsterLarge::move(){
 		}
 	}
 }
-/*
-void Character::attack(){
-
-} 
-*/
+bool MonsterLarge::attack(){
+	if(((clock()-begin)/CLOCKS_PER_SEC) > 0) {
+		begin = clock();
+		return true;
+		//attack();
+	}
+	return false;
+}
