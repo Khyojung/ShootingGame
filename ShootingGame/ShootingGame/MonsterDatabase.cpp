@@ -17,14 +17,8 @@ void MonsterDatabase::delMonster(int monsterNumber) {
 void MonsterDatabase::print(screenBuffer buffer){
 	map<int, Monster*>::iterator iter;
 	for (iter = monster.begin(); iter != monster.end(); ++iter) {
-		if(iter->second->getShape()[0] == "CCCCCC") {
-			buffer.BufferWrite(iter->second->getCharacterX()*2+2, iter->second->getCharacterY()+1, *(iter->second->getShape())); 
-			buffer.BufferWrite(iter->second->getCharacterX()*2+2, iter->second->getCharacterY()+2, *(iter->second->getShape()+1)); 
-			buffer.BufferWrite(iter->second->getCharacterX()*2+2, iter->second->getCharacterY()+3, *(iter->second->getShape()+2)); 
-		}
-		else {
-			buffer.BufferWrite(iter->second->getCharacterX()*2+2, iter->second->getCharacterY()+1, *(iter->second->getShape())); 
-			buffer.BufferWrite(iter->second->getCharacterX()*2+2, iter->second->getCharacterY()+2, *(iter->second->getShape()+1)); 
+		for(int i = 0; i < strlen(*iter->second->getShape())/2; i++) {
+			buffer.BufferWrite(iter->second->getCharacterX()*2+2, iter->second->getCharacterY()+i+2, *(iter->second->getShape()+i)); 
 		}
 	}
 }
@@ -83,30 +77,10 @@ int MonsterDatabase::whenCrashWithHero(Hero* hero) {
 	map<int, int> temp;
 	
 	for (iter = monster.begin(); iter != monster.end(); ++iter) {
-		if(iter->second->getShape()[0] == "CCCCCC") {
-			if((iter->second->getCharacterX() == hero->getCharacterX() && iter->second->getCharacterY() == hero->getCharacterY())||
-				(iter->second->getCharacterX()+1 == hero->getCharacterX() && iter->second->getCharacterY() == hero->getCharacterY())||
-				(iter->second->getCharacterX()+2 == hero->getCharacterX() && iter->second->getCharacterY() == hero->getCharacterY())||
-				
-				(iter->second->getCharacterX() == hero->getCharacterX() && iter->second->getCharacterY()+1 == hero->getCharacterY())||
-				(iter->second->getCharacterX()+1 == hero->getCharacterX() && iter->second->getCharacterY()+1 == hero->getCharacterY())||
-				(iter->second->getCharacterX()+2 == hero->getCharacterX() && iter->second->getCharacterY()+1 == hero->getCharacterY())||
-				
-				(iter->second->getCharacterX() == hero->getCharacterX() && iter->second->getCharacterY()+2 == hero->getCharacterY())||
-				(iter->second->getCharacterX()+1 == hero->getCharacterX() && iter->second->getCharacterY()+2 == hero->getCharacterY())||
-				(iter->second->getCharacterX()+2 == hero->getCharacterX() && iter->second->getCharacterY()+2 == hero->getCharacterY())) {
-				iter->second->setHp(iter->second->getHp() - 10);
-				hero->setHp(hero->getHp() - 1);
-			}
-		}
-		else {
-			if((iter->second->getCharacterX() == hero->getCharacterX() && iter->second->getCharacterY() == hero->getCharacterY())||
-				(iter->second->getCharacterX()+1 == hero->getCharacterX() && iter->second->getCharacterY() == hero->getCharacterY())||
-				(iter->second->getCharacterX() == hero->getCharacterX() && iter->second->getCharacterY()+1 == hero->getCharacterY())||
-				(iter->second->getCharacterX()+1 == hero->getCharacterX() && iter->second->getCharacterY()+1 == hero->getCharacterY())) {
-				iter->second->setHp(iter->second->getHp() - 10);
-				hero->setHp(hero->getHp() - 1);
-			}
+		if((iter->second->getCharacterX() <= hero->getCharacterX() && hero->getCharacterX() <= iter->second->getCharacterX()+strlen(*iter->second->getShape())/2-1) &&
+			(iter->second->getCharacterY() <= hero->getCharacterY() && hero->getCharacterY() <= iter->second->getCharacterY()+strlen(*iter->second->getShape())/2)) {
+			iter->second->setHp(iter->second->getHp() - 10);
+			hero->setHp(hero->getHp() - 1);
 		}
 		if(iter->second->getHp() <= 0) {
 			count++;
@@ -118,6 +92,7 @@ int MonsterDatabase::whenCrashWithHero(Hero* hero) {
 		this->delMonster(tempIter->second); // 반복자를 통하여 위에서 제거할 총알의 번호들에 해당하는 총알들을 제거해줌.
 	}
 	return count;
+
 }
 int MonsterDatabase::whenCrashWithBullet(Hero* hero) {
 	int count = 0;
@@ -128,30 +103,10 @@ int MonsterDatabase::whenCrashWithBullet(Hero* hero) {
 	map<int, int> deleteBullet;
 	for (monsterIter = monster.begin(); monsterIter != monster.end(); ++monsterIter) {
 		for (bulletIter = hero->getHeroBullet()->getBullet()->begin(); bulletIter != hero->getHeroBullet()->getBullet()->end(); ++bulletIter) {
-			if(monsterIter->second->getShape()[0] == "CCCCCC") {
-				if((monsterIter->second->getCharacterX() == bulletIter->second->getCharacterX() && monsterIter->second->getCharacterY() == bulletIter->second->getCharacterY())||
-					(monsterIter->second->getCharacterX()+1 == bulletIter->second->getCharacterX() && monsterIter->second->getCharacterY() == bulletIter->second->getCharacterY())||
-					(monsterIter->second->getCharacterX()+2 == bulletIter->second->getCharacterX() && monsterIter->second->getCharacterY() == bulletIter->second->getCharacterY())||
-					
-					(monsterIter->second->getCharacterX() == bulletIter->second->getCharacterX() && monsterIter->second->getCharacterY()+1 == bulletIter->second->getCharacterY())||
-					(monsterIter->second->getCharacterX()+1 == bulletIter->second->getCharacterX() && monsterIter->second->getCharacterY()+1 == bulletIter->second->getCharacterY())||
-					(monsterIter->second->getCharacterX()+2 == bulletIter->second->getCharacterX() && monsterIter->second->getCharacterY()+1 == bulletIter->second->getCharacterY())||
-					
-					(monsterIter->second->getCharacterX() == bulletIter->second->getCharacterX() && monsterIter->second->getCharacterY()+2 == bulletIter->second->getCharacterY())||
-					(monsterIter->second->getCharacterX()+1 == bulletIter->second->getCharacterX() && monsterIter->second->getCharacterY()+2 == bulletIter->second->getCharacterY())||
-					(monsterIter->second->getCharacterX()+2 == bulletIter->second->getCharacterX() && monsterIter->second->getCharacterY()+2 == bulletIter->second->getCharacterY())) {
-					monsterIter->second->setHp(monsterIter->second->getHp() - hero->getDamage());
-					deleteBullet.insert(pair<int, int> (bulletIter->first, bulletIter->first));
-				}
-			}
-			else {
-				if((monsterIter->second->getCharacterX() == bulletIter->second->getCharacterX() && monsterIter->second->getCharacterY() == bulletIter->second->getCharacterY())||
-					(monsterIter->second->getCharacterX()+1 == bulletIter->second->getCharacterX() && monsterIter->second->getCharacterY() == bulletIter->second->getCharacterY())||
-					(monsterIter->second->getCharacterX() == bulletIter->second->getCharacterX() && monsterIter->second->getCharacterY()+1 == bulletIter->second->getCharacterY())||
-					(monsterIter->second->getCharacterX()+1 == bulletIter->second->getCharacterX() && monsterIter->second->getCharacterY()+1 == bulletIter->second->getCharacterY())) {
-					monsterIter->second->setHp(monsterIter->second->getHp() - hero->getDamage());
-					deleteBullet.insert(pair<int, int> (bulletIter->first, bulletIter->first));
-				}
+			if((monsterIter->second->getCharacterX() <= bulletIter->second->getCharacterX() && bulletIter->second->getCharacterX() <= monsterIter->second->getCharacterX()+strlen(*monsterIter->second->getShape())/2-1) &&
+				(monsterIter->second->getCharacterY() <= bulletIter->second->getCharacterY() && bulletIter->second->getCharacterY() <= monsterIter->second->getCharacterY()+strlen(*monsterIter->second->getShape())/2)) {
+				monsterIter->second->setHp(monsterIter->second->getHp() - hero->getDamage());
+				deleteBullet.insert(pair<int, int> (bulletIter->first, bulletIter->first));
 			}
 		}
 		if(monsterIter->second->getHp() <= 0) {

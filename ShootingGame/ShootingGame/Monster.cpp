@@ -17,14 +17,8 @@ char** Monster::getShape(){
 	return shape;
 }
 void Monster::setShape(char** newShape){
-	if(newShape[0]=="CCCCCC") {
-		shape[0] = newShape[0];
-		shape[1] = newShape[1];
-		shape[2] = newShape[2];
-	}
-	else {
-		shape[0] = newShape[0];
-		shape[1] = newShape[1];
+	for(int i = 0; i < strlen(*newShape)/2; i++) {
+		shape[i] = newShape[i];
 	}
 }
 //함수 재정의
