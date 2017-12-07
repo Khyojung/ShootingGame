@@ -8,8 +8,10 @@ MonsterLarge::MonsterLarge(){
 MonsterLarge::MonsterLarge(int newX, int newY){
 	this->setCharacterX(newX);
 	this->setCharacterY(newY);
-	this->setShape("C");
+	char* temp[3] = {"CCCCCC","CCCCCC","CCCCCC"};
+	setShape(temp);
 	right = true;
+	setDamage(-1);
 }
 MonsterLarge::~MonsterLarge(){
 
@@ -27,7 +29,7 @@ void MonsterLarge::move(){
 	if(this->getCharacterY() < 50){
 		if(right){
 			this->setCharacterX(this->getCharacterX()+1);
-			if(getCharacterX() >= 19)
+			if(getCharacterX() >= 17)
 				setRight(false);
 		}
 		else{
@@ -37,8 +39,11 @@ void MonsterLarge::move(){
 		}
 	}
 }
-/*
-void Character::attack(){
-
-} 
-*/
+bool MonsterLarge::attack(){
+	if(((clock()-begin)/CLOCKS_PER_SEC) > 0) {
+		begin = clock();
+		return true;
+		//attack();
+	}
+	return false;
+}

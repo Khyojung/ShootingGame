@@ -1,15 +1,12 @@
 #include"Stage.h"
-#include <cstdlib>
-#include <ctime>
 
 // 생성자, 소멸자
-Stage::Stage() { // 맵 초기화, 배열을 초기화 하는 부분을 삭제함, 이유는 객체로 관리하기 때문에 맵의 배열이 필요가 없음.
+Stage::Stage() {
 }
 Stage::~Stage(){
 }
 
 // 변수의 getter, setter
-// 이차원 배열 맵의 개터세터를 제거함. 이유는 이차원 배열 맵이 필요가 없기 때문에 이차원 배열 맵을 제거함.
 int Stage::getScore() {
 	return score;
 }
@@ -24,9 +21,13 @@ void Stage::setTime(int newTime) {
 }
 
 // 함수
-void Stage::start() { //게임의 흐름
+void Stage::start(Ranking* rank) { // 게임의 흐름
+	begin = clock(); // 게임의 시간 측정
 	hero = new Hero(); // 영웅 생성
+	item = new ItemHouse<Item>(); // 아이템 생성
+	
 	monsterDatabase = new MonsterDatabase();
+	score = 0;
 	gameRunSpead = 20;
 	int count = 0;
 
@@ -39,9 +40,9 @@ void Stage::start() { //게임의 흐름
 		if(hero->getTime() > 0) { // 영웅의 공격 대기시간 감소
 			hero->setTime(hero->getTime()-1);
 		}
-		if(hero->getHeroBullet()->moveBullet()) { // 총알의 움직임 및 움직임이 있을 시 화면 전환
-			showMap(); // 화면 전환
-		}
+
+		hero->getHeroBullet()->moveBullet(); // 총알의 움직임 및 움직임이 있을 시 화면 전환
+
 		//몬스터 생성 및 이동
 		if(count % gameRunSpead == 0){
 			//게임 난이도에 따라 속도가 달라진다.
@@ -53,27 +54,47 @@ void Stage::start() { //게임의 흐름
 				monsterDatabase->randomCreateMonster();
 			}
 		}
-		count++;
-		showMap();
+		monsterDatabase->getMonsterBullet()->moveBullet(hero);
+		item->showItem(&buffer);
 
-		if(kbhit()) { // 키보드 입력이 있을 경우
-			int key = getch(); // 키보드의 키를 입력 받는다
-			if(key == 224 || key == 0) { // 방향키인가 검사
-				key = getch(); // 키보드의 키를 한번더 받는다
-				hero->move(key);
-				// 캐릭터가 움직였으므로 여기서도 충돌 검사를 해야할까? 아니면 총알에서만의 충돌을 검사하면 될까? 이미 총알이 존재하는 곳으로 이동할 경우 어떻게 될것인가???
-				// 그러면 충돌을 검사하는 부분은 Stage에서 총괄하는게 편할까, 아니면 각자의 객체가 충돌의 유무를 검사하는게 편할까?
-				// 결국에는 서로서로가 남들을 각자 비교해보야하는 문제가 발생한다.
-				showMap();
-			}
-			else if(key == 32 && hero->getTime() <= 0) { // 스페이스바 눌리면
-				hero->setTime(10); // 공격 대기시간 초기화
-				hero->attack(); // 총알 생성
-				showMap(); // 화면 전환
-			}
-		}
+		count++;
+
+		score = score + monsterDatabase->whenCrashWithHero(hero);
+		score = score + monsterDatabase->whenCrashWithBullet(hero);
+
+		////////////////////  키보드 입력 수정 ///////////////////////////
+		if(GetAsyncKeyState(VK_UP)!=0) { // 위쪽 방향키
+			hero->move(72);
+        }
+		if(GetAsyncKeyState(VK_DOWN)!=0) { // 아래쪽 방향키
+			hero->move(80);
+        }
+		if(GetAsyncKeyState(VK_LEFT)!=0) { // 왼쪽 방향키
+			hero->move(75);
+        }
+		if(GetAsyncKeyState(VK_RIGHT)!=0) { // 오른쪽 방향키
+			hero->move(77);
+        }
+        if(GetAsyncKeyState(0x42)!=0 && hero->getBombCount() > 0) { // B를 누르고, 폭탄이 1개 이상일때
+			score = score + monsterDatabase->whenHeroUseBomb(hero->getBombDamage()); // 몬스터 데이터베이스에 영웅의 폭탄 공격력 만큼의 피해를 줌
+			hero->setBombCount(hero->getBombCount() - 1); // 폭탄 개수 감소
+        }
+		if(GetAsyncKeyState(VK_SPACE)!=0 && hero->getTime() <= 0) { // SPACE를 누르고, 총알 대기시간을 만족하였을 때
+			hero->setTime(10); // 공격 대기시간 초기화
+			hero->attack(); // 총알 생성
+        }
+		showMap();
 	}
 	buffer.Release(); // 화면 버퍼를 제거해줌
+	system("cls");
+
+	char name[40];
+	cout << "사망!!!" << endl;
+	cout << "파괴점수 : " << score * 100 << "    시간점수 : " << ((end-begin)/CLOCKS_PER_SEC * 100) << endl;
+	cout << "당신의 영문 이름을 입력해 주세요 : ";
+	scanf("%s",name);
+	rank->getDatabase()->addRank((score+(end-begin)/CLOCKS_PER_SEC)*100, name);
+	system("cls");
 }
 void Stage::showMap() { // 화면 출력해주는 부분
 	// 틀 출력
@@ -101,7 +122,38 @@ void Stage::showMap() { // 화면 출력해주는 부분
 
 	//Monster 출력
 	monsterDatabase->print(buffer);
+	monsterDatabase->getMonsterBullet()->printBullet(buffer);
+
+	item->showItem(&buffer);
 	
+	// 출력 기본 위치 저장
+	int printX = 46;
+	int printY = 50;
+
+	// 시간 출력
+	end = clock();
+	char convertString[40];
+	itoa((end-begin)/CLOCKS_PER_SEC * 100, convertString, 10);
+	buffer.BufferWrite(printX, printY, "Time : ");
+	buffer.BufferWrite(printX+7, printY, convertString);
+
+	// 점수 출력
+	itoa(score * 100, convertString, 10);
+	buffer.BufferWrite(printX, printY-1, "Score : ");
+	buffer.BufferWrite(printX+8, printY-1, convertString);
+
+	// 체력 출력
+	buffer.BufferWrite(printX, printY-2, "HP : ");
+	for(int i = 0; i < hero->getHp(); i++) {
+		buffer.BufferWrite(printX+5+(i*2), printY-2, "♥");
+	}
+
+	// 폭탄 개수 출력
+	buffer.BufferWrite(printX, printY-3, "BOMB : ");
+	for(int i = 0; i < hero->getBombCount(); i++) {
+		buffer.BufferWrite(printX+7+(i*2), printY-3, "◎");
+	}
+
 	// 화면 전환
 	buffer.Flipping();
 }

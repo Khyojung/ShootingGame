@@ -2,7 +2,7 @@
 
 // 생성자, 소멸자
 Hero::Hero() { // 히어로의 기본 속성 설정
-	setHp(10);
+	setHp(3);
 	setSpeed(1);
 	setDamage(1);
 	setTime(10);
@@ -10,6 +10,9 @@ Hero::Hero() { // 히어로의 기본 속성 설정
 	setCharacterY(49);
 	setShape("▲");
 	bulletCount=0;
+	setBombCount(2);
+	setBombDamage(10);
+	setMoveTIme(2);
 
 	// 총알 데이터베이스 초기화
 	heroBullet = new BulletDatabase();
@@ -23,6 +26,24 @@ BulletDatabase* Hero::getHeroBullet()  {
 }
 void Hero::setHeroBullet(BulletDatabase* newBulletDatabase) {
 	heroBullet = newBulletDatabase;
+}
+int Hero::getBombCount() {
+	return bombCount;
+}
+void Hero::setBombCount(int newBombCount) {
+	bombCount = newBombCount;
+}
+int Hero::getBombDamage() {
+	return bombDamage;
+}
+void Hero::setBombDamage(int newBombDamage) {
+	bombDamage = newBombDamage;
+}
+int Hero::getMoveTime() {
+	return moveTime;
+}
+void Hero::setMoveTIme(int newMoveTime) {
+	moveTime = newMoveTime;
 }
 
 // 함수
@@ -53,7 +74,7 @@ void Hero::attack() { // 총알생성
 	newBullet->setCharacterY(getCharacterY()-1);
 	newBullet->setDamage(getDamage());
 	newBullet->changeShape(); // 총알의 공격력을 기준으로 모양을 바꾸어 줌.
-	newBullet->setTime(3);
+	newBullet->setTime(2);
 
 	// 데이터베이스에 총알 추가
 	heroBullet->addBullet(bulletCount, newBullet);

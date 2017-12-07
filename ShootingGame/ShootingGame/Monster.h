@@ -1,8 +1,8 @@
 #pragma once
 
-#include<iostream>
-#include<string>
-#include"Character.h"
+#include <iostream>
+#include <string>
+#include "Character.h"
 #include "BulletDatabase.h"
 
 using namespace std;
@@ -10,7 +10,7 @@ using namespace std;
 class Monster : public Character{
 	
 private:
-	char* shape;
+	char* shape[3];
 	//BulletDatabase bulldata;
 
 public:
@@ -18,9 +18,9 @@ public:
 	Monster(int newX, int newY);
 	~Monster();
 
-	void setShape(char*);
-	char* getShape();
+	void setShape(char**);
+	char** getShape();
 
 	virtual void move() = 0;
-	//void attack();
+	virtual bool attack() = 0;
 };

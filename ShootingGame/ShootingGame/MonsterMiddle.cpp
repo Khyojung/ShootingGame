@@ -10,7 +10,8 @@ MonsterMiddle::MonsterMiddle(){
 MonsterMiddle::MonsterMiddle(int newX, int newY){
 	this->setCharacterX(newX);
 	this->setCharacterY(newY);
-	setShape("B");
+	char* temp[2] = {"BBBB","BBBB"};
+	setShape(temp);
 }
 MonsterMiddle::~MonsterMiddle(){
 
@@ -22,7 +23,7 @@ void MonsterMiddle::move(){
 		srand((unsigned int)time(NULL));
 		int derection = (rand()*rand()) % 3;
 
-		if(derection == 0 && this->getCharacterX() < 19)
+		if(derection == 0 && this->getCharacterX() < 18)
 			this->setCharacterX(this->getCharacterX()+1);
 		else if(derection == 1 && this->getCharacterX() > 0)
 			this->setCharacterX(this->getCharacterX()-1);
@@ -30,8 +31,7 @@ void MonsterMiddle::move(){
 			this->setCharacterY(this->getCharacterY()+1);
 	}
 }
-/*
-void Character::attack(){
 
+bool MonsterMiddle::attack(){
+	return false;
 } 
-*/

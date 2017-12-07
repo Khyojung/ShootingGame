@@ -13,5 +13,5 @@ public:
 	MonsterMiddle(int, int);
 	~MonsterMiddle();
 	void move() override;
-//	void attack() override;
+	bool attack() override;
 };

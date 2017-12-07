@@ -1,22 +1,28 @@
 #pragma once
 #include <iostream>
+#include "Ranking.h"
 #include "Hero.h"
 #include <conio.h>
 #include "screenBuffer.h"
 #include "Bullet.h"
 #include "MonsterDatabase.h"
+#include "ItemHouse.h"
+#include <cstdlib>
+#include <ctime>
 
 using namespace std;
 
 class Stage {
 private:
-	// ÀÌÂ÷¿ø ¹è¿­ ¸ÊÀ» Á¦°ÅÇÔ. °´Ã¼·Î¼­ ÀÚ·áµéÀ» °ü¸®ÇÏ¹Ç·Î ¹è¿­¿¡ °ªµéÀ» ÀúÀåÇÒ ÇÊ¿ä°¡ ¾øÀ½.
+	// ì´ì°¨ì› ë°°ì—´ ë§µì„ ì œê±°í•¨. ê°ì²´ë¡œì„œ ìë£Œë“¤ì„ ê´€ë¦¬í•˜ë¯€ë¡œ ë°°ì—´ì— ê°’ë“¤ì„ ì €ì¥í•  í•„ìš”ê°€ ì—†ìŒ.
 	screenBuffer buffer;
 	Hero* hero;
+	ItemHouse<Item>* item;
 	int score;
 	int atime;
 	int gameRunSpead;
 	MonsterDatabase* monsterDatabase;
+	clock_t begin, end;
 
 public:
 	Stage();
@@ -29,7 +35,7 @@ public:
 	int getMonsterCount();
 	void setMonsterCount(int);
 
-	void start();
+	void start(Ranking*);
 	void showMap();
 	int scoreCount();
 	int timeFlow();

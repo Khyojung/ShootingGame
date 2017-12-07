@@ -7,7 +7,8 @@ MonsterNormal::MonsterNormal(){
 MonsterNormal::MonsterNormal(int newX, int newY){
 	this->setCharacterX(newX);
 	this->setCharacterY(newY);
-	setShape("A");
+	char* temp[2] = {"AAAA","AAAA"};
+	setShape(temp);
 }
 
 MonsterNormal::~MonsterNormal(){
@@ -20,8 +21,7 @@ void MonsterNormal::move(){
 		this->setCharacterY(this->getCharacterY()+1);
 	}
 }
-/*
-void MonsterNormal::attack(){
 
+bool MonsterNormal::attack() {
+	return false;
 } 
-*/

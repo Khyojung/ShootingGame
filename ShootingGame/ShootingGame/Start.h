@@ -1,5 +1,6 @@
 #pragma once
 #include <iostream>
+#include "Ranking.h"
 
 using namespace std;
 
@@ -14,5 +15,5 @@ public:
 	int getLevel();
 	void setLevel(int);
 
-	void gameStart();
+	void gameStart(Ranking*);
 };

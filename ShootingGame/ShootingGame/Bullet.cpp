@@ -13,6 +13,9 @@ Bullet::~Bullet() {
 // 함수
 void Bullet::changeShape() { // 총알의 공격력에 해당하는 모양을 설정
 	switch(getDamage()) {
+	case -1:
+		setShape("＊");
+		break;
 	case 1:
 		setShape("Ⅰ");
 		break;

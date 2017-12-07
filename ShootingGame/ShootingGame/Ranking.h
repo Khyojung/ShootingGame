@@ -3,14 +3,14 @@
 
 class Ranking{
 private:
-	RankingDatabase database;
+	RankingDatabase* database;
 
 public:
 	Ranking();
 	~Ranking();
 
-	RankingDatabase getDatabase();
-	void setDatabase(RankingDatabase);
+	RankingDatabase* getDatabase();
+	void setDatabase(RankingDatabase*);
 
 	void rankPrint();
 };

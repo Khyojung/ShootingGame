@@ -20,5 +20,7 @@ void RankingDatabase::sorting() { // sorthing이라고 젹혀있지만, 자체적으로 이미 
 		cout << endl;
 	}
 	cout << endl;
+	cout << "계속하려면 아무 키나 누르십시오 . . ." << endl;
+	getch();
 }
 
