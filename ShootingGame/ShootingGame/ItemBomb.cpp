@@ -1,13 +1,12 @@
 #include"ItemBomb.h"
 
 ItemBomb::ItemBomb(){
-
 	setCharacterY(itemRandomY());
 	setCharacterX(itemRandomX());
 	setTime(3);
-
-
 	setShape("¡Ý");
+}
+ItemBomb::~ItemBomb() {
 }
 int ItemBomb::itemFunction(Hero* hero){
 	if(hero->getBombCount() <= 5)

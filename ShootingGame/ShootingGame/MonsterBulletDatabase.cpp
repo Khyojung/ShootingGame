@@ -41,7 +41,7 @@ void MonsterBulletDatabase::moveBullet(Hero* hero) { // 총알의 이동
 			}
 			else { // 화면의 끝이 아닐경우
 				iter->second->setCharacterY(iter->second->getCharacterY()+1); // 총알의 Y좌표를 1 증가시켜 위로 이동시킴.
-				iter->second->setTime(2); // 총알의 대기시간을 초기화함
+				iter->second->setTime(3); // 총알의 대기시간을 초기화함
 			}
 			if(iter->second->getCharacterX() == hero->getCharacterX() && iter->second->getCharacterY() == hero->getCharacterY()) {
 				temp.insert(pair<int, int> (iter->first,iter->first)); // 캐릭터와 적군의 총알이 충돌

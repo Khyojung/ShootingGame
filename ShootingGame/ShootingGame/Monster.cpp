@@ -6,7 +6,7 @@ Monster :: Monster(){
 Monster :: Monster(int newX, int newY){
 	this->setCharacterX(newX);
 	this->setCharacterY(newY);
-	char* temp[] = {"MMMM","MMMM"};
+	char* temp[6] = {"", "", "", "", "", ""};
 	setShape(temp);
 }
 Monster :: ~Monster(){

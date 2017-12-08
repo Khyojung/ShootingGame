@@ -38,9 +38,12 @@ void Stage::start(Ranking* rank) { //게임의 흐름
 	// 화면 출력
 	showMap();
 
-	while(hero->getHp() > 0 && !monsterDatabase->getBossDied()) { // �ϴ��� ������ �ױ� ������ ����
-		if(hero->getTime() > 0) { // ������ ���� ���ð� ����
+	while(hero->getHp() > 0 && !monsterDatabase->getBossDied()) { // �ϴ��� ������ �ױ� ������ ����
+		if(hero->getTime() > 0) { // ������ ���� ���ð� ����
 			hero->setTime(hero->getTime()-1);
+		}
+		if(hero->getMoveTime() > 0) {
+			hero->setMoveTIme(hero->getMoveTime()-1);
 		}
 
 		hero->getHeroBullet()->moveBullet(); // 총알의 움직임 및 움직임이 있을 시 화면 전환
@@ -77,17 +80,21 @@ void Stage::start(Ranking* rank) { //게임의 흐름
 			score = score + monsterDatabase->whenBossMCrashWithBullet(hero);
 
 		////////////////////  키보드 입력 수정 ///////////////////////////
-		if(GetAsyncKeyState(VK_UP)!=0) { // 위쪽 방향키
+		if(GetAsyncKeyState(VK_UP)!=0 && hero->getMoveTime() <= 0) { // 위쪽 방향키
 			hero->move(72);
+			hero->setMoveTIme(3);
         }
-		if(GetAsyncKeyState(VK_DOWN)!=0) { // 아래쪽 방향키
+		if(GetAsyncKeyState(VK_DOWN)!=0 && hero->getMoveTime() <= 0) { // 아래쪽 방향키
 			hero->move(80);
+			hero->setMoveTIme(3);
         }
-		if(GetAsyncKeyState(VK_LEFT)!=0) { // 왼쪽 방향키
+		if(GetAsyncKeyState(VK_LEFT)!=0 && hero->getMoveTime() <= 0) { // 왼쪽 방향키
 			hero->move(75);
+			hero->setMoveTIme(3);
         }
-		if(GetAsyncKeyState(VK_RIGHT)!=0) { // 오른쪽 방향키
+		if(GetAsyncKeyState(VK_RIGHT)!=0 && hero->getMoveTime() <= 0) { // 오른쪽 방향키
 			hero->move(77);
+			hero->setMoveTIme(3);
         }
         if(GetAsyncKeyState(0x42)!=0 && hero->getBombCount() > 0) { // B를 누르고, 폭탄이 1개 이상일때
 			score = score + monsterDatabase->whenHeroUseBomb(hero->getBombDamage()); // 몬스터 데이터베이스에 영웅의 폭탄 공격력 만큼의 피해를 줌
@@ -112,7 +119,7 @@ void Stage::start(Ranking* rank) { //게임의 흐름
 	scanf("%s",name);
 	rank->getDatabase()->addRank((score+(end-begin)/CLOCKS_PER_SEC)*100, name);
 	system("cls");
-	buffer.Release(); // ȭ�� ���۸� ��������
+	buffer.Release(); // ȭ�� ���۸� ��������
 	printf("%d", score);
 
 }
@@ -175,14 +182,14 @@ void Stage::showMap() { // 화면 출력해주는 부분
 		buffer.BufferWrite(printX+7+(i*2), printY-3, "◎");
 	}
 
-	//bossMonster hp ���
+	//bossMonster hp ���
 	if(monsterDatabase->getBoss() != NULL){
 		itoa(monsterDatabase->getBoss()->getHp(), convertString, 10);
 		buffer.BufferWrite(printX, printY-4, "MONHP : ");
 		buffer.BufferWrite(printX+8, printY-4, convertString);
 	}
 
-	// ȭ�� ��ȯ
+	// ȭ�� ��ȯ
 
 	buffer.Flipping();
 }

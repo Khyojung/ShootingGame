@@ -4,10 +4,9 @@ ItemPowerUp::ItemPowerUp(){
 	setCharacterY(itemRandomY());
 	setCharacterX(itemRandomX());
 	setTime(3);
-
-
-
 	setShape("ก่");
+}
+ItemPowerUp::~ItemPowerUp() {
 }
 
 int ItemPowerUp::itemFunction(Hero* hero){
