@@ -17,7 +17,7 @@ char** Monster::getShape(){
 	return shape;
 }
 void Monster::setShape(char** newShape){
-	for(int i = 0; i < strlen(*newShape)/2; i++) {
+	for(int i = 0; i < strlen(*newShape)/2 && i < 6; i++) {
 		shape[i] = newShape[i];
 	}
 }
