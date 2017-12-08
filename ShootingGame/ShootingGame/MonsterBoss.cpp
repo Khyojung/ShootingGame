@@ -4,13 +4,21 @@
 MonsterBoss::MonsterBoss(){
 	this->setCharacterX(1);
 	this->setCharacterY(5);
-	this->setShape("DDDDDDDDDDDDDDDDDDDDDDDDDDDDDD");
-	this->setHp(10);
+	char* temp[6] = {"        ¡à¡à¡à¡à¡à¡à¡à¡à        ",
+					 "      ¡à¡à¡à¡à¡à¡à¡à¡à¡à¡à      ",
+					 "    ¡à¡à¡à¡à¡à¡à¡à¡à¡à¡à¡à¡à    ",
+					 "   ¡à¡à¡à¡à¡à¡à¡à¡à¡à¡à¡à¡à¡à   ",
+					 "¢·¡à¡à¡à¡à¡à¡à¡à¡à¡à¡à¡à¡à¡à¡à¢¹",
+					 "     ¡ä  ¡ä  ¡ä  ¡ä  ¡ä  ¡ä     "};
+	setShape(temp);
+	this->setHp(100);
 	right = true;
+	setDamage(-1);
+	begin = clock();
 }
 MonsterBoss::~MonsterBoss(){
-
 }
+
 //getter setter
 bool MonsterBoss::getRight(){
 	return right;
@@ -29,12 +37,14 @@ void MonsterBoss::move(){
 	}
 	else{
 		this->setCharacterX(this->getCharacterX()-1);
-		if(getCharacterX() <= 1)
+		if(getCharacterX() <= 0)
 			setRight(true);
 	}
 }
-/*
-void Character::attack(){
-
-} 
-*/
+bool MonsterBoss::attack(){
+	if(((clock()-begin)/CLOCKS_PER_SEC) > 0) {
+		begin = clock();
+		return true;
+	}
+	return false;
+}

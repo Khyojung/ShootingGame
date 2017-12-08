@@ -1,6 +1,8 @@
 #include<iostream>
 #include"Character.h"
 #include"Monster.h"
+#include <cstdlib>
+#include <ctime>
 
 using namespace std;
 
@@ -8,7 +10,7 @@ class MonsterBoss : public Monster{
 	
 private:
 	bool right;
-
+	clock_t begin;
 public:
 	void setRight(bool);
 	bool getRight();
@@ -17,5 +19,5 @@ public:
 	MonsterBoss();
 	~MonsterBoss();
 	void move() override;
-	//void attack();
+	bool attack() override;
 };

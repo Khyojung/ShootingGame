@@ -10,7 +10,7 @@ using namespace std;
 class Monster : public Character{
 	
 private:
-	char* shape[3];
+	char* shape[6];
 	//BulletDatabase bulldata;
 
 public:

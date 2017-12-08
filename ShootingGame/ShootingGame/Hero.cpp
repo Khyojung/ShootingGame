@@ -12,7 +12,7 @@ Hero::Hero() { // 히어로의 기본 속성 설정
 	bulletCount=0;
 	setBombCount(2);
 	setBombDamage(10);
-	setMoveTIme(2);
+	setMoveTIme(3);
 
 	// 총알 데이터베이스 초기화
 	heroBullet = new BulletDatabase();

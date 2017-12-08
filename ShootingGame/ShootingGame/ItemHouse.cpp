@@ -3,14 +3,12 @@
 
 using namespace std;
 
-
 ItemHouse::ItemHouse(){
 	itemDatabase = new ItemDatabase();
 	setItemCount(0);
 
 }
 ItemHouse::~ItemHouse(){
-
 }
 void ItemHouse::setItemDatabase(ItemDatabase* newItemDatabase){
 	itemDatabase = newItemDatabase;
@@ -18,8 +16,6 @@ void ItemHouse::setItemDatabase(ItemDatabase* newItemDatabase){
 ItemDatabase* ItemHouse::getItemDatabase(){
 	return itemDatabase;
 }
-
-
 
 void ItemHouse::setItemCount(int newItemCount) {
 	itemCount = newItemCount;

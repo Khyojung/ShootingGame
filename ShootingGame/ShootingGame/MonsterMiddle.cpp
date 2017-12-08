@@ -10,7 +10,7 @@ MonsterMiddle::MonsterMiddle(){
 MonsterMiddle::MonsterMiddle(int newX, int newY){
 	this->setCharacterX(newX);
 	this->setCharacterY(newY);
-	char* temp[2] = {"BBBB","BBBB"};
+	char* temp[2] = {"¢Ø¢Ö","¢×¢Ù"};
 	setShape(temp);
 }
 MonsterMiddle::~MonsterMiddle(){

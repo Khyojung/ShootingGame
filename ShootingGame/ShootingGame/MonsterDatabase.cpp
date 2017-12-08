@@ -49,8 +49,11 @@ void MonsterDatabase::print(screenBuffer buffer){
 			buffer.BufferWrite(monsterIter->second->getCharacterX()*2+2, monsterIter->second->getCharacterY()+i+2, *(monsterIter->second->getShape()+i)); 
 		}
 	}
-	if(boss != NULL)
-		buffer.BufferWrite(boss->getCharacterX()*2+2, boss->getCharacterY()+1, boss->getShape());
+	if(boss != NULL) {
+		for(int i = 0; i < 6; i++) {
+			buffer.BufferWrite(boss->getCharacterX()+2, boss->getCharacterY()+i+1, *(boss->getShape()+i));
+		}
+	}
 }
 void MonsterDatabase::randomCreateMonster(){
 	srand((unsigned int)time(NULL));
@@ -98,6 +101,22 @@ void MonsterDatabase::moveMonster(){
 		this->delMonster(tempIter->second); // 반복자를 통하여 위에서 제거할 총알의 번호들에 해당하는 총알들을 제거해줌.
 	}
 	//monsterBullet->moveBullet(); 여기서 총알을 움직여 주면 이동속도가 A랑 같아짐..
+	if(boss != NULL && boss->attack()) {
+		for(int i = 0; i < 6; i++) {
+			for(int j = 0; j < 3; j++) {
+				Bullet* newBullet = new Bullet(); // 총알의 기본 속성 설정
+				newBullet->setCharacterX(boss->getCharacterX()+2+(i*2));
+				newBullet->setCharacterY(boss->getCharacterY()+7+j);
+				newBullet->setDamage(boss->getDamage());
+				newBullet->changeShape(); // 총알의 공격력을 기준으로 모양을 바꾸어 줌.
+				newBullet->setTime(3);
+
+				// 데이터베이스에 총알 추가
+				monsterBullet->addBullet(bulletCount, newBullet);
+				bulletCount++;
+			}
+		}
+	}
 }
 int MonsterDatabase::whenHeroUseBomb(int bombDamage) {
 	int count = 0;

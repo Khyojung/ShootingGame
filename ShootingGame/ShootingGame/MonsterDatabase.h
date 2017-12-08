@@ -25,7 +25,7 @@ private:
 	clock_t begin;
 	int bulletCount;
 	bool bossDied;
-	MosterBoss* boss;
+	MonsterBoss* boss;
 public:
 	MonsterDatabase();
 	~MonsterDatabase();
