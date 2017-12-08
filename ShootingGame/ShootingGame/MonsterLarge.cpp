@@ -32,7 +32,7 @@ void MonsterLarge::move(){
 		}
 		else{
 			this->setCharacterX(this->getCharacterX()-1);
-			if(getCharacterX() <= 0)
+			if(getCharacterX() <= 1)
 				setRight(true);
 		}
 	}
