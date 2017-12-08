@@ -37,8 +37,9 @@ void Stage::start(Ranking* rank) { //게임의 흐름
 
 	// 화면 출력
 	showMap();
-	while(hero->getHp() > 0) { // 일단은 영웅이 죽기 전까지 실행
-		if(hero->getTime() > 0) { // 영웅의 공격 대기시간 감소
+
+	while(hero->getHp() > 0 && !monsterDatabase->getBossDied()) { // �ϴ��� ������ �ױ� ������ ����
+		if(hero->getTime() > 0) { // ������ ���� ���ð� ����
 			hero->setTime(hero->getTime()-1);
 		}
 
@@ -48,6 +49,8 @@ void Stage::start(Ranking* rank) { //게임의 흐름
 		if(count % gameRunSpead == 0){
 			//게임 난이도에 따라 속도가 달라진다.
 			monsterDatabase->moveMonster();
+			if(monsterDatabase->getBoss() != NULL)
+				monsterDatabase->getBoss()->move();
 			if(count % (gameRunSpead*2) == 0){
 				//게임 난이도에 따라 몬스터 생성 속도도 다르다.
 				//움직이는 것의 1/2배 정도 되는 속도로 생성된다.
@@ -57,15 +60,21 @@ void Stage::start(Ranking* rank) { //게임의 흐름
 		}
 
 		monsterDatabase->getMonsterBullet()->moveBullet(hero);
+		//boss Monster
+		if((this->getScore() > 1) && (monsterDatabase->getBoss() == NULL)){
+			monsterDatabase->createBossMoster();
+		}
 		
 		item->showItem();
 		item->getItemDatabase()->timeFlow();
-
+		
 		count++;
 		
 		score = score + item->getItemDatabase()->whenEatenbyHero(hero);
 		score = score + monsterDatabase->whenCrashWithHero(hero);
 		score = score + monsterDatabase->whenCrashWithBullet(hero);
+		if(monsterDatabase->getBoss() != NULL)
+			score = score + monsterDatabase->whenBossMCrashWithBullet(hero);
 
 		////////////////////  키보드 입력 수정 ///////////////////////////
 		if(GetAsyncKeyState(VK_UP)!=0) { // 위쪽 방향키
@@ -90,6 +99,7 @@ void Stage::start(Ranking* rank) { //게임의 흐름
         }
 		showMap();
 	}
+
 	buffer.Release(); // 화면 버퍼를 제거해줌
 	system("cls");
 
@@ -102,6 +112,9 @@ void Stage::start(Ranking* rank) { //게임의 흐름
 	scanf("%s",name);
 	rank->getDatabase()->addRank((score+(end-begin)/CLOCKS_PER_SEC)*100, name);
 	system("cls");
+	buffer.Release(); // ȭ�� ���۸� ��������
+	printf("%d", score);
+
 }
 void Stage::showMap() { // 화면 출력해주는 부분
 	// 틀 출력
@@ -162,6 +175,14 @@ void Stage::showMap() { // 화면 출력해주는 부분
 		buffer.BufferWrite(printX+7+(i*2), printY-3, "◎");
 	}
 
-	// 화면 전환
+	//bossMonster hp ���
+	if(monsterDatabase->getBoss() != NULL){
+		itoa(monsterDatabase->getBoss()->getHp(), convertString, 10);
+		buffer.BufferWrite(printX, printY-4, "MONHP : ");
+		buffer.BufferWrite(printX+8, printY-4, convertString);
+	}
+
+	// ȭ�� ��ȯ
+
 	buffer.Flipping();
 }

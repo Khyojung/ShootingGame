@@ -4,6 +4,8 @@ MonsterDatabase::MonsterDatabase() {
 	monsterCount = 0;
 	monsterBullet = new MonsterBulletDatabase();
 	bulletCount = 0;
+	bossDied = false;
+	boss = NULL;
 }
 MonsterDatabase::~MonsterDatabase() {
 }
@@ -14,12 +16,28 @@ MonsterBulletDatabase* MonsterDatabase::getMonsterBullet() {
 void MonsterDatabase::setMonsterBullet(MonsterBulletDatabase* newMonsterBulletDatabase) {
 	monsterBullet = newMonsterBulletDatabase;
 }
+//getter setter
+MonsterBoss* MonsterDatabase::getBoss(){
+	return boss;
+}
+bool MonsterDatabase::getBossDied(){
+	return bossDied;
+}
+void MonsterDatabase::setBossDied(bool aDied){
+	bossDied = aDied;
+}
+
 
 void MonsterDatabase::addMonster(int monsterNumber, Monster* newMonster) {
 	monster.insert(pair<int,Monster*> (monsterNumber, newMonster));
 }
 void MonsterDatabase::delMonster(int monsterNumber) {
 	monster.erase(monsterNumber);
+}
+void MonsterDatabase::delBossMonster(){
+	bossDied = true;
+	boss->~MonsterBoss();
+	boss = NULL;
 }
 /*Monster* MonsterDatabase::findMonster(int IDNumber){
 	monster.find(IDNumber);
@@ -31,6 +49,8 @@ void MonsterDatabase::print(screenBuffer buffer){
 			buffer.BufferWrite(monsterIter->second->getCharacterX()*2+2, monsterIter->second->getCharacterY()+i+2, *(monsterIter->second->getShape()+i)); 
 		}
 	}
+	if(boss != NULL)
+		buffer.BufferWrite(boss->getCharacterX()*2+2, boss->getCharacterY()+1, boss->getShape());
 }
 void MonsterDatabase::randomCreateMonster(){
 	srand((unsigned int)time(NULL));
@@ -49,6 +69,9 @@ void MonsterDatabase::randomCreateMonster(){
 		addMonster(monsterCount, new MonsterNormal(newX, 0));
 		monsterCount++;
 	}
+}
+void MonsterDatabase::createBossMoster(){
+	boss = new MonsterBoss();
 }
 void MonsterDatabase::moveMonster(){
 	map<int, Monster*>::iterator iter;
@@ -145,4 +168,27 @@ int MonsterDatabase::whenCrashWithBullet(Hero* hero) {
 		hero->getHeroBullet()->delBullet(del->second);
 	}
 	return count;
+}
+int MonsterDatabase::whenBossMCrashWithBullet(Hero* hero){
+	map<int, Bullet*>::iterator bulletIter;
+	map<int, int> deleteBullet;
+	for (bulletIter = hero->getHeroBullet()->getBullet()->begin(); bulletIter != hero->getHeroBullet()->getBullet()->end(); ++bulletIter) {
+		int bossX = boss->getCharacterX();
+		int bossY = boss->getCharacterY();
+		int bullX = bulletIter->second->getCharacterX();
+		int bullY = bulletIter->second->getCharacterY();
+		if((bossX <= bullX) && ((bossX + 15) >= bullX) && bossY == bullY) {
+			boss->setHp(boss->getHp() - hero->getDamage());
+			deleteBullet.insert(pair<int, int> (bulletIter->first, bulletIter->first));
+		}
+	}
+	map<int, int>::iterator del;
+	for(del = deleteBullet.begin(); del != deleteBullet.end(); ++del) {
+		hero->getHeroBullet()->delBullet(del->second);
+	}
+  	if(boss->getHp() <= 0) {
+		delBossMonster();
+		return 100;
+	}
+	return 0;
 }
