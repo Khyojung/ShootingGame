@@ -2,15 +2,16 @@
 #include"MonsterNormal.h"
 
 //社瑚切 持失切
-MonsterNormal::MonsterNormal(){
+MonsterNormal::MonsterNormal() {
 }
-MonsterNormal::MonsterNormal(int newX, int newY){
-	this->setCharacterX(newX);
-	this->setCharacterY(newY);
+MonsterNormal::MonsterNormal(int newX, int newY, int newStageDifficult) {
 	char* temp[1] = {"��"};
 	setShape(temp);
+	setCharacterX(newX);
+	setCharacterY(newY);
+	setHp(1 * newStageDifficult);
+	setDamage(-1 * newStageDifficult);
 }
-
 MonsterNormal::~MonsterNormal(){
 
 }

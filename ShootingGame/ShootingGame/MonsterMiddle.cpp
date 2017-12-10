@@ -1,17 +1,16 @@
 #include"Monster.h"
 #include"MonsterMiddle.h"
-#include <cstdlib>
-#include <ctime>
 
 //소멸자 생성자
-MonsterMiddle::MonsterMiddle(){
-
+MonsterMiddle::MonsterMiddle() {
 }
-MonsterMiddle::MonsterMiddle(int newX, int newY){
-	this->setCharacterX(newX);
-	this->setCharacterY(newY);
+MonsterMiddle::MonsterMiddle(int newX, int newY, int newStageDifficult) {
 	char* temp[2] = {"↖↗","↙↘"};
 	setShape(temp);
+	setCharacterX(newX);
+	setCharacterY(newY);
+	setHp(2 * newStageDifficult);
+	setDamage(-1 * newStageDifficult);
 }
 MonsterMiddle::~MonsterMiddle(){
 

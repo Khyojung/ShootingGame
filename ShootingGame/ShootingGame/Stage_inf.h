@@ -8,8 +8,5 @@ public:
 	Stage_inf();
 	~Stage_inf();
 
-	void showMap();
-	int scoreCount();
-	int timeFlow();
-	int monsterCount();
+	void run(int*, int*, Sound*);
 };

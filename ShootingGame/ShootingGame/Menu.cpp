@@ -23,6 +23,8 @@ void Menu::run() { // Main에서 실행되는 부분
 	Start* start = new Start();
 	Ranking* ranking = new Ranking();
 	Setting* setting = new Setting();
+	Music* music = new Music();
+	Sound* sound = new Sound();
 	while(1) {
 		system("cls");
 		cout << "메뉴를 선택하세요" <<endl;
@@ -35,7 +37,7 @@ void Menu::run() { // Main에서 실행되는 부분
 
 		// 게임 시작
 		if(getMenuSelect() == 1) {
-			start->gameStart(ranking);
+			start->gameStart(ranking, sound);
 		}
 		// 랭킹
 		if(getMenuSelect() == 2) {
@@ -43,7 +45,7 @@ void Menu::run() { // Main에서 실행되는 부분
 		}
 		// 설정
 		if(getMenuSelect() == 3) {
-			setting->print(ranking);
+			setting->print(ranking, music, sound);
 		}
 		// 종료
 		if(getMenuSelect() == 4) {

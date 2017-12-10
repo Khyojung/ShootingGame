@@ -10,7 +10,7 @@ private:
 
 public:
 	MonsterNormal();
-	MonsterNormal(int, int);
+	MonsterNormal(int, int, int);
 	~MonsterNormal();
 	void move() override;
 	bool attack() override;

@@ -49,3 +49,6 @@ void screenBuffer::Release() { // 버퍼를 제거해준다.
     CloseHandle(hBuffer[0]);
     CloseHandle(hBuffer[1]);
 }
+void screenBuffer::SetColor(unsigned short color) {
+	SetConsoleTextAttribute(hBuffer[nBufferIndex], color);
+}

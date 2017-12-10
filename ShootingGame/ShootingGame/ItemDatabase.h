@@ -6,6 +6,7 @@
 #include "screenBuffer.h"
 #include "Item.h"
 #include "Hero.h"
+#include "Sound.h"
 
 using namespace std;
 
@@ -23,6 +24,6 @@ public:
 	void delItem(int);
 	void printItem(screenBuffer);
 	bool moveItem();
-	int whenEatenbyHero(Hero* );
+	int whenEatenbyHero(Hero*, Sound*);
 	void timeFlow();
 };

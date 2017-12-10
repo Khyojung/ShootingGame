@@ -14,4 +14,5 @@ public:
 	void Flipping();
 	void BufferClear();
 	void Release();
+	void SetColor(unsigned short color);
 };

@@ -2,8 +2,8 @@
 #include"MonsterBoss.h"
 
 MonsterBoss::MonsterBoss(){
-	this->setCharacterX(1);
-	this->setCharacterY(5);
+}
+MonsterBoss::MonsterBoss(int newStageDifficult) {
 	char* temp[6] = {"        ¡à¡à¡à¡à¡à¡à¡à¡à        ",
 					 "      ¡à¡à¡à¡à¡à¡à¡à¡à¡à¡à      ",
 					 "    ¡à¡à¡à¡à¡à¡à¡à¡à¡à¡à¡à¡à    ",
@@ -11,10 +11,12 @@ MonsterBoss::MonsterBoss(){
 					 "¢·¡à¡à¡à¡à¡à¡à¡à¡à¡à¡à¡à¡à¡à¡à¢¹",
 					 "     ¡ä  ¡ä  ¡ä  ¡ä  ¡ä  ¡ä     "};
 	setShape(temp);
-	this->setHp(100);
-	right = true;
-	setDamage(-1);
+	setCharacterX(1);
+	setCharacterY(5);
 	begin = clock();
+	right = true;
+	setHp(100 * newStageDifficult);
+	setDamage(-1 * newStageDifficult);
 }
 MonsterBoss::~MonsterBoss(){
 }

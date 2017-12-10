@@ -65,7 +65,7 @@ bool ItemDatabase::moveItem() { // 아이템의 이동
 /*
 * 히어로가 아이템을 먹었을 때 아이템을 화면에서 지워줌
 */
-int ItemDatabase::whenEatenbyHero(Hero* hero) {
+int ItemDatabase::whenEatenbyHero(Hero* hero, Sound* sound) {
 
 	map<int, Item*>::iterator iter;
 	map<int, int> temp;
@@ -76,6 +76,7 @@ int ItemDatabase::whenEatenbyHero(Hero* hero) {
 			iter->second->setHp(0);
 			 score += iter->second->itemFunction(hero);
 			temp.insert(pair<int, int> (iter->first,iter->first)); 
+			sound->soundPlay(1);
 		}
 	}
 	map<int, int>::iterator tempIter;
