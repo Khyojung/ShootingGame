@@ -8,7 +8,7 @@
 
 using namespace std;
 
-class MonsterBulletDatabase{
+class MonsterBulletDatabase {
 private:
 	map <int, Bullet*> bullet;
 	int bullNumber;

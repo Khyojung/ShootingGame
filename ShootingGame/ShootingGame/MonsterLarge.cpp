@@ -2,17 +2,17 @@
 #include"MonsterLarge.h"
 
 //소멸자 생성자
-MonsterLarge::MonsterLarge(){
-	right = true;
+MonsterLarge::MonsterLarge() {
 }
-MonsterLarge::MonsterLarge(int newX, int newY){
-	this->setCharacterX(newX);
-	this->setCharacterY(newY);
+MonsterLarge::MonsterLarge(int newX, int newY, int newStageDifficult) {
 	char* temp[3] = {"  △  ","◁  ▷","  ▽  "};
 	setShape(temp);
-	right = true;
-	setDamage(-1);
 	begin = clock();
+	right = true;
+	setCharacterX(newX);
+	setCharacterY(newY);
+	setHp(3 * newStageDifficult);
+	setDamage(-1 * newStageDifficult);
 }
 MonsterLarge::~MonsterLarge(){
 

@@ -2,10 +2,11 @@
 
 // 생성자, 소멸자
 Hero::Hero() { // 히어로의 기본 속성 설정
-	setHp(3);
+	setHp(5);
 	setSpeed(1);
 	setDamage(1);
-	setTime(10);
+	setMinAttackTime(10);
+	setTime(getMinAttackTime());
 	setCharacterX(10);
 	setCharacterY(49);
 	setShape("▲");
@@ -44,6 +45,12 @@ int Hero::getMoveTime() {
 }
 void Hero::setMoveTIme(int newMoveTime) {
 	moveTime = newMoveTime;
+}
+int Hero::getMinAttackTime() {
+	return minAttackTime;
+}
+void Hero::setMinAttackTime(int newMinAttackTime) {
+	minAttackTime = newMinAttackTime;
 }
 
 // 함수

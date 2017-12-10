@@ -1,6 +1,8 @@
 #include<iostream>
 #include"Character.h"
 #include"Monster.h"
+#include <cstdlib>
+#include <ctime>
 
 using namespace std;
 
@@ -10,7 +12,7 @@ private:
 
 public:
 	MonsterMiddle();
-	MonsterMiddle(int, int);
+	MonsterMiddle(int, int, int);
 	~MonsterMiddle();
 	void move() override;
 	bool attack() override;

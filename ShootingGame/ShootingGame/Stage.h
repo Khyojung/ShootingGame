@@ -1,6 +1,5 @@
 #pragma once
 #include <iostream>
-#include "Ranking.h"
 #include "Hero.h"
 #include <conio.h>
 #include "screenBuffer.h"
@@ -9,6 +8,7 @@
 #include "ItemHouse.h"
 #include <cstdlib>
 #include <ctime>
+#include "Sound.h"
 
 using namespace std;
 
@@ -22,7 +22,7 @@ private:
 	int atime;
 	int gameRunSpead;
 	MonsterDatabase* monsterDatabase;
-	clock_t begin, end;
+	clock_t begin;
 
 public:
 	Stage();
@@ -35,9 +35,6 @@ public:
 	int getMonsterCount();
 	void setMonsterCount(int);
 
-	void start(Ranking*);
-	void showMap();
-	int scoreCount();
-	int timeFlow();
-	void showMonster();
+	bool start(int*, int*, int, Sound*);
+	void showMap(int);
 };

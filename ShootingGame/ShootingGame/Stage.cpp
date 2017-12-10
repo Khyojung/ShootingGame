@@ -21,12 +21,12 @@ void Stage::setTime(int newTime) {
 }
 
 // 함수
-void Stage::start(Ranking* rank) { //게임의 흐름
+bool Stage::start(int* monsterPoint, int* timePoint, int stageDifficult, Sound* sound) { //게임의 흐름
 	begin = clock();
 	hero = new Hero(); // 영웅 생성
 	item = new ItemHouse(); //아이템 생성
 	
-	monsterDatabase = new MonsterDatabase();
+	monsterDatabase = new MonsterDatabase(stageDifficult);
 	
 	score = 0;
 	gameRunSpead = 20;
@@ -36,7 +36,7 @@ void Stage::start(Ranking* rank) { //게임의 흐름
 	buffer.CreateBuffer();
 
 	// 화면 출력
-	showMap();
+	showMap(stageDifficult);
 
 	while(hero->getHp() > 0 && !monsterDatabase->getBossDied()) { // �ϴ��� ������ �ױ� ������ ����
 		if(hero->getTime() > 0) { // ������ ���� ���ð� ����
@@ -64,8 +64,8 @@ void Stage::start(Ranking* rank) { //게임의 흐름
 
 		monsterDatabase->getMonsterBullet()->moveBullet(hero);
 		//boss Monster
-		if((this->getScore() > 1) && (monsterDatabase->getBoss() == NULL)){
-			monsterDatabase->createBossMoster();
+		if(((getScore() > 100) || ((clock() - begin)/CLOCKS_PER_SEC > 50)) && (monsterDatabase->getBoss() == NULL)){
+			monsterDatabase->createBossMoster(stageDifficult, sound);
 		}
 		
 		item->showItem();
@@ -73,7 +73,7 @@ void Stage::start(Ranking* rank) { //게임의 흐름
 		
 		count++;
 		
-		score = score + item->getItemDatabase()->whenEatenbyHero(hero);
+		score = score + item->getItemDatabase()->whenEatenbyHero(hero, sound);
 		score = score + monsterDatabase->whenCrashWithHero(hero);
 		score = score + monsterDatabase->whenCrashWithBullet(hero);
 		if(monsterDatabase->getBoss() != NULL)
@@ -96,37 +96,37 @@ void Stage::start(Ranking* rank) { //게임의 흐름
 			hero->move(77);
 			hero->setMoveTIme(3);
         }
-        if(GetAsyncKeyState(0x42)!=0 && hero->getBombCount() > 0) { // B를 누르고, 폭탄이 1개 이상일때
+        if(GetAsyncKeyState(0x42)!=0 && hero->getBombCount() > 0 && hero->getTime() <= 0) { // B를 누르고, 폭탄이 1개 이상일때
+			hero->setTime(hero->getMinAttackTime()); // 공격 대기시간 초기화
 			score = score + monsterDatabase->whenHeroUseBomb(hero->getBombDamage()); // 몬스터 데이터베이스에 영웅의 폭탄 공격력 만큼의 피해를 줌
 			hero->setBombCount(hero->getBombCount() - 1); // 폭탄 개수 감소
+			sound->soundPlay(2);
         }
 		if(GetAsyncKeyState(VK_SPACE)!=0 && hero->getTime() <= 0) { // SPACE를 누르고, 총알 대기시간을 만족하였을 때
-			hero->setTime(10); // 공격 대기시간 초기화
+			hero->setTime(hero->getMinAttackTime()); // 공격 대기시간 초기화
 			hero->attack(); // 총알 생성
+			sound->soundPlay(0);
         }
-		showMap();
+		showMap(stageDifficult);
 	}
 
 	buffer.Release(); // 화면 버퍼를 제거해줌
 	system("cls");
 
-		
+	
+	*monsterPoint = score * 100 * stageDifficult;
+	*timePoint = (clock()-begin)/CLOCKS_PER_SEC * 100 * stageDifficult;
 
-	char name[40];
-	cout << "사망!!!" << endl;
-	cout << "파괴점수 : " << score * 100 << "    시간점수 : " << ((end-begin)/CLOCKS_PER_SEC * 100) << endl;
-	cout << "당신의 영문 이름을 입력해 주세요 : ";
-	scanf("%s",name);
-	rank->getDatabase()->addRank((score+(end-begin)/CLOCKS_PER_SEC)*100, name);
-	system("cls");
-	buffer.Release(); // ȭ�� ���۸� ��������
-	printf("%d", score);
-
+	if(monsterDatabase->getBossDied()) {
+		return true;
+	}
+	return false;
 }
-void Stage::showMap() { // 화면 출력해주는 부분
+void Stage::showMap(int stageDifficult) { // 화면 출력해주는 부분
 	// 틀 출력
 	int i, j;
 	buffer.BufferClear();
+	//buffer.SetColor(8);
 	for(i = 0; i < 22; i++) {
 		buffer.BufferWrite(i*2, 0, "■");
 	}
@@ -141,55 +141,74 @@ void Stage::showMap() { // 화면 출력해주는 부분
 	}
 
 	// 총알 출력
+	//buffer.SetColor(13);
 	multimap<int, Bullet*>::iterator iter;
 	hero->getHeroBullet()->printBullet(buffer);
 
 	// 영웅 출력
+	//buffer.SetColor(15);
 	buffer.BufferWrite(hero->getCharacterX()*2+2, hero->getCharacterY()+1, hero->getShape());
 
-	//Monster 출력
+	// Monster 출력
+	//buffer.SetColor(4);
 	monsterDatabase->print(buffer);
 	monsterDatabase->getMonsterBullet()->printBullet(buffer);
 
+	// Item 출력
+	buffer.SetColor(14);
 	item->showItem();
 	item->getItemDatabase()->printItem(buffer);
+	buffer.SetColor(15);
 	
 	// 출력 기본 위치 저장
 	int printX = 46;
 	int printY = 50;
+	//buffer.SetColor(6);
 
 	// 시간 출력
-	end = clock();
 	char convertString[40];
-	itoa((end-begin)/CLOCKS_PER_SEC * 100, convertString, 10);
+	itoa((clock()-begin)/CLOCKS_PER_SEC * 100 * stageDifficult, convertString, 10);
 	buffer.BufferWrite(printX, printY, "Time : ");
 	buffer.BufferWrite(printX+7, printY, convertString);
 
 	// 점수 출력
-	itoa(score * 100, convertString, 10);
+	itoa(score * 100 * stageDifficult, convertString, 10);
 	buffer.BufferWrite(printX, printY-1, "Score : ");
 	buffer.BufferWrite(printX+8, printY-1, convertString);
 
 	// 체력 출력
 	buffer.BufferWrite(printX, printY-2, "HP : ");
+	buffer.SetColor(12);
 	for(int i = 0; i < hero->getHp(); i++) {
 		buffer.BufferWrite(printX+5+(i*2), printY-2, "♥");
 	}
+	buffer.SetColor(15);
 
 	// 폭탄 개수 출력
 	buffer.BufferWrite(printX, printY-3, "BOMB : ");
+	buffer.SetColor(14);
 	for(int i = 0; i < hero->getBombCount(); i++) {
 		buffer.BufferWrite(printX+7+(i*2), printY-3, "◎");
 	}
+	buffer.SetColor(15);
+
+	// 난이도 출력
+	itoa(stageDifficult, convertString, 10);
+	buffer.BufferWrite(printX, printY-4, "LEVEL : ");
+	buffer.BufferWrite(printX+8, printY-4, convertString);
 
 	//bossMonster hp ���
 	if(monsterDatabase->getBoss() != NULL){
 		itoa(monsterDatabase->getBoss()->getHp(), convertString, 10);
-		buffer.BufferWrite(printX, printY-4, "MONHP : ");
-		buffer.BufferWrite(printX+8, printY-4, convertString);
+		buffer.BufferWrite(printX, printY-5, "MONHP : ");
+		buffer.BufferWrite(printX+8, printY-5, convertString);
 	}
-
-	// ȭ�� ��ȯ
-
+	/*
+	// 색 확인용 출력 장소
+	for(int i = 0; i < 2048; i++) {
+		buffer.SetColor(i);
+		buffer.BufferWrite(60+((i*2)%96), 1+(i/48), "■");
+	}*/
+	buffer.SetColor(15);
 	buffer.Flipping();
 }

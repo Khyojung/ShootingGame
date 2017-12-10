@@ -12,26 +12,22 @@ Bullet::~Bullet() {
 
 // 함수
 void Bullet::changeShape() { // 총알의 공격력에 해당하는 모양을 설정
-	switch(getDamage()) {
-	case -1:
+	if(getDamage() < 0) {
 		setShape("＊");
-		break;
-	case 1:
+	}
+	else if(getDamage() == 1) {
 		setShape("Ⅰ");
-		break;
-	case 2:
+	}
+	else if(getDamage() == 2) {
 		setShape("Ⅱ");
-		break;
-	case 3:
+	}
+	else if(getDamage() == 3) {
 		setShape("Ⅲ");
-		break;
-	case 4:
+	}
+	else if(getDamage() == 4) {
 		setShape("‡");
-		break;
-	case 5:
-		setShape("º");
-		break;
-	default:
-		break;
+	}
+	else if(getDamage() >= 5) {
+		setShape("º");	
 	}
 }

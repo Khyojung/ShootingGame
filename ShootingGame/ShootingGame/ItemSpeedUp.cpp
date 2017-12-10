@@ -10,6 +10,6 @@ ItemSpeedUp::~ItemSpeedUp() {
 }
 
 int ItemSpeedUp::itemFunction(Hero* hero){
-	hero->setBombCount(hero->getBombCount()+1);
+	hero->setMinAttackTime(hero->getMinAttackTime()-1);
 	return getScore();
 }

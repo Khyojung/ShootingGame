@@ -13,7 +13,7 @@ private:
 	clock_t begin;
 public:
 	MonsterLarge();
-	MonsterLarge(int, int);
+	MonsterLarge(int, int, int);
 	~MonsterLarge();
 
 	void setRight(bool);

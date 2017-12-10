@@ -8,8 +8,6 @@ using namespace std;
 class Setting {	
 private:
 	int selectSetting;
-	Music music;
-	Sound sound;
 
 public:
 	Setting();
@@ -18,7 +16,7 @@ public:
 	int getSelectSetting();
 	void setSelectSetting(int);
 
-	void musicSetting();
-	void soundSetting();
-	void print(Ranking*);
+	void musicSetting(Music*);
+	void soundSetting(Sound*);
+	void print(Ranking*, Music*, Sound*);
 };

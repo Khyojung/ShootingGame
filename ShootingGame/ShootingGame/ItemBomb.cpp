@@ -9,7 +9,7 @@ ItemBomb::ItemBomb(){
 ItemBomb::~ItemBomb() {
 }
 int ItemBomb::itemFunction(Hero* hero){
-	if(hero->getBombCount() <= 5)
+	if(hero->getBombCount() < 5)
 		hero->setBombCount(hero->getBombCount()+1);
 
 	return getScore();

@@ -28,25 +28,28 @@ void ItemHouse::newItem(){
 
 	int temp = 0;
 	srand((unsigned int)time(NULL));
-	temp = rand()%6;
+	temp = rand()*rand()%10;
 	switch(temp){
 	case 0:
 		item = new ItemBomb();
 		break;
-	case 1:
+	case 1 :
+	case 6 :
 		item = new ItemDamageDown();
 		break;
-
 	case 2:
 		item = new ItemHeal();
 		break;
 	case 3:
+	case 7 :
+	case 8 :
 		item = new ItemPoint();
 		break;
 	case 4:
 		item = new ItemSpeedUp();
 		break;
 	case 5:
+	case 9:
 		item = new ItemPowerUp();
 		break;
 	default:

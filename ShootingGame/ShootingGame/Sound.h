@@ -1,11 +1,17 @@
 #pragma once
+#pragma comment(lib, "winmm.lib")
 #include <Windows.h>
 #include <MMSystem.h>
-#pragma comment(lib, "winmm.lib")
+#include <Digitalv.h>
 
 class Sound {
 private:
+	MCI_OPEN_PARMS m_mciOpenParms;
+	MCI_PLAY_PARMS m_mciPlayParms;
+	UINT wDeviceID;
+	DWORD Sound1, Sound2, Sound3, Sound4;
 	bool soundOn;
+	int dwID;
 
 public:
 	Sound();
@@ -15,6 +21,6 @@ public:
 	void setSoundOn(bool);
 
 	char* isSoundOn();
-	void soundPlay();
-
+	void soundPlay(int);
+	DWORD LoadWAV(LPCTSTR);
 };

@@ -7,8 +7,6 @@ private:
 public:
 	Stage_2();
 	~Stage_2();
-	void showMap();
-	int scoreCount();
-	int timeFlow();
-	int monsterCount();
+
+	void run(int*, int*, Sound*);
 };

@@ -1,11 +1,14 @@
 #include "MonsterDatabase.h"
 
 MonsterDatabase::MonsterDatabase() {
+}
+MonsterDatabase::MonsterDatabase(int newStageDifficult) {
 	monsterCount = 0;
 	monsterBullet = new MonsterBulletDatabase();
 	bulletCount = 0;
 	bossDied = false;
 	boss = NULL;
+	stageDifficult = newStageDifficult;
 }
 MonsterDatabase::~MonsterDatabase() {
 }
@@ -60,21 +63,22 @@ void MonsterDatabase::randomCreateMonster(){
 	int newX = (rand()*rand()) % 19;
 
 	if(monsterCount % 10 == 0){
-		addMonster(monsterCount, new MonsterLarge(0, newX));
+		addMonster(monsterCount, new MonsterLarge(0, newX, stageDifficult));
 		monsterCount++;
 	}
 	else if(monsterCount % 5 == 0){
 		srand((unsigned int)time(NULL));
-		addMonster(monsterCount, new MonsterMiddle(newX, 0));
+		addMonster(monsterCount, new MonsterMiddle(newX, 0, stageDifficult));
 		monsterCount++;
 	}
 	else{
-		addMonster(monsterCount, new MonsterNormal(newX, 0));
+		addMonster(monsterCount, new MonsterNormal(newX, 0, stageDifficult));
 		monsterCount++;
 	}
 }
-void MonsterDatabase::createBossMoster(){
-	boss = new MonsterBoss();
+void MonsterDatabase::createBossMoster(int newStageDifficult, Sound* sound){
+	boss = new MonsterBoss(newStageDifficult);
+	sound->soundPlay(3);
 }
 void MonsterDatabase::moveMonster(){
 	map<int, Monster*>::iterator iter;
@@ -93,7 +97,7 @@ void MonsterDatabase::moveMonster(){
 			monsterBullet->addBullet(bulletCount, newBullet);
 			bulletCount++;
 		}
-		if(iter->second->getCharacterY() > 48)
+		if(iter->second->getCharacterY() + strlen(*iter->second->getShape())/2 > 49)
 			temp.insert(pair<int, int> (iter->first,iter->first)); 
 	}
 	map<int, int>::iterator tempIter;
@@ -143,7 +147,7 @@ int MonsterDatabase::whenCrashWithHero(Hero* hero) {
 	
 	for (iter = monster.begin(); iter != monster.end(); ++iter) {
 		if((iter->second->getCharacterX() <= hero->getCharacterX() && hero->getCharacterX() <= iter->second->getCharacterX()+strlen(*iter->second->getShape())/2-1) &&
-			(iter->second->getCharacterY() <= hero->getCharacterY() && hero->getCharacterY() <= iter->second->getCharacterY()+strlen(*iter->second->getShape())/2)) {
+			(iter->second->getCharacterY()+1 <= hero->getCharacterY() && hero->getCharacterY() <= iter->second->getCharacterY()+strlen(*iter->second->getShape())/2)) {
 			iter->second->setHp(iter->second->getHp() - 10);
 			hero->setHp(hero->getHp() - 1);
 		}

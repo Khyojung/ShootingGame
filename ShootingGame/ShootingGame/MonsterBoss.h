@@ -17,6 +17,7 @@ public:
 
 
 	MonsterBoss();
+	MonsterBoss(int);
 	~MonsterBoss();
 	void move() override;
 	bool attack() override;

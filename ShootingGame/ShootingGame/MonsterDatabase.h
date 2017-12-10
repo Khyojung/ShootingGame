@@ -12,6 +12,7 @@
 #include <cstdlib>
 #include <ctime>
 #include "MonsterBulletDatabase.h"
+#include "Sound.h"
 
 using namespace std;
 
@@ -26,8 +27,10 @@ private:
 	int bulletCount;
 	bool bossDied;
 	MonsterBoss* boss;
+	int stageDifficult;
 public:
 	MonsterDatabase();
+	MonsterDatabase(int);
 	~MonsterDatabase();
 	MonsterBulletDatabase* getMonsterBullet();
 	void setMonsterBullet(MonsterBulletDatabase*);
@@ -42,7 +45,7 @@ public:
 	Monster* findMonster(int);
 	void print(screenBuffer);
 	void randomCreateMonster();
-	void createBossMoster();
+	void createBossMoster(int, Sound*);
 	void moveMonster();
 	int whenHeroUseBomb(int);
 	int whenCrashWithHero(Hero*);
